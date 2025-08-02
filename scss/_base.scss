@@ -1,0 +1,80 @@
+@use 'variables' as *;
+
+// Reset และ Base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    line-height: $line-height;
+    color: $black;
+    background-color: $white;
+}
+
+// Container utility
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+}
+
+// Flexbox utilities
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-start {
+    display: flex;
+    align-items: center;
+}
+
+// Button mixins
+@mixin button-base {
+    border: none;
+    cursor: pointer;
+    transition: all $transition-fast;
+    font-family: inherit;
+}
+
+@mixin button-primary {
+    @include button-base;
+    background: linear-gradient(45deg, $primary-color, $primary-hover);
+    color: $white;
+    border-radius: $border-radius-lg;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+    }
+}
+
+// Link mixins
+@mixin link-base {
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// Card mixins
+@mixin card-shadow {
+    box-shadow: 0 2px 10px $shadow-light;
+}
+
+// Text shadow mixin
+@mixin text-shadow($opacity: 0.5) {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, $opacity);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Global Header -->
+    <div class="global-header">
+        <div class="container">
+            <div class="global-header-left">
+                <a href="#" class="global-link">ข่าวสาร</a>
+                <a href="#" class="global-link">โปรโมชั่น</a>
+            </div>
+            <div class="global-header-right">
+                <div class="country-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>ประเทศไทย</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://www.akamai.com/site/en/images/logo/2025/g2a-logo.png" alt="Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="games.html" class="nav-link">เกม</a></li>
+                        <li><a href="cards.html" class="nav-link">การ์ด</a></li>
+                        <li><a href="topup.html" class="nav-link">เติมเงิน</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="ค้นหาเกม...">
+                    <button type="button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40x40/333/white?text=U" alt="User Profile" class="profile-img">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Game Banner Slider -->
+    <section class="banner-section">
+        <div class="banner-slider">
+            <div class="banner-slide active">
+                <img src="https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F381c4e9088924638b607048d94fde0c4" alt="Game 1">
+            </div>
+            <div class="banner-slide">
+                <img src="https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F381c4e9088924638b607048d94fde0c4" alt="Game 2">
+            </div>
+            <div class="banner-slide">
+                <img src="https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F381c4e9088924638b607048d94fde0c4" alt="Game 3">
+            </div>
+        </div>
+        
+        <!-- Banner Indicators -->
+        <div class="banner-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

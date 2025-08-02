@@ -1,0 +1,56 @@
+@use 'variables' as *;
+@use 'base' as *;
+
+// Global Header Styles
+.global-header {
+    background-color: #293032;
+    color: $white;
+    padding: $spacing-sm 0;
+    font-size: $font-size-base;
+    border-bottom: 2px solid #343b3c;
+
+    .container {
+        @include flex-between;
+    }
+
+    &-left {
+        display: flex;
+        gap: $spacing-xl;
+    }
+
+    &-right {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.global-link {
+    @include link-base;
+    color: $white;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+        background-color: rgba($white, 0.1);
+    }
+}
+
+.country-selector {
+    @include flex-start;
+    gap: $spacing-sm;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+        background-color: rgba($white, 0.1);
+    }
+
+    i {
+        font-size: $font-size-base;
+    }
+
+    span {
+        font-size: $font-size-base;
+    }
+}

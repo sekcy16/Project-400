@@ -1,0 +1,59 @@
+// Colors
+$primary-color: #4CAF50;
+$primary-hover: #45a049;
+$secondary-color: #2c3e50;
+$white: #ffffff;
+$black: #333333;
+$gray-light: #f5f5f5;
+$gray-medium: #cccccc;
+$gray-dark: #666666;
+
+// Shadows
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.3);
+$shadow-dark: rgba(0, 0, 0, 0.5);
+
+// Banner colors
+$banner-color-1: #FF6B6B;
+$banner-color-2: #4ECDC4;
+$banner-color-3: #45B7D1;
+
+// Typography
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-size-base: 14px;
+$font-size-large: 1.2rem;
+$font-size-xlarge: 2.5rem;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$line-height: 1.6;
+
+// Spacing
+$container-max-width: 1200px;
+$container-padding: 20px;
+$spacing-xs: 5px;
+$spacing-sm: 8px;
+$spacing-md: 10px;
+$spacing-lg: 15px;
+$spacing-xl: 20px;
+$spacing-xxl: 30px;
+
+// Border radius
+$border-radius-sm: 3px;
+$border-radius-md: 5px;
+$border-radius-lg: 25px;
+$border-radius-circle: 50%;
+
+// Transitions
+$transition-fast: 0.3s;
+$transition-medium: 0.5s;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Z-index
+$z-header: 100;
+$z-banner-nav: 20;
+$z-banner-content: 10;

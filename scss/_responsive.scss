@@ -1,0 +1,142 @@
+@use 'variables' as *;
+
+// Responsive Design
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+// Tablet responsive styles
+@include tablet {
+    .global-header {
+        .container {
+            flex-direction: column;
+            gap: $spacing-md;
+        }
+    }
+    
+    .main-header {
+        .container {
+            flex-direction: column;
+            gap: $spacing-lg;
+        }
+    }
+    
+    .header-left {
+        flex-direction: column;
+        gap: $spacing-lg;
+    }
+    
+    .main-nav ul {
+        gap: $spacing-lg;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .banner-content {
+        left: $spacing-xl;
+        right: $spacing-xl;
+        
+        h2 {
+            font-size: 2rem;
+        }
+        
+        p {
+            font-size: 1rem;
+        }
+    }
+}
+
+// Mobile responsive styles
+@include mobile {
+    .container {
+        padding: 0 $spacing-lg;
+    }
+    
+    .global-header {
+        &-left {
+            flex-direction: column;
+            gap: $spacing-md;
+        }
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: $spacing-md;
+        text-align: center;
+    }
+    
+    .banner-content {
+        left: $spacing-lg;
+        right: $spacing-lg;
+        text-align: center;
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            font-size: 0.9rem;
+        }
+    }
+    
+    .banner-nav {
+        padding: 0 $spacing-md;
+    }
+    
+    .banner-prev,
+    .banner-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .search-box {
+        width: 100%;
+        
+        input {
+            font-size: $font-size-base;
+        }
+    }
+    
+    .header-right {
+        flex-direction: column;
+        gap: $spacing-md;
+        width: 100%;
+    }
+}
+
+// Large desktop styles
+@include desktop {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .banner-content {
+        left: 80px;
+        
+        h2 {
+            font-size: 3rem;
+        }
+        
+        p {
+            font-size: 1.4rem;
+        }
+    }
+}

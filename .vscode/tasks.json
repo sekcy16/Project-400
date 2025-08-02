@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "SCSS Watch",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"scss:watch"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

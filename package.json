@@ -1,0 +1,24 @@
+{
+  "name": "gaming-website",
+  "version": "1.0.0",
+  "description": "Gaming website with SCSS and responsive design",
+  "main": "index.html",
+  "scripts": {
+    "scss": "sass scss/style.scss css/style.css",
+    "scss:watch": "sass --watch scss/style.scss css/style.css",
+    "scss:compressed": "sass scss/style.scss css/style.css --style compressed",
+    "build": "npm run scss:compressed",
+    "dev": "npm run scss:watch"
+  },
+  "keywords": [
+    "gaming",
+    "website",
+    "scss",
+    "responsive"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}
