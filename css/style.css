@@ -1,3 +1,10 @@
+:root {
+  --MaxContentWidth: 1200px;
+  --home-spacing: 20px;
+  --background-color-L3: #ffffff;
+  --body-text-color-a5: rgba(0, 0, 0, 0.05);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +15,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333333;
-  background-color: #171b1c;
+  background-color: #171b1c !important;
 }
 
 .container {
@@ -416,6 +423,111 @@ body {
 }
 .banner-slide:nth-child(3) .banner-content h2 {
   color: rgb(109.8879310345, 198.8275862069, 219.1120689655);
+}
+
+#home_items {
+  overflow: hidden;
+}
+
+#home_items > .inner {
+  width: 100%;
+  max-width: var(--MaxContentWidth);
+  margin-inline: auto;
+  padding-inline: var(--home-spacing);
+  box-sizing: border-box;
+}
+
+#featured_items {
+  position: relative;
+  touch-action: pan-y;
+}
+
+#featured_items .list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(38em, 1fr));
+  gap: var(--home-spacing);
+}
+
+#featured_items .category {
+  background: var(--background-color-L3, #fff);
+  padding: var(--home-spacing);
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--home-spacing);
+}
+
+#featured_items .title {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--home-spacing);
+  align-items: center;
+  min-height: 2em;
+}
+
+#featured_items .ItemList {
+  --itemlist-column: 16em;
+  --itemlist-gap: var(--home-spacing);
+}
+
+.ItemList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--itemlist-column, 16em), 1fr));
+  gap: var(--itemlist-gap, 1.5em 2em);
+  --W: 5em;
+}
+
+li {
+  list-style-type: none;
+}
+
+#featured_items .ItemList > li > a {
+  grid-template-columns: var(--W) calc(100% - var(--W) - 1.5em);
+}
+
+.ItemList > li > a {
+  color: currentColor;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: var(--W) 1fr;
+  gap: 1.5em;
+  align-items: center;
+}
+
+.ItemList .img {
+  --H: var(--W);
+  width: var(--W);
+  height: var(--H);
+  background: var(--body-text-color-a5, rgba(0, 0, 0, 0.05));
+  box-shadow: var(--body-text-color-a5, rgba(0, 0, 0, 0.05)) 0 0 0 1px;
+  border-radius: 25%;
+  overflow: hidden;
+  position: relative;
+  align-self: start;
+}
+
+.ItemList .img img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+
+#featured_items .ItemList .name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ItemList .name {
+  word-break: break-word;
+  font-weight: 800;
+}
+
+.ItemList .info {
+  opacity: 0.5;
 }
 
 @media (max-width: 768px) {

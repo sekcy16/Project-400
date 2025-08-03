@@ -48,6 +48,14 @@ $border-radius-circle: 50%;
 $transition-fast: 0.3s;
 $transition-medium: 0.5s;
 
+// CSS Custom Properties
+:root {
+  --MaxContentWidth: #{$container-max-width};
+  --home-spacing: #{$spacing-xl};
+  --background-color-L3: #{$white};
+  --body-text-color-a5: rgba(0, 0, 0, 0.05);
+}
+
 // Breakpoints
 $mobile: 480px;
 $tablet: 768px;
