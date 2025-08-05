@@ -3,13 +3,13 @@
 
 // Main Header Styles
 .main-header {
-    background-color: #293032;
+    background-color: $header-bg;
     @include card-shadow;
     padding: $spacing-lg 0;
     position: sticky;
     top: 0;
     z-index: $z-header;
-    border-top: 1px solid #343b3c;
+    border-top: 1px solid $header-border;
 
     .container {
         @include flex-between;

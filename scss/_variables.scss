@@ -8,6 +8,10 @@ $gray-light: #f5f5f5;
 $gray-medium: #cccccc;
 $gray-dark: #666666;
 
+// Header colors
+$header-bg: #293032;
+$header-border: #343b3c;
+
 // Shadows
 $shadow-light: rgba(0, 0, 0, 0.1);
 $shadow-medium: rgba(0, 0, 0, 0.3);
@@ -38,6 +42,11 @@ $spacing-lg: 15px;
 $spacing-xl: 20px;
 $spacing-xxl: 30px;
 
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
 // Border radius
 $border-radius-sm: 3px;
 $border-radius-md: 5px;
@@ -47,6 +56,18 @@ $border-radius-circle: 50%;
 // Transitions
 $transition-fast: 0.3s;
 $transition-medium: 0.5s;
+
+// Z-index
+$z-header: 100;
+$z-banner-content: 10;
+
+// CSS Custom Properties (for compatibility)
+:root {
+    --MaxContentWidth: 1200px;
+    --home-spacing: 20px;
+    --background-color-L3: #ffffff;
+    --body-text-color-a5: rgba(0, 0, 0, 0.05);
+}
 
 // CSS Custom Properties
 :root {

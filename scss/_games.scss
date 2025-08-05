@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .games-page {
   background-color: #f7f7f7;
   padding: 40px 0;
@@ -9,8 +11,8 @@
 
   // ด้านซ้าย: หมวดหมู่
   .category-sidebar {
-    background: white;
-    padding: 20px;
+    background: $white;
+    padding: $spacing-xl;
     border-radius: 8px;
     width: 220px;
 
@@ -27,11 +29,11 @@
         border-bottom: 1px solid #eee;
 
         i {
-          margin-right: 8px;
+          margin-right: $spacing-sm;
         }
 
         span {
-          color: gray;
+          color: $gray-dark;
         }
       }
     }
@@ -42,22 +44,22 @@
     flex: 1;
 
     .breadcrumb {
-      font-size: 14px;
-      color: gray;
-      margin-bottom: 20px;
+      font-size: $font-size-base;
+      color: $gray-dark;
+      margin-bottom: $spacing-xl;
     }
 
     .games-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
+      gap: $spacing-xl;
     }
 
     .game-card {
       background: linear-gradient(135deg, #333 0%, #111 100%);
       border-radius: 12px;
       overflow: hidden;
-      color: white;
+      color: $white;
       transition: transform 0.2s;
 
       img {

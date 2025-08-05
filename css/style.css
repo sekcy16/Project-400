@@ -5,6 +5,13 @@
   --body-text-color-a5: rgba(0, 0, 0, 0.05);
 }
 
+:root {
+  --MaxContentWidth: 1200px;
+  --home-spacing: 20px;
+  --background-color-L3: #ffffff;
+  --body-text-color-a5: rgba(0, 0, 0, 0.05);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -156,9 +163,6 @@ body {
   outline: none;
   font-size: 14px;
 }
-.search-box input::-moz-placeholder {
-  color: #666666;
-}
 .search-box input::placeholder {
   color: #666666;
 }
@@ -197,8 +201,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.3s;
 }
 .user-profile:hover .profile-img {
@@ -259,8 +262,7 @@ body {
 .banner-slide img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 15px;
 }
 
@@ -336,8 +338,7 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   font-size: 1.4rem;
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -635,7 +636,7 @@ li {
   gap: 32px;
 }
 .games-page .category-sidebar {
-  background: white;
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
   width: 220px;
@@ -656,14 +657,14 @@ li {
   margin-right: 8px;
 }
 .games-page .category-sidebar ul li span {
-  color: gray;
+  color: #666666;
 }
 .games-page .games-content {
   flex: 1;
 }
 .games-page .games-content .breadcrumb {
   font-size: 14px;
-  color: gray;
+  color: #666666;
   margin-bottom: 20px;
 }
 .games-page .games-content .games-grid {
@@ -675,14 +676,13 @@ li {
   background: linear-gradient(135deg, #333 0%, #111 100%);
   border-radius: 12px;
   overflow: hidden;
-  color: white;
+  color: #ffffff;
   transition: transform 0.2s;
 }
 .games-page .games-content .game-card img {
   width: 100%;
   height: 160px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .games-page .games-content .game-card .game-info {
   padding: 12px 16px;
@@ -710,4 +710,6 @@ li {
 }
 .games-page .games-content .game-card.large .game-info p {
   font-size: 14px;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
