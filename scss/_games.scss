@@ -1,0 +1,106 @@
+.games-page {
+  background-color: #f7f7f7;
+  padding: 40px 0;
+
+  .page-layout {
+    display: flex;
+    gap: 32px;
+  }
+
+  // ด้านซ้าย: หมวดหมู่
+  .category-sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 220px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        font-size: 15px;
+        border-bottom: 1px solid #eee;
+
+        i {
+          margin-right: 8px;
+        }
+
+        span {
+          color: gray;
+        }
+      }
+    }
+  }
+
+  // ด้านขวา: Content
+  .games-content {
+    flex: 1;
+
+    .breadcrumb {
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 20px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .game-card {
+      background: linear-gradient(135deg, #333 0%, #111 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      color: white;
+      transition: transform 0.2s;
+
+      img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+
+      .game-info {
+        padding: 12px 16px;
+
+        h3 {
+          font-size: 16px;
+          margin: 0;
+        }
+
+        p {
+          font-size: 13px;
+          margin: 4px 0 0;
+          color: #ccc;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      &.large {
+        grid-column: span 2;
+
+        img {
+          height: 220px;
+        }
+
+        .game-info {
+          h3 {
+            font-size: 18px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
