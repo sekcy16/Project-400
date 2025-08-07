@@ -87,6 +87,11 @@
             transform: scale(1.05);
         }
     }
+    
+    // Change logo when header is scrolled
+    .main-header.scrolled & img {
+        content: url('https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F90f5112d0a01477c9add933bda67c5e8');
+    }
 }
 
 .main-nav {

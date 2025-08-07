@@ -1,0 +1,164 @@
+/* Footer Styles */
+#site_footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  color: #ffffff;
+
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    grid-template-areas:
+      "payment sns"
+      "nav app"
+      "copyright .";
+
+    &::before {
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      inset-inline: 0;
+      inset-block-start: 0;
+      margin: 0 2em;
+      background: var(--body-text-color-a5, rgba(0, 0, 0, 0.05));
+    }
+  }
+}
+
+#footer_payment_wrp {
+  grid-area: payment;
+
+  .channel_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+  }
+}
+
+#footer_sns_wrp {
+  grid-area: sns;
+  justify-self: end;
+
+  h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+#footer_sns .sns_list {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+#footer_nav_wrp {
+  grid-area: nav;
+}
+
+#footer_nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  dd {
+    margin: 0 0 0.5rem 0;
+
+    a {
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+#footer_app {
+  grid-area: app;
+  justify-self: end;
+  align-self: start;
+}
+
+#footer_copyright {
+  grid-area: copyright;
+  color: #999999;
+  font-size: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  #site_footer .inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "payment"
+      "sns"
+      "nav"
+      "app"
+      "copyright";
+  }
+  
+  #footer_sns_wrp,
+  #footer_app {
+    justify-self: start;
+  }
+  
+  #footer_nav {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #footer_nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
