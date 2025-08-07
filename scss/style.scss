@@ -9,11 +9,11 @@
 @use 'main-header';
 @use 'banner';
 
+// Shared dark theme styles
+@use 'dark-ecommerce';
+
 // Pages
 @use 'pages';
 
 // Responsive
 @use 'responsive';
-
-// Games
-@use 'games';

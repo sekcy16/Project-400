@@ -33,6 +33,23 @@
             flex-direction: column;
             gap: $spacing-lg;
         }
+        
+        // Scrolled state adjustments for tablet
+        &.scrolled {
+            .container {
+                gap: $spacing-xl;
+            }
+            
+            .header-left {
+                .main-nav ul {
+                    gap: $spacing-lg;
+                }
+            }
+            
+            .search-box {
+                width: 200px;
+            }
+        }
     }
     
     .header-left {
@@ -73,6 +90,21 @@
         &-left {
             flex-direction: column;
             gap: $spacing-md;
+        }
+    }
+    
+    .main-header {
+        // Original mobile adjustments for layout
+        &.scrolled .container {
+            flex-direction: column;
+            gap: $spacing-lg;
+        }
+        
+        &.scrolled .header-left,
+        &.scrolled .header-right {
+            width: 100%;
+            justify-content: center;
+            // Remove transform overrides - let main-header.scss handle movement
         }
     }
     

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing banner...'); // Debug log
+    console.log('DOM loaded, initializing...'); // Debug log
     
-    // Banner Slider Functionality
+    // Banner Slider Functionality (only if banner exists)
     const slides = document.querySelectorAll('.banner-slide');
     const indicators = document.querySelectorAll('.indicator');
     const prevBtn = document.querySelector('.banner-prev');
@@ -10,10 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Found slides:', slides.length); // Debug log
     console.log('Found indicators:', indicators.length); // Debug log
     
-    if (slides.length === 0) {
-        console.error('No banner slides found!');
-        return;
+    // Only initialize banner if elements exist
+    if (slides.length > 0) {
+        console.log('Initializing banner slider...'); // Debug log
+        initializeBannerSlider();
+    } else {
+        console.log('No banner found, skipping banner initialization'); // Debug log
     }
+    
+    // Always initialize navbar animation regardless of banner
+    console.log('Initializing navbar animation...'); // Debug log
+    initializeNavbarAnimation();
+
+    function initializeBannerSlider() {
     
     let currentSlide = 0;
     const totalSlides = slides.length;
@@ -193,4 +202,63 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    } // End of initializeBannerSlider function
+
+    function initializeNavbarAnimation() {
+        // Navbar Scroll Animation - Simple and Clean
+        const mainHeader = document.querySelector('.main-header');
+        console.log('🔍 Main header element found:', mainHeader); // Debug log
+        let isScrolled = false;
+        
+        function handleNavbarScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const shouldBeScrolled = scrollTop > 100;
+            console.log('📊 Scroll position:', scrollTop, 'Should be scrolled:', shouldBeScrolled); // Debug log
+            
+            if (shouldBeScrolled !== isScrolled) {
+                isScrolled = shouldBeScrolled;
+                console.log('🔄 Scroll state changed to:', isScrolled); // Debug log
+                
+                if (isScrolled) {
+                    if (mainHeader) {
+                        mainHeader.classList.add('scrolled');
+                        console.log('✅ Added "scrolled" class to header'); // Debug log
+                    }
+                    const screenWidth = window.innerWidth;
+                    console.log('📏 Screen width:', screenWidth); // Debug log
+                    if (screenWidth >= 1570) {
+                        console.log('✨ Navbar elements moving to sides (large screen animation)');
+                    } else {
+                        console.log('✨ Navbar scrolled state active (no movement for safer display)');
+                    }
+                } else {
+                    if (mainHeader) {
+                        mainHeader.classList.remove('scrolled');
+                        console.log('✅ Removed "scrolled" class from header'); // Debug log
+                    }
+                    console.log('↩️ Navbar back to normal state');
+                }
+            }
+        }
+        
+        // Add scroll event listener with throttling for better performance
+        let ticking = false;
+        
+        window.addEventListener('scroll', function() {
+            console.log('📜 Scroll event fired!'); // Debug log
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    handleNavbarScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        console.log('🎯 Scroll event listener attached'); // Debug log
+        
+        // Initial check in case page is already scrolled
+        console.log('🚀 Running initial navbar scroll check'); // Debug log
+        handleNavbarScroll();
+    } // End of initializeNavbarAnimation function
 });
