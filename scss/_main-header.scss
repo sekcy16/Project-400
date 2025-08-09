@@ -97,11 +97,17 @@
 .main-nav {
     ul {
         display: flex;
+        align-items: center; // Ensure all nav items are vertically centered
         list-style: none;
-        gap: 25px;
+        gap: 2px; // Almost no gap - rounded rectangles will be very close
         margin: 0;
         padding: 0;
         transition: all $transition-medium ease;
+    }
+
+    li {
+        display: flex;
+        align-items: center; // Ensure each li item is properly aligned
     }
 }
 
@@ -109,13 +115,205 @@
     @include link-base;
     color: white;
     font-weight: $font-weight-medium;
-    padding: $spacing-md $spacing-lg;
+    padding: $spacing-xs $spacing-xxl; // Set consistent size for both states
     border-radius: $border-radius-md;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background-color: $primary-color;
+        background-color: rgba(255, 255, 255, 0.15); // Light gray background
         color: $white;
-        transform: translateY(-1px);
+        border-radius: 50px; // Stadium shape (fully rounded)
+        // Removed translateY animation
+    }
+}
+
+// Dropdown Navigation Menu
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: $border-radius-md;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: $spacing-xs $spacing-xl; // Shorter width (xl vs xxl) for shorter rounded rectangle
+
+    // Hover effect that covers both button and arrow
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.15); // Light gray background
+        border-radius: 50px; // Stadium shape for the entire container
+        // Removed translateY animation
+    }
+
+    .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 4px; // Smaller gap to keep them closer
+        // Ensure same styling as regular nav links for the main text
+        @include link-base;
+        color: white;
+        font-weight: $font-weight-medium;
+        padding: 0 12px 0 0; // Increased right padding for more spacing (12px vs 8px)
+        border-radius: 0; // Remove individual border radius
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+
+        // Remove individual hover since parent handles it
+        &:hover {
+            background-color: transparent;
+            color: $white;
+            border-radius: 0;
+            transform: none;
+        }
+    }
+
+    .dropdown-arrow {
+        font-size: 10px; // Smaller arrow
+        color: white;
+        padding: 6px; // Reduced padding for better alignment
+        border-radius: 0; // Remove individual border radius
+        cursor: pointer;
+        transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); // Only background transition
+        margin-left: -4px; // Overlap slightly to make them look connected
+        display: flex;
+        align-items: center; // Ensure vertical alignment
+        
+        &:hover {
+            background-color: rgb(4, 178, 247); // Light blue background on arrow hover
+            border-radius: 50%; // Circle only for the arrow itself
+            // Removed rotation and scale animations
+        }
+
+        &.active {
+            background-color: rgb(4, 178, 247);
+            border-radius: 50%;
+            // Removed rotation animation
+        }
+    }
+
+    // Remove automatic hover behavior
+    .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-1em); // Match the example transform
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    // Show dropdown when active class is added
+    &.dropdown-active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); // Remove translateX, only translateY
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 1em); // Position below with spacing like the example
+    left: 0; // Position at the start (left side) instead of 75%
+    transform: translateY(-10px); // Remove translateX, only use translateY
+    background: #2a2a2a;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 80em; // Increased to accommodate 10em gap (was 40em)
+    min-width: 500px; // Increased min-width to handle larger content
+    box-sizing: border-box; // Add box-sizing like the example
+    padding: 1em; // Increase padding like the example (was 16px in dropdown-content)
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 2em; // Position arrow near the left side to align with button
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #2a2a2a;
+    }
+}
+
+.dropdown-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em; // Large gap between columns as requested
+    padding: 0; // Remove padding since parent now handles it (2em)
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; // Reduced vertical spacing between items (was 12px)
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 16px; // Keep gap between icon and text
+    padding: 8px 15px; // Reduced vertical padding (was 16px 20px)
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    // Removed hover transition and effects for games dropdown
+
+    i {
+        color: #9ca3af;
+        font-size: 16px;
+        width: 20px;
+        text-align: center;
+        // Removed hover transition
+    }
+
+    span {
+        color: white;
+        // Removed hover transition
+    }
+
+    // Removed all hover effects for games dropdown
+}
+
+// Special styling for cards dropdown with hover effects
+.cards-dropdown {
+    .dropdown-item {
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1); // Slightly lighter gray background
+        }
+        
+        i {
+            transition: none; // Keep original icon colors on hover
+        }
+        
+        span {
+            transition: none;
+        }
+    }
+}
+
+// Special styling for topup dropdown with hover effects
+.topup-dropdown {
+    .dropdown-item {
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1); // Slightly lighter gray background
+        }
+        
+        i {
+            transition: none; // Keep original icon colors on hover
+        }
+        
+        span {
+            transition: none;
+        }
     }
 }
 

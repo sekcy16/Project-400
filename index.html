@@ -38,9 +38,150 @@
                 </div>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="src/games.html" class="nav-link">เกม</a></li>
-                        <li><a href="src/cards.html" class="nav-link">การ์ด</a></li>
-                        <li><a href="src/topup.html" class="nav-link">เติมเงิน</a></li>
+                        <li class="nav-dropdown">
+                            <a href="src/games.html" class="nav-link dropdown-trigger">เกม</a>
+                            <i class="fas fa-chevron-down dropdown-arrow" tabindex="0" role="button" aria-label="Open games menu"></i>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-column">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-desktop"></i>
+                                            <span>PC</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            <span>Mobile</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fab fa-xbox"></i>
+                                            <span>Xbox</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-mouse-pointer"></i>
+                                            <span>Webgame</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fab fa-playstation"></i>
+                                            <span>Playstation</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-gamepad"></i>
+                                            <span>Nintendo Switch</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-dropdown cards-dropdown">
+                            <a href="src/cards.html" class="nav-link dropdown-trigger">การ์ด</a>
+                            <i class="fas fa-chevron-down dropdown-arrow" tabindex="0" role="button" aria-label="Open cards menu"></i>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-column">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-mobile-alt" style="color: #9b59b6;"></i>
+                                            <span>Mobile Game Cards</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-credit-card" style="color: #f39c12;"></i>
+                                            <span>Payment Cards</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-gamepad" style="color: #3498db;"></i>
+                                            <span>Game Console</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-play" style="color: #2ecc71;"></i>
+                                            <span>Video Streaming</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-shopping-bag" style="color: #f1c40f;"></i>
+                                            <span>Shopping</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-wrench" style="color: #e67e22;"></i>
+                                            <span>Tools</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-comment" style="color: #27ae60;"></i>
+                                            <span>Social App</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-rss" style="color: #ff6b35;"></i>
+                                            <span>Subscription</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-id-card" style="color: #1abc9c;"></i>
+                                            <span>Game Cards</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-gift" style="color: #e74c3c;"></i>
+                                            <span>Gift Cards</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-ticket-alt" style="color: #2ecc71;"></i>
+                                            <span>Game CD-Key</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-music" style="color: #9b59b6;"></i>
+                                            <span>Music</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-sim-card" style="color: #17a2b8;"></i>
+                                            <span>Telco Prepaid Cards</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-user" style="color: #8e44ad;"></i>
+                                            <span>Software</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-gift" style="color: #3498db;"></i>
+                                            <span>Freebie Codes</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-dropdown topup-dropdown">
+                            <a href="src/topup.html" class="nav-link dropdown-trigger">เติมเงิน</a>
+                            <i class="fas fa-chevron-down dropdown-arrow" tabindex="0" role="button" aria-label="Open top-up menu"></i>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-column">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-gamepad" style="color: #2ecc71;"></i>
+                                            <span>Mobile Game Top-Up</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-bullseye" style="color: #e74c3c;"></i>
+                                            <span>Game Direct Top-Up</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-exclamation-triangle" style="color: #f39c12;"></i>
+                                            <span>China Direct Top-Up</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-play" style="color: #2ecc71;"></i>
+                                            <span>Video Streaming</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-smile" style="color: #f1c40f;"></i>
+                                            <span>Entertainment</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="fas fa-video" style="color: #9b59b6;"></i>
+                                            <span>Live Streaming</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -60,6 +201,14 @@
 
     <!-- Game Banner Slider -->
     <section class="banner-section">
+        <!-- Previous Button -->
+        <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+            <div class="button-preview">
+                <img src="https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F381c4e9088924638b607048d94fde0c4" alt="Previous slide preview" />
+            </div>
+            <i class="fas fa-chevron-left"></i>
+        </div>
+
         <div class="banner-slider">
             <div class="banner-slide active">
                 <img src="https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F381c4e9088924638b607048d94fde0c4"
@@ -75,6 +224,14 @@
             </div>
         </div>
 
+        <!-- Next Button -->
+        <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
+            <div class="button-preview">
+                <img src="https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F381c4e9088924638b607048d94fde0c4" alt="Next slide preview" />
+            </div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+
         <!-- Banner Indicators -->
         <div class="banner-indicators">
             <span class="indicator active" data-slide="0"></span>
@@ -82,6 +239,8 @@
             <span class="indicator" data-slide="2"></span>
         </div>
     </section>
+
+    <script src="js/script.js"></script>
 
     <div id="home_items">
         <div class="inner">
@@ -91,7 +250,7 @@
                         <div class="title">
                             <h2>บัตรเติมเงินยอดนิยม</h2>
                             <a href="src/topup.html" class="btw more">
-                                <span>ดูเพิ่มเติม</span>
+                                <span icon="chevron_right">ดูเพิ่มเติม</span>
                             </a>
                         </div>
                         <div class="ItemList">
@@ -103,7 +262,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -119,7 +278,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -135,7 +294,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -151,7 +310,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -167,7 +326,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -183,7 +342,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -199,7 +358,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -214,7 +373,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -228,7 +387,7 @@
                         <div class="title">
                             <h2>การเติมเงินเกมที่ได้รับความนิยม</h2>
                             <a href="src/topup.html" class="btw more">
-                                <span>ดูเพิ่มเติม</span>
+                                <span icon="chevron_right">ดูเพิ่มเติม</span>
                             </a>
                         </div>
                         <div class="ItemList">
@@ -240,7 +399,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -256,7 +415,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -272,7 +431,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -288,7 +447,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -304,7 +463,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -320,7 +479,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -336,7 +495,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -352,7 +511,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -367,7 +526,7 @@
                         <div class="title">
                             <h2>บัตรเติมเกมมาใหม่</h2>
                             <a href="src/topup.html" class="btw more">
-                                <span>ดูเพิ่มเติม</span>
+                                <span icon="chevron_right">ดูเพิ่มเติม</span>
                             </a>
                         </div>
                         <div class="ItemList">
@@ -379,7 +538,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -395,7 +554,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -411,7 +570,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -427,7 +586,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -443,7 +602,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -459,7 +618,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -475,7 +634,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -491,7 +650,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -506,7 +665,7 @@
                         <div class="title">
                             <h2>เกมและแอปพลิเคชั่นที่ได้รับการเติมเงินมากที่สุด</h2>
                             <a href="src/topup.html" class="btw more">
-                                <span>ดูเพิ่มเติม</span>
+                                <span icon="chevron_right">ดูเพิ่มเติม</span>
                             </a>
                         </div>
                         <div class="ItemList">
@@ -518,7 +677,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -534,7 +693,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -550,7 +709,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -566,7 +725,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -582,7 +741,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -598,7 +757,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -614,7 +773,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
@@ -630,7 +789,7 @@
                                             src="https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120"
                                             alt="Steam Wallet Code (THB)" />
                                     </div>
-                                    <div class="title">
+                                    <div class="T">
                                         <div class="name">Steam Wallet Code (THB)</div>
                                         <div class="info">
                                             <span>Thailand</span>
