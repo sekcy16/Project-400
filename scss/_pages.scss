@@ -32,6 +32,16 @@
     display: flex;
     flex-direction: column;
     gap: var(--home-spacing);
+    margin-right: 12px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #featured_items .category {
+        flex: none;
+        width: min(46em, calc(var(--VWidth) - 6em));
+        box-sizing: border-box;
+        margin-right: 0;
+    }
 }
 
 #featured_items .title {

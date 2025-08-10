@@ -11,16 +11,41 @@
 
     .container {
         @include flex-between;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: $spacing-md;
+            padding: $spacing-sm $spacing-md;
+        }
+        
+        @media (max-width: 480px) {
+            gap: $spacing-sm;
+        }
     }
 
     &-left {
         display: flex;
         gap: $spacing-xl;
+        
+        @media (max-width: 768px) {
+            gap: $spacing-md;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        @media (max-width: 480px) {
+            gap: $spacing-sm;
+            font-size: 0.9rem;
+        }
     }
 
     &-right {
         display: flex;
         align-items: center;
+        
+        @media (max-width: 768px) {
+            justify-content: center;
+        }
     }
 }
 
@@ -29,9 +54,15 @@
     color: $white;
     padding: $spacing-xs $spacing-md;
     border-radius: $border-radius-sm;
+    white-space: nowrap;
 
     &:hover {
         background-color: rgba($white, 0.1);
+    }
+    
+    @media (max-width: 480px) {
+        padding: $spacing-xs $spacing-sm;
+        font-size: 0.9rem;
     }
 }
 
@@ -41,6 +72,7 @@
     cursor: pointer;
     padding: $spacing-xs $spacing-md;
     border-radius: $border-radius-sm;
+    white-space: nowrap;
 
     &:hover {
         background-color: rgba($white, 0.1);
@@ -52,5 +84,14 @@
 
     span {
         font-size: $font-size-base;
+        
+        @media (max-width: 480px) {
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        padding: $spacing-xs $spacing-sm;
+        gap: $spacing-xs;
     }
 }

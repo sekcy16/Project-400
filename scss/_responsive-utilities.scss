@@ -1,0 +1,193 @@
+// Responsive Utilities
+@use 'variables' as *;
+
+// Utility classes for responsive design
+.hide-mobile {
+    @media (max-width: $mobile) {
+        display: none !important;
+    }
+}
+
+.hide-tablet {
+    @media (max-width: $tablet) {
+        display: none !important;
+    }
+}
+
+.show-mobile-only {
+    display: none;
+    
+    @media (max-width: $mobile) {
+        display: block !important;
+    }
+}
+
+.show-tablet-only {
+    display: none;
+    
+    @media (max-width: $tablet) {
+        display: block !important;
+    }
+}
+
+// Container responsive utilities
+.container-fluid {
+    width: 100%;
+    padding: 0 $spacing-md;
+    
+    @media (max-width: $mobile) {
+        padding: 0 $spacing-sm;
+    }
+}
+
+.container-narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    
+    @media (max-width: $tablet) {
+        padding: 0 $spacing-md;
+    }
+    
+    @media (max-width: $mobile) {
+        padding: 0 $spacing-sm;
+    }
+}
+
+// Text utilities
+.text-responsive {
+    font-size: 1rem;
+    
+    @media (max-width: $tablet) {
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: $mobile) {
+        font-size: 0.8rem;
+    }
+}
+
+// Flexbox responsive utilities
+.flex-responsive {
+    display: flex;
+    
+    @media (max-width: $tablet) {
+        flex-direction: column;
+        gap: $spacing-md;
+    }
+}
+
+.flex-wrap-mobile {
+    display: flex;
+    
+    @media (max-width: $mobile) {
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+    }
+}
+
+// Grid responsive utilities
+.grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+    
+    @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+        gap: $spacing-md;
+    }
+}
+
+// Spacing responsive utilities
+.spacing-responsive {
+    padding: $spacing-xl;
+    
+    @media (max-width: $tablet) {
+        padding: $spacing-lg;
+    }
+    
+    @media (max-width: $mobile) {
+        padding: $spacing-md;
+    }
+}
+
+.margin-responsive {
+    margin: $spacing-xl 0;
+    
+    @media (max-width: $tablet) {
+        margin: $spacing-lg 0;
+    }
+    
+    @media (max-width: $mobile) {
+        margin: $spacing-md 0;
+    }
+}
+
+// Image responsive utilities
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius-md;
+    
+    @media (max-width: $mobile) {
+        border-radius: $border-radius-sm;
+    }
+}
+
+// Button responsive utilities
+.btn-responsive {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-base;
+    
+    @media (max-width: $tablet) {
+        padding: $spacing-sm $spacing-lg;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: $mobile) {
+        padding: $spacing-sm $spacing-md;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+}
+
+// Overflow protection
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+// Smooth scrolling
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+// Responsive visibility mixins
+@mixin show-from($breakpoint) {
+    display: none;
+    
+    @media (min-width: $breakpoint) {
+        display: block;
+    }
+}
+
+@mixin hide-from($breakpoint) {
+    @media (min-width: $breakpoint) {
+        display: none;
+    }
+}
+
+@mixin show-between($min, $max) {
+    display: none;
+    
+    @media (min-width: $min) and (max-width: $max) {
+        display: block;
+    }
+}

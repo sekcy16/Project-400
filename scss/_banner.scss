@@ -5,33 +5,38 @@
 // Banner Section Styles
 .banner-section {
     position: relative;
-    width: 100%; // Changed from fixed width to accommodate all elements
-    max-width: 1400px; // Set max-width to contain everything
+    width: 100%;
+    max-width: 1400px;
     height: 340px;
-    overflow: visible; // Changed to allow buttons to be visible
+    overflow: visible;
     margin: 20px auto;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; // Add gap between elements
+    gap: 20px;
     
-    // When buttons are hidden, center the banner
-    @media (max-width: 1280px) {
-        max-width: 952px; // Reduce max-width when buttons are hidden
-        gap: 0; // Remove gap when buttons are hidden
-    }
-    
-    // Responsive design
+    // Responsive design with better breakpoints
     @media (max-width: 1400px) {
         width: 95%;
         gap: 15px;
+        max-width: 1200px;
+    }
+    
+    @media (max-width: 1280px) {
+        max-width: 952px;
+        gap: 0;
     }
     
     @media (max-width: 1200px) {
         width: 90%;
+        height: 320px;
+        gap: 0;
+    }
+    
+    @media (max-width: 1024px) {
+        width: 92%;
         height: 300px;
-        gap: 0; // Remove gap since buttons are hidden
     }
     
     @media (max-width: 768px) {
@@ -41,24 +46,40 @@
         gap: 0;
         flex-direction: column;
     }
+    
+    @media (max-width: 480px) {
+        width: 98%;
+        height: 220px;
+        margin: 10px auto;
+    }
 }
 
 .banner-slider {
     position: relative;
-    width: 952px; // Fixed width for the main banner
+    width: 952px;
     height: 100%;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
-    order: 2; // Put slider in the middle
+    order: 2;
+    
+    @media (max-width: 1400px) {
+        width: 100%;
+        max-width: 900px;
+    }
     
     @media (max-width: 1280px) {
-        width: 100%; // Take full width when buttons are hidden
-        max-width: 952px; // But don't exceed original banner width
+        width: 100%;
+        max-width: 952px;
     }
     
     @media (max-width: 1200px) {
+        width: 100%;
+        max-width: 800px;
+    }
+    
+    @media (max-width: 1024px) {
         width: 100%;
         max-width: 700px;
     }
@@ -66,6 +87,11 @@
     @media (max-width: 768px) {
         width: 100%;
         order: 1;
+        max-width: 100%;
+    }
+    
+    @media (max-width: 480px) {
+        border-radius: 10px;
     }
 }
 

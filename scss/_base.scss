@@ -12,6 +12,7 @@ body {
     line-height: $line-height;
     color: $black;
     background-color: #161a1c;
+    overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 // Container utility
@@ -19,6 +20,20 @@ body {
     max-width: $container-max-width;
     margin: 0 auto;
     padding: 0 $container-padding;
+    width: 100%;
+    
+    @media (max-width: 768px) {
+        padding: 0 $spacing-md;
+    }
+    
+    @media (max-width: 480px) {
+        padding: 0 $spacing-sm;
+    }
+    
+    @media (min-width: 1400px) {
+        max-width: 1400px;
+        padding: 0 $spacing-xxl;
+    }
 }
 
 // Flexbox utilities
@@ -37,6 +52,23 @@ body {
 @mixin flex-start {
     display: flex;
     align-items: center;
+}
+
+@mixin flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-column-center {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
 }
 
 // Button mixins

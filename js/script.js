@@ -411,4 +411,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log(`✅ Click-based dropdown functionality initialized for ${dropdowns.length} dropdowns`);
     } // End of initializeDropdown function
+
+    // Initialize Featured Items Swiper
+    initializeFeaturedItemsSwiper();
+
+    function initializeFeaturedItemsSwiper() {
+        const swiperContainer = document.querySelector('#featured_items .list');
+        
+        if (!swiperContainer) {
+            console.log('Swiper container not found');
+            return;
+        }
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        // Mouse events for desktop drag scrolling
+        swiperContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            swiperContainer.style.cursor = 'grabbing';
+            startX = e.pageX - swiperContainer.offsetLeft;
+            scrollLeft = swiperContainer.scrollLeft;
+        });
+
+        swiperContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            swiperContainer.style.cursor = 'grab';
+        });
+
+        swiperContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            swiperContainer.style.cursor = 'grab';
+        });
+
+        swiperContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - swiperContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            swiperContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        console.log('✅ Featured items swiper initialized');
+    }
 });
