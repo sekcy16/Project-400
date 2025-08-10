@@ -333,8 +333,13 @@
     justify-content: center;
     order: 1; // Place on the left
     
-    @media (max-width: 1024px) {
-        display: none; // Hide buttons on screens 1024px and below (instead of 1280px)
+    // Show buttons on large screens (1281px and above)
+    @media (min-width: 1281px) {
+        display: flex;
+    }
+    
+    @media (max-width: 1280px) {
+        display: none; // Hide buttons on screens 1280px and below
     }
     
     @media (max-width: 1200px) {
