@@ -107,10 +107,11 @@
         }
     }
     
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: none;
-    }
+    // Don't hide swiper buttons on tablet - let the banner.scss handle it
+    // .swiper-button-prev,
+    // .swiper-button-next {
+    //     display: none;
+    // }
 }
 
 // Mobile responsive styles
@@ -297,10 +298,10 @@
         }
     }
     
-    // Hide complex navigation elements on very small screens
+    // Hide complex navigation elements only on mobile screens
     .swiper-button-prev,
     .swiper-button-next {
-        display: none !important;
+        display: none; // Remove !important to allow override by banner.scss
     }
 }
 
@@ -342,6 +343,8 @@
     .swiper-button-prev,
     .swiper-button-next {
         display: flex;
+        width: 200px;
+        flex-shrink: 0;
     }
 }
 

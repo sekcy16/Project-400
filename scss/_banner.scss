@@ -5,27 +5,32 @@
 // Banner Section Styles
 .banner-section {
     position: relative;
-    width: 100%;
+    width: 952px;
     max-width: 1400px;
-    height: 340px;
-    overflow: visible;
+    height: 360px;
+    overflow: visible; // Ensure buttons aren't clipped
     margin: 20px auto;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    z-index: 10; // Ensure the section has proper stacking context
     
     // Responsive design with better breakpoints
     @media (max-width: 1400px) {
-        width: 95%;
-        gap: 15px;
+        width: calc(100% - 40px);
+        gap: 20px;
         max-width: 1200px;
+        // Ensure sufficient space for buttons
+        padding: 0 20px;
+        overflow: visible; // Still ensure no clipping
     }
     
     @media (max-width: 1280px) {
         max-width: 952px;
-        gap: 0;
+        gap: 10px;
+        padding: 0 10px;
     }
     
     @media (max-width: 1200px) {
@@ -65,7 +70,7 @@
     order: 2;
     
     @media (max-width: 1400px) {
-        width: 100%;
+        width: calc(100% - 440px); // Account for both buttons (200px each) + gaps (40px)
         max-width: 900px;
     }
     
@@ -348,30 +353,28 @@
 .swiper-button-prev {
     position: relative;
     width: 238px; // 1/4 of banner width (952px / 4)
-    height: 340px; // Match the main banner height
+    height: 360px; // Match the main banner height
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    display: flex;
+    display: flex; // Show by default
     align-items: center;
     justify-content: center;
     order: 1; // Place on the left
+    flex-shrink: 0; // Prevent compression
+    z-index: 15; // Ensure buttons are above other elements
     
-    // Show buttons on large screens (1281px and above)
-    @media (min-width: 1281px) {
-        display: flex;
-    }
-    
+    // Hide only on smaller screens
     @media (max-width: 1280px) {
-        display: none; // Hide buttons on screens 1280px and below
+        display: none;
     }
     
     @media (max-width: 1200px) {
         width: 180px;
-        height: 300px; // Match responsive banner height
-        display: none; // Keep hidden
+        height: 300px;
+        display: none;
     }
     
     @media (max-width: 768px) {
@@ -380,7 +383,7 @@
         flex: 1;
         max-width: 150px;
         order: 0;
-        display: none; // Keep hidden
+        display: none;
     }
     
     &:hover {
@@ -407,25 +410,28 @@
 .swiper-button-next {
     position: relative;
     width: 238px; // 1/4 of banner width (952px / 4)
-    height: 340px; // Match the main banner height
+    height: 360px; // Match the main banner height
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    display: flex;
+    display: flex; // Show by default
     align-items: center;
     justify-content: center;
     order: 3; // Place on the right
+    flex-shrink: 0; // Prevent compression
+    z-index: 15; // Ensure buttons are above other elements
     
-    @media (max-width: 1024px) {
-        display: none; // Hide buttons on screens 1024px and below (instead of 1280px)
+    // Hide only on smaller screens
+    @media (max-width: 1280px) {
+        display: none;
     }
     
     @media (max-width: 1200px) {
         width: 180px;
-        height: 300px; // Match responsive banner height
-        display: none; // Keep hidden
+        height: 300px;
+        display: none;
     }
     
     @media (max-width: 768px) {
@@ -434,7 +440,7 @@
         flex: 1;
         max-width: 150px;
         order: 2;
-        display: none; // Keep hidden
+        display: none;
     }
     
     &:hover {

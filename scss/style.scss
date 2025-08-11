@@ -505,26 +505,7 @@ ul {
 // Continue with banner section, games content, footer, etc.
 
 // ===== 8. Banner Section =====
-.banner-section {
-  position: relative;
-  width: 952px;
-  height: 340px;
-  overflow: hidden;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 1000px) {
-    width: 90%;
-    height: 300px;
-  }
-
-  @media (max-width: 768px) {
-    width: 95%;
-    height: 250px;
-    margin: 15px auto;
-  }
-}
+// Banner section styles moved to _banner.scss - no duplicate needed here
 
 .banner-slider {
   position: relative;

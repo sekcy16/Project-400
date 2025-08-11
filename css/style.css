@@ -115,10 +115,6 @@ body {
   .banner-content p {
     font-size: 1rem;
   }
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none;
-  }
 }
 @media (max-width: 480px) {
   .container {
@@ -267,7 +263,7 @@ body {
   }
   .swiper-button-prev,
   .swiper-button-next {
-    display: none !important;
+    display: none;
   }
 }
 @media (min-width: 1024px) {
@@ -298,6 +294,8 @@ body {
   .swiper-button-prev,
   .swiper-button-next {
     display: flex;
+    width: 200px;
+    flex-shrink: 0;
   }
 }
 @media (min-width: 1440px) {
@@ -1151,9 +1149,9 @@ body {
 
 .banner-section {
   position: relative;
-  width: 100%;
+  width: 952px;
   max-width: 1400px;
-  height: 340px;
+  height: 360px;
   overflow: visible;
   margin: 20px auto;
   border-radius: 15px;
@@ -1161,18 +1159,22 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
+  z-index: 10;
 }
 @media (max-width: 1400px) {
   .banner-section {
-    width: 95%;
-    gap: 15px;
+    width: calc(100% - 40px);
+    gap: 20px;
     max-width: 1200px;
+    padding: 0 20px;
+    overflow: visible;
   }
 }
 @media (max-width: 1280px) {
   .banner-section {
     max-width: 952px;
-    gap: 0;
+    gap: 10px;
+    padding: 0 10px;
   }
 }
 @media (max-width: 1200px) {
@@ -1217,7 +1219,7 @@ body {
 }
 @media (max-width: 1400px) {
   .banner-slider {
-    width: 100%;
+    width: calc(100% - 440px);
     max-width: 900px;
   }
 }
@@ -1478,7 +1480,7 @@ body {
 .swiper-button-prev {
   position: relative;
   width: 238px;
-  height: 340px;
+  height: 360px;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -1488,11 +1490,8 @@ body {
   align-items: center;
   justify-content: center;
   order: 1;
-}
-@media (min-width: 1281px) {
-  .swiper-button-prev {
-    display: flex;
-  }
+  flex-shrink: 0;
+  z-index: 15;
 }
 @media (max-width: 1280px) {
   .swiper-button-prev {
@@ -1536,7 +1535,7 @@ body {
 .swiper-button-next {
   position: relative;
   width: 238px;
-  height: 340px;
+  height: 360px;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -1546,8 +1545,10 @@ body {
   align-items: center;
   justify-content: center;
   order: 3;
+  flex-shrink: 0;
+  z-index: 15;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .swiper-button-next {
     display: none;
   }
@@ -3202,29 +3203,6 @@ ul {
 .user-profile i {
   color: #ffffff;
   transition: transform 0.3s;
-}
-
-.banner-section {
-  position: relative;
-  width: 952px;
-  height: 340px;
-  overflow: hidden;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-@media (max-width: 1000px) {
-  .banner-section {
-    width: 90%;
-    height: 300px;
-  }
-}
-@media (max-width: 768px) {
-  .banner-section {
-    width: 95%;
-    height: 250px;
-    margin: 15px auto;
-  }
 }
 
 .banner-slider {
