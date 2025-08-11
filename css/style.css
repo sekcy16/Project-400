@@ -1217,9 +1217,9 @@ body {
   flex-shrink: 0;
   order: 2;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .banner-slider {
-    width: calc(100% - 440px);
+    width: calc(100% - 224px);
     max-width: 900px;
   }
 }
@@ -1479,7 +1479,7 @@ body {
 
 .swiper-button-prev {
   position: relative;
-  width: 238px;
+  width: 173px;
   height: 360px;
   border-radius: 10px;
   overflow: hidden;
@@ -1493,21 +1493,24 @@ body {
   flex-shrink: 0;
   z-index: 15;
 }
-@media (max-width: 1280px) {
+@media (max-width: 1439px) and (min-width: 1280px) {
+  .swiper-button-prev {
+    width: 92px;
+    display: flex;
+  }
+}
+@media (max-width: 1279px) {
   .swiper-button-prev {
     display: none;
   }
 }
 @media (max-width: 1200px) {
   .swiper-button-prev {
-    width: 180px;
     height: 300px;
-    display: none;
   }
 }
 @media (max-width: 768px) {
   .swiper-button-prev {
-    width: 120px;
     height: 100px;
     flex: 1;
     max-width: 150px;
@@ -1525,6 +1528,7 @@ body {
   transform: scale(1.05);
 }
 .swiper-button-prev:hover i {
+  opacity: 1;
   transform: scale(1.2);
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
 }
@@ -1534,7 +1538,7 @@ body {
 
 .swiper-button-next {
   position: relative;
-  width: 238px;
+  width: 173px;
   height: 360px;
   border-radius: 10px;
   overflow: hidden;
@@ -1548,21 +1552,24 @@ body {
   flex-shrink: 0;
   z-index: 15;
 }
-@media (max-width: 1280px) {
+@media (max-width: 1439px) and (min-width: 1280px) {
+  .swiper-button-next {
+    width: 92px;
+    display: flex;
+  }
+}
+@media (max-width: 1279px) {
   .swiper-button-next {
     display: none;
   }
 }
 @media (max-width: 1200px) {
   .swiper-button-next {
-    width: 180px;
     height: 300px;
-    display: none;
   }
 }
 @media (max-width: 768px) {
   .swiper-button-next {
-    width: 120px;
     height: 100px;
     flex: 1;
     max-width: 150px;
@@ -1580,6 +1587,7 @@ body {
   transform: scale(1.05);
 }
 .swiper-button-next:hover i {
+  opacity: 1;
   transform: scale(1.2);
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
 }
@@ -1620,7 +1628,8 @@ body {
   z-index: 2;
   font-size: 24px;
   color: white;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.3s ease;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 768px) {
@@ -1628,6 +1637,17 @@ body {
   .swiper-button-next i {
     font-size: 18px;
   }
+}
+
+.swiper-button-prev:hover i,
+.swiper-button-next:hover i,
+.swiper-button-prev .button-preview:hover + i,
+.swiper-button-next .button-preview:hover + i,
+.swiper-button-prev:focus i,
+.swiper-button-prev:focus-within i,
+.swiper-button-next:focus i,
+.swiper-button-next:focus-within i {
+  opacity: 1;
 }
 
 /* Footer Styles */

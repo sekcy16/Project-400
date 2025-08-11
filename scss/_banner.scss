@@ -69,8 +69,8 @@
     flex-shrink: 0;
     order: 2;
     
-    @media (max-width: 1400px) {
-        width: calc(100% - 440px); // Account for both buttons (200px each) + gaps (40px)
+    @media (max-width: 1440px) {
+    width: calc(100% - 224px); // Account for both buttons (92px each) + gaps (40px)
         max-width: 900px;
     }
     
@@ -352,7 +352,7 @@
 // Swiper Navigation Buttons
 .swiper-button-prev {
     position: relative;
-    width: 238px; // 1/4 of banner width (952px / 4)
+    width: 173px; // >=1440px per request
     height: 360px; // Match the main banner height
     border-radius: 10px;
     overflow: hidden;
@@ -366,19 +366,21 @@
     flex-shrink: 0; // Prevent compression
     z-index: 15; // Ensure buttons are above other elements
     
-    // Hide only on smaller screens
-    @media (max-width: 1280px) {
+    // 1280px–1439px: shrink to 92px
+    @media (max-width: 1439px) and (min-width: 1280px) {
+        width: 92px;
+        display: flex;
+    }
+    // <1280px: hide
+    @media (max-width: 1279px) {
         display: none;
     }
     
     @media (max-width: 1200px) {
-        width: 180px;
         height: 300px;
-        display: none;
     }
     
     @media (max-width: 768px) {
-        width: 120px;
         height: 100px;
         flex: 1;
         max-width: 150px;
@@ -397,6 +399,7 @@
         }
         
         i {
+            opacity: 1; // show icon on hover
             transform: scale(1.2);
             text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
         }
@@ -409,7 +412,7 @@
 
 .swiper-button-next {
     position: relative;
-    width: 238px; // 1/4 of banner width (952px / 4)
+    width: 173px; // >=1440px per request
     height: 360px; // Match the main banner height
     border-radius: 10px;
     overflow: hidden;
@@ -423,19 +426,21 @@
     flex-shrink: 0; // Prevent compression
     z-index: 15; // Ensure buttons are above other elements
     
-    // Hide only on smaller screens
-    @media (max-width: 1280px) {
+    // 1280px–1439px: shrink to 92px
+    @media (max-width: 1439px) and (min-width: 1280px) {
+        width: 92px;
+        display: flex;
+    }
+    // <1280px: hide
+    @media (max-width: 1279px) {
         display: none;
     }
     
     @media (max-width: 1200px) {
-        width: 180px;
         height: 300px;
-        display: none;
     }
     
     @media (max-width: 768px) {
-        width: 120px;
         height: 100px;
         flex: 1;
         max-width: 150px;
@@ -454,6 +459,7 @@
         }
         
         i {
+            opacity: 1; // show icon on hover
             transform: scale(1.2);
             text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
         }
@@ -463,6 +469,8 @@
         transform: translateY(0) scale(0.98);
     }
 }
+
+// Only show chevron icon on hover/focus (background stays visible)
 
 .button-preview {
     position: absolute;
@@ -504,10 +512,23 @@
     z-index: 2;
     font-size: 24px;
     color: white;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0; // hidden until hover/focus
+    transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.3s ease;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     
     @media (max-width: 768px) {
         font-size: 18px;
     }
+}
+
+// Reveal icon when hovering the image area, the button container, or when focused
+.swiper-button-prev:hover i,
+.swiper-button-next:hover i,
+.swiper-button-prev .button-preview:hover + i,
+.swiper-button-next .button-preview:hover + i,
+.swiper-button-prev:focus i,
+.swiper-button-prev:focus-within i,
+.swiper-button-next:focus i,
+.swiper-button-next:focus-within i {
+    opacity: 1;
 }
