@@ -423,6 +423,71 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Scope the home_items navigation buttons
+        const homePrevBtn = document.querySelector('#home_items .swiper-button-prev');
+        const homeNextBtn = document.querySelector('#home_items .swiper-button-next');
+        const categories = Array.from(document.querySelectorAll('#featured_items .list .category'));
+
+        // Determine which category is most in view
+        function getCurrentCategoryIndex() {
+            if (categories.length === 0) return 0;
+            const scrollLeft = swiperContainer.scrollLeft;
+            // Pick the category whose left is closest to current scroll position
+            let bestIdx = 0;
+            let bestDelta = Infinity;
+            categories.forEach((cat, idx) => {
+                const delta = Math.abs(cat.offsetLeft - scrollLeft);
+                if (delta < bestDelta) {
+                    bestDelta = delta;
+                    bestIdx = idx;
+                }
+            });
+            return bestIdx;
+        }
+
+        // Scroll to a specific category (snap)
+        function scrollToCategory(index) {
+            const clamped = Math.max(0, Math.min(index, categories.length - 1));
+            const target = categories[clamped];
+            if (!target) return;
+            swiperContainer.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+        }
+
+        // Helper to update button visibility and accessibility based on index
+        function updateHomeButtons() {
+            if (!homePrevBtn || !homeNextBtn) return;
+            const idx = categories.length ? getCurrentCategoryIndex() : 0;
+            const last = Math.max(0, categories.length - 1);
+
+            // Also decide based on scroll extremes (more robust)
+            const maxScroll = Math.max(0, swiperContainer.scrollWidth - swiperContainer.clientWidth);
+            const atStartByScroll = swiperContainer.scrollLeft <= 1;
+            const atEndByScroll = swiperContainer.scrollLeft >= (maxScroll - 1);
+
+            const atFirst = (idx === 0) || atStartByScroll;
+            const atLast = (idx === last) || atEndByScroll;
+
+            // Show/hide per requirement using swiper-button-disabled to preserve layout space
+            homePrevBtn.classList.toggle('swiper-button-disabled', atFirst);
+            homeNextBtn.classList.toggle('swiper-button-disabled', atLast);
+            homePrevBtn.setAttribute('aria-hidden', String(atFirst));
+            homeNextBtn.setAttribute('aria-hidden', String(atLast));
+
+            // Also reflect disabled and tabindex for accessibility
+            homePrevBtn.setAttribute('aria-disabled', String(atFirst));
+            homePrevBtn.tabIndex = atFirst ? -1 : 0;
+            homeNextBtn.setAttribute('aria-disabled', String(atLast));
+            homeNextBtn.tabIndex = atLast ? -1 : 0;
+        }
+
+        // Smooth scroll handler
+        function scrollFeatured(direction) {
+            // Move by whole categories
+            const current = getCurrentCategoryIndex();
+            const nextIdx = current + (direction > 0 ? 1 : -1);
+            scrollToCategory(nextIdx);
+        }
+
         let isDown = false;
         let startX;
         let scrollLeft;
@@ -452,6 +517,38 @@ document.addEventListener('DOMContentLoaded', function() {
             const walk = (x - startX) * 2;
             swiperContainer.scrollLeft = scrollLeft - walk;
         });
+
+        // Attach click events to home_items prev/next buttons
+        if (homePrevBtn) {
+            homePrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                scrollFeatured(-1);
+            });
+        }
+
+        if (homeNextBtn) {
+            homeNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                scrollFeatured(1);
+            });
+        }
+
+        // Keep buttons state in sync while scrolling
+        let rafPending = false;
+        swiperContainer.addEventListener('scroll', () => {
+            if (rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(() => {
+                updateHomeButtons();
+                rafPending = false;
+            });
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+            // Re-evaluate positions and state on resize
+            updateHomeButtons();
+        });
+    // Initial state (after layout)
+    requestAnimationFrame(updateHomeButtons);
 
         console.log('✅ Featured items swiper initialized');
     }
