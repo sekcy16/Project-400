@@ -188,10 +188,10 @@ $z-header: 100;
 }
 
 body {
-  --site-header-height: 120;
+  --site-header-height: 144;
   --global-nav-height: 48;
-  --VW: 1007;
-  --VH: 813;
+  --VW: 1440;
+  --VH: 809;
   --VWX: calc(var(--VW) * 1px);
   --VHX: calc(var(--VH) * 1px);
   --VWidth: var(--VWX, 100vw);
@@ -212,6 +212,25 @@ body {
   min-width: 320px;
   min-height: var(--VHeight);
 }
+
+@media only screen and (max-width: 1440px) {
+  body {
+    --MaxContentWidth: 106.666667em;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+    body {
+        --MaxContentWidth: 83.333334em;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    body {
+        --MaxContentWidth: 100%;
+    }
+}
+
 
 @supports (width: 100dvw) {
   body {
@@ -400,17 +419,73 @@ ul {
   }
 }
 
+// ===== Home Cover Section =====
+#home_cover {
+  overflow: hidden;
+
+  > .inner {
+    width: 100%;
+    max-width: var(--MaxContentWidth);
+    margin-inline: auto;
+    padding: var(--home-spacing);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--home-spacing);
+  }
+}
+
+#home_cover>.inner {
+    width: 100%;
+    max-width: var(--MaxContentWidth);
+    margin-inline: auto;
+    padding: var(--home-spacing);
+    box-sizing: border-box;
+    display: flex
+;
+    flex-direction: column;
+    gap: var(--home-spacing);
+}
+
 // ===== Special Deals Section =====
 #special_deals {
   position: relative;
   touch-action: pan-y;
-  // Match home_items spacing/centering
+  // Match banner-section total width (including swiper buttons)
   width: 100%;
-  max-width: var(--MaxContentWidth);
-  margin-inline: auto;
-  padding-inline: var(--home-spacing);
-  box-sizing: border-box;
+  max-width: 1400px; // Same as banner-section max-width
+  margin: 0 auto; // Center align like banner-section
   padding-bottom: 25px;
+  
+  // Responsive width matching banner-section
+  @media (max-width: 1400px) {
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 1280px) {
+    max-width: 952px;
+    padding: 0 10px;
+  }
+  
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+  
+  @media (max-width: 1024px) {
+    width: 92%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 95%;
+    margin: 15px auto;
+  }
+  
+  @media (max-width: 480px) {
+    width: 98%;
+    margin: 10px auto;
+  }
 }
 
 #special_deals .title {
@@ -430,8 +505,12 @@ ul {
 // Special Deals list layout
 #special_deals .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19em, 1fr));
+  grid-template-columns: repeat(5, 1fr); // 5 columns (2 rows × 5 items)
+  grid-template-rows: repeat(2, 1fr); // Exactly 2 rows
   gap: 1em;
+  width: 100%;
+  max-width: 100%;
+
 }
 
 #special_deals .list a {
@@ -442,17 +521,9 @@ ul {
   overflow: hidden;
   padding: 0;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-  
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   }
-}
 
 #special_deals .list .item {
   color: var(--color-text);
@@ -461,7 +532,9 @@ ul {
   background-repeat: repeat-x;
   background-position: -90% 0, center;
   background-size: 225% auto, cover;
-  display: flex;
+  // Change from flex to grid layout
+  display: grid;
+  grid-template-columns: 4.5em calc(100% - 5.5em);
   gap: 1em;
   align-items: center;
   padding: 1em;
@@ -472,13 +545,13 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.25em;
-  flex: 1;
+  // Remove flex: 1 since we're using grid now
 }
 
 #special_deals .list .item .img {
   width: 4.5em;
   height: 4.5em;
-  align-self: flex-start;
+  // Remove align-self since we're using grid now
   border-radius: 1em;
   overflow: hidden;
   box-shadow: var(--color-img-bdc) 0 0 0 1px;
@@ -598,6 +671,227 @@ ul {
 @media only screen and (min-width: 1001px) {
   #special_deals .list {
     transform: none !important;
+  }
+}
+
+// Medium to large screen optimization for screens less than 1440px
+@media only screen and (min-width: 1001px) and (max-width: 1440px) {
+  #special_deals .list .swiper-slide {
+    width: 236px !important;
+    height: 114px;
+    
+    .item {
+      height: 78px; // 78px height for item
+      min-height: 78px;
+      padding: 0.75em; // Adjust padding for smaller height
+    }
+    
+    .promo {
+      height: 36px; // 36px height for promo
+      min-height: 36px;
+      padding: 0.5em 1em; // Adjust padding for smaller height
+    }
+  }
+}
+
+// Large screen optimization for 1440px+
+@media only screen and (min-width: 1441px) {
+  #special_deals .list .swiper-slide {
+    width: 268.8px !important;
+    height: 114px;
+    
+    .item {
+      height: 78px; // 78px height for item
+      min-height: 78px;
+      padding: 0.75em; // Adjust padding for smaller height
+    }
+    
+    .promo {
+      height: 36px; // 36px height for promo
+      min-height: 36px;
+      padding: 0.5em 1em; // Adjust padding for smaller height
+    }
+  }
+}
+
+// Responsive grid adjustments for special deals
+@media only screen and (min-width: 1001px) and (max-width: 1280px) {
+  // Hide items beyond 8 for screen sizes between 1001px and 1280px
+  #special_deals .list a:nth-child(n+9) {
+    display: none;
+  }
+}
+
+// Grid column adjustments for different screen sizes
+@media only screen and (max-width: 1280px) {
+  #special_deals .list {
+    grid-template-columns: repeat(4, 1fr); // 4 columns for medium screens
+    grid-template-rows: repeat(2, 1fr); // Still 2 rows
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #special_deals .list {
+    // Switch to flex layout for horizontal scrolling on smaller screens
+    display: flex;
+    grid-template-columns: none; // Remove grid
+    grid-template-rows: none; // Remove grid
+    gap: 0;
+    margin-inline: calc(var(--home-spacing) * -1);
+    padding-inline: var(--home-spacing);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+    // Hide scrollbar for cleaner look
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Opera
+    }
+    
+    // Make each item flex-shrink: 0 to maintain width
+    a {
+      flex: none;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      width: 270px !important; // Fixed width for consistent sizing
+      height: 114px !important; // Fixed height for consistent sizing
+      margin-right: 1em;
+      
+      &:last-child {
+        margin-right: var(--home-spacing);
+      }
+      
+      // Ensure item and promo sections fit within the 114px height
+      .item {
+        height: 78px !important; // 78px height for item section
+        min-height: 78px !important;
+        max-height: 78px !important;
+        padding: 0.5em !important; // Reduced padding to fit
+        overflow: hidden;
+      }
+      
+      .promo {
+        height: 36px !important; // 36px height for promo section
+        min-height: 36px !important;
+        max-height: 36px !important;
+        padding: 0.25em 0.75em !important; // Reduced padding to fit
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #special_deals .list {
+    a {
+      width: 250px; // Smaller width for mobile
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #special_deals .list {
+    a {
+      width: 220px; // Even smaller width for very small screens
+    }
+  }
+}
+
+// Navigation buttons for special_deals
+#special_deals {
+  position: relative;
+  
+  .btc {
+    position: absolute;
+    inset-inline: calc(var(--home-spacing) * -1 + .75em);
+    inset-block-start: 6em; // Adjusted for special_deals layout
+    z-index: 1;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: opacity .3s, transform .3s;
+    
+    // Hide by default, show only when scrolling is needed
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+// Show navigation buttons on smaller screens where horizontal scrolling is enabled
+@media only screen and (max-width: 1000px) {
+  #special_deals .btc {
+    opacity: 1;
+    pointer-events: auto;
+    
+    .btw {
+      width: 40px !important;
+      height: 40px !important;
+      min-width: 40px !important;
+      min-height: 40px !important;
+      max-width: 40px !important;
+      max-height: 40px !important;
+      border-radius: 50% !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+      flex-shrink: 0 !important;
+      flex-grow: 0 !important;
+      background-color: var(--primary-color, #007bff) !important;
+      color: white !important;
+      border: none !important;
+
+      &:hover {
+        transform: scale(1.1);
+        background-color: var(--primary-hover, #0056b3) !important;
+      }
+
+      &.swiper-button-disabled {
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(.75);
+      }
+
+      span {
+        width: 24px !important;
+        height: 24px !important;
+        min-width: 24px !important;
+        min-height: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        font-size: 18px !important;
+        flex-shrink: 0 !important;
+      }
+
+      span[icon-only="chevron_left"]::before {
+        content: "chevron_left" !important;
+        font-family: 'Material Icons' !important;
+        font-size: 20px !important;
+        font-weight: normal !important;
+      }
+
+      span[icon-only="chevron_right"]::before {
+        content: "chevron_right" !important;
+        font-family: 'Material Icons' !important;
+        font-size: 20px !important;
+        font-weight: normal !important;
+      }
+    }
+  }
+}
+
+// Hide buttons on very small screens
+@media only screen and (max-width: 600px) {
+  #special_deals .btc {
+    display: none;
   }
 }
 

@@ -415,6 +415,115 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Featured Items Swiper
     initializeFeaturedItemsSwiper();
 
+    // Initialize Special Deals Navigation
+    initializeSpecialDealsNavigation();
+
+    function initializeSpecialDealsNavigation() {
+        const swiperContainer = document.querySelector('#special_deals .list');
+        
+        if (!swiperContainer) {
+            console.log('Special deals container not found');
+            return;
+        }
+
+        // Scope the special_deals navigation buttons
+        const specialPrevBtn = document.querySelector('#special_deals .swiper-button-prev');
+        const specialNextBtn = document.querySelector('#special_deals .swiper-button-next');
+        const deals = Array.from(document.querySelectorAll('#special_deals .list a'));
+
+        if (!specialPrevBtn || !specialNextBtn) {
+            console.log('Special deals navigation buttons not found');
+            return;
+        }
+
+        // Helper to update button visibility based on scroll position
+        function updateSpecialButtons() {
+            const maxScroll = Math.max(0, swiperContainer.scrollWidth - swiperContainer.clientWidth);
+            const atStart = swiperContainer.scrollLeft <= 1;
+            const atEnd = swiperContainer.scrollLeft >= (maxScroll - 1);
+
+            // Show/hide buttons using swiper-button-disabled to preserve layout space
+            specialPrevBtn.classList.toggle('swiper-button-disabled', atStart);
+            specialNextBtn.classList.toggle('swiper-button-disabled', atEnd);
+            specialPrevBtn.setAttribute('aria-hidden', String(atStart));
+            specialNextBtn.setAttribute('aria-hidden', String(atEnd));
+
+            // Also reflect disabled and tabindex for accessibility
+            specialPrevBtn.setAttribute('aria-disabled', String(atStart));
+            specialPrevBtn.tabIndex = atStart ? -1 : 0;
+            specialNextBtn.setAttribute('aria-disabled', String(atEnd));
+            specialNextBtn.tabIndex = atEnd ? -1 : 0;
+        }
+
+        // Smooth scroll handler for special deals
+        function scrollSpecialDeals(direction) {
+            const scrollAmount = 300; // Adjust scroll distance as needed
+            const newScrollLeft = swiperContainer.scrollLeft + (direction * scrollAmount);
+            swiperContainer.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+        }
+
+        // Mouse drag scrolling
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        swiperContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            swiperContainer.style.cursor = 'grabbing';
+            startX = e.pageX - swiperContainer.offsetLeft;
+            scrollLeft = swiperContainer.scrollLeft;
+        });
+
+        swiperContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            swiperContainer.style.cursor = 'grab';
+        });
+
+        swiperContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            swiperContainer.style.cursor = 'grab';
+        });
+
+        swiperContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - swiperContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            swiperContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Attach click events to special_deals prev/next buttons
+        specialPrevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollSpecialDeals(-1);
+        });
+
+        specialNextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollSpecialDeals(1);
+        });
+
+        // Keep buttons state in sync while scrolling
+        let rafPending = false;
+        swiperContainer.addEventListener('scroll', () => {
+            if (rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(() => {
+                updateSpecialButtons();
+                rafPending = false;
+            });
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            updateSpecialButtons();
+        });
+
+        // Initial state (after layout)
+        requestAnimationFrame(updateSpecialButtons);
+
+        console.log('✅ Special deals navigation initialized');
+    }
+
     function initializeFeaturedItemsSwiper() {
         const swiperContainer = document.querySelector('#featured_items .list');
         

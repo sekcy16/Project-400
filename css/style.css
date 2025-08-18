@@ -2940,10 +2940,10 @@ li {
 }
 
 body {
-  --site-header-height: 120;
+  --site-header-height: 144;
   --global-nav-height: 48;
-  --VW: 1007;
-  --VH: 813;
+  --VW: 1440;
+  --VH: 809;
   --VWX: calc(var(--VW) * 1px);
   --VHX: calc(var(--VH) * 1px);
   --VWidth: var(--VWX, 100vw);
@@ -2965,6 +2965,21 @@ body {
   min-height: var(--VHeight);
 }
 
+@media only screen and (max-width: 1440px) {
+  body {
+    --MaxContentWidth: 106.666667em;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  body {
+    --MaxContentWidth: 83.333334em;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  body {
+    --MaxContentWidth: 100%;
+  }
+}
 @supports (width: 100dvw) {
   body {
     --VWidth: min(100dvw, var(--VWX, 100vw));
@@ -3132,15 +3147,73 @@ ul {
   transition: all 0.5s ease;
 }
 
+#home_cover {
+  overflow: hidden;
+}
+#home_cover > .inner {
+  width: 100%;
+  max-width: var(--MaxContentWidth);
+  margin-inline: auto;
+  padding: var(--home-spacing);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--home-spacing);
+}
+
+#home_cover > .inner {
+  width: 100%;
+  max-width: var(--MaxContentWidth);
+  margin-inline: auto;
+  padding: var(--home-spacing);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--home-spacing);
+}
+
 #special_deals {
   position: relative;
   touch-action: pan-y;
   width: 100%;
-  max-width: var(--MaxContentWidth);
-  margin-inline: auto;
-  padding-inline: var(--home-spacing);
-  box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
   padding-bottom: 25px;
+}
+@media (max-width: 1400px) {
+  #special_deals {
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 1280px) {
+  #special_deals {
+    max-width: 952px;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 1200px) {
+  #special_deals {
+    width: 90%;
+  }
+}
+@media (max-width: 1024px) {
+  #special_deals {
+    width: 92%;
+  }
+}
+@media (max-width: 768px) {
+  #special_deals {
+    width: 95%;
+    margin: 15px auto;
+  }
+}
+@media (max-width: 480px) {
+  #special_deals {
+    width: 98%;
+    margin: 10px auto;
+  }
 }
 
 #special_deals .title {
@@ -3159,8 +3232,11 @@ ul {
 
 #special_deals .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19em, 1fr));
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 1em;
+  width: 100%;
+  max-width: 100%;
 }
 
 #special_deals .list a {
@@ -3171,15 +3247,8 @@ ul {
   overflow: hidden;
   padding: 0;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-}
-#special_deals .list a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 #special_deals .list .item {
@@ -3189,7 +3258,8 @@ ul {
   background-repeat: repeat-x;
   background-position: -90% 0, center;
   background-size: 225% auto, cover;
-  display: flex;
+  display: grid;
+  grid-template-columns: 4.5em calc(100% - 5.5em);
   gap: 1em;
   align-items: center;
   padding: 1em;
@@ -3200,13 +3270,11 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.25em;
-  flex: 1;
 }
 
 #special_deals .list .item .img {
   width: 4.5em;
   height: 4.5em;
-  align-self: flex-start;
   border-radius: 1em;
   overflow: hidden;
   box-shadow: var(--color-img-bdc) 0 0 0 1px;
@@ -3320,6 +3388,183 @@ ul {
 @media only screen and (min-width: 1001px) {
   #special_deals .list {
     transform: none !important;
+  }
+}
+@media only screen and (min-width: 1001px) and (max-width: 1440px) {
+  #special_deals .list .swiper-slide {
+    width: 236px !important;
+    height: 114px;
+  }
+  #special_deals .list .swiper-slide .item {
+    height: 78px;
+    min-height: 78px;
+    padding: 0.75em;
+  }
+  #special_deals .list .swiper-slide .promo {
+    height: 36px;
+    min-height: 36px;
+    padding: 0.5em 1em;
+  }
+}
+@media only screen and (min-width: 1441px) {
+  #special_deals .list .swiper-slide {
+    width: 268.8px !important;
+    height: 114px;
+  }
+  #special_deals .list .swiper-slide .item {
+    height: 78px;
+    min-height: 78px;
+    padding: 0.75em;
+  }
+  #special_deals .list .swiper-slide .promo {
+    height: 36px;
+    min-height: 36px;
+    padding: 0.5em 1em;
+  }
+}
+@media only screen and (min-width: 1001px) and (max-width: 1280px) {
+  #special_deals .list a:nth-child(n+9) {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  #special_deals .list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #special_deals .list {
+    display: flex;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    gap: 0;
+    margin-inline: calc(var(--home-spacing) * -1);
+    padding-inline: var(--home-spacing);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  #special_deals .list::-webkit-scrollbar {
+    display: none;
+  }
+  #special_deals .list a {
+    flex: none;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 270px !important;
+    height: 114px !important;
+    margin-right: 1em;
+  }
+  #special_deals .list a:last-child {
+    margin-right: var(--home-spacing);
+  }
+  #special_deals .list a .item {
+    height: 78px !important;
+    min-height: 78px !important;
+    max-height: 78px !important;
+    padding: 0.5em !important;
+    overflow: hidden;
+  }
+  #special_deals .list a .promo {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0.25em 0.75em !important;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #special_deals .list a {
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #special_deals .list a {
+    width: 220px;
+  }
+}
+#special_deals {
+  position: relative;
+}
+#special_deals .btc {
+  position: absolute;
+  inset-inline: calc(var(--home-spacing) * -1 + 0.75em);
+  inset-block-start: 6em;
+  z-index: 1;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  #special_deals .btc {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #special_deals .btc .btw {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    background-color: var(--primary-color, #007bff) !important;
+    color: white !important;
+    border: none !important;
+  }
+  #special_deals .btc .btw:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-hover, #0056b3) !important;
+  }
+  #special_deals .btc .btw.swiper-button-disabled {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  #special_deals .btc .btw span {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    font-size: 18px !important;
+    flex-shrink: 0 !important;
+  }
+  #special_deals .btc .btw span[icon-only=chevron_left]::before {
+    content: "chevron_left" !important;
+    font-family: "Material Icons" !important;
+    font-size: 20px !important;
+    font-weight: normal !important;
+  }
+  #special_deals .btc .btw span[icon-only=chevron_right]::before {
+    content: "chevron_right" !important;
+    font-family: "Material Icons" !important;
+    font-size: 20px !important;
+    font-weight: normal !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #special_deals .btc {
+    display: none;
   }
 }
 .nav-link {
