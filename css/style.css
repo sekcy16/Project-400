@@ -1149,7 +1149,7 @@ body {
 
 .banner-section {
   position: relative;
-  width: 952px;
+  width: 1000px;
   max-width: 1400px;
   height: 360px;
   overflow: visible;
@@ -2991,11 +2991,20 @@ div {
   unicode-bidi: isolate;
 }
 
-menu, ol, ul {
+menu,
+ol,
+ul {
   padding-inline-start: 0;
 }
 
-h1, h2, h3, h4, h5, h6, ol, ul {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul {
   margin: 0;
 }
 
@@ -3183,14 +3192,13 @@ ul {
 @media (max-width: 1400px) {
   #special_deals {
     width: calc(100% - 40px);
-    max-width: 1200px;
     padding: 0 20px;
   }
 }
 @media (max-width: 1280px) {
   #special_deals {
     max-width: 952px;
-    padding: 0 10px;
+    padding: 0 0px;
   }
 }
 @media (max-width: 1200px) {
@@ -3200,7 +3208,7 @@ ul {
 }
 @media (max-width: 1024px) {
   #special_deals {
-    width: 92%;
+    width: 100%;
   }
 }
 @media (max-width: 768px) {
@@ -3305,7 +3313,8 @@ ul {
   padding: 0.75em 1em;
 }
 
-#special_deals .list .free, #special_deals .list .rate {
+#special_deals .list .free,
+#special_deals .list .rate {
   background-color: var(--text-color-promotion);
   color: var(--background-color-L3, #fff);
   min-width: 4.5em;
@@ -3372,7 +3381,8 @@ ul {
 }
 
 @media (prefers-color-scheme: dark) {
-  [data-game-theme], [data-item-theme] {
+  [data-game-theme],
+  [data-item-theme] {
     --d-r: 0;
     --d-g: 0;
     --d-b: 0;
@@ -3381,18 +3391,16 @@ ul {
     --d-l: 0%;
   }
 }
-#special_deals .list .swiper-slide {
-  width: auto !important;
-}
-
 @media only screen and (min-width: 1001px) {
   #special_deals .list {
     transform: none !important;
   }
+  #special_deals .btc {
+    display: none !important;
+  }
 }
 @media only screen and (min-width: 1001px) and (max-width: 1440px) {
   #special_deals .list .swiper-slide {
-    width: 236px !important;
     height: 114px;
   }
   #special_deals .list .swiper-slide .item {
@@ -3432,6 +3440,43 @@ ul {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
+  #special_deals .list a {
+    width: 270px !important;
+    height: 114px !important;
+    margin-right: 12px;
+  }
+  #special_deals .list a:last-child {
+    margin-right: 0;
+  }
+  #special_deals .list a .item {
+    height: 78px !important;
+    min-height: 78px !important;
+    max-height: 78px !important;
+    padding: 1em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .promo {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0.2em 0.6em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .item .content .name {
+    font-size: 0.75em !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+  }
+  #special_deals .list a .item .content .sku {
+    font-size: 0.8em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+  }
 }
 @media only screen and (max-width: 1000px) {
   #special_deals .list {
@@ -3439,8 +3484,6 @@ ul {
     grid-template-columns: none;
     grid-template-rows: none;
     gap: 0;
-    margin-inline: calc(var(--home-spacing) * -1);
-    padding-inline: var(--home-spacing);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -3456,34 +3499,120 @@ ul {
     scroll-snap-align: start;
     width: 270px !important;
     height: 114px !important;
-    margin-right: 1em;
+    margin-right: 12px;
   }
   #special_deals .list a:last-child {
     margin-right: var(--home-spacing);
   }
   #special_deals .list a .item {
-    height: 78px !important;
     min-height: 78px !important;
-    max-height: 78px !important;
-    padding: 0.5em !important;
-    overflow: hidden;
+    padding: 1em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .item .content .sku {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+    line-height: 1.2 !important;
+  }
+  #special_deals .list a .item .content .name {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+    line-height: 1.2 !important;
+    font-size: 0.75em !important;
   }
   #special_deals .list a .promo {
-    height: 36px !important;
     min-height: 36px !important;
-    max-height: 36px !important;
-    padding: 0.25em 0.75em !important;
-    overflow: hidden;
+    padding: 0.2em 0.6em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .promo .rate, #special_deals .list a .promo .price {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
 }
 @media only screen and (max-width: 768px) {
   #special_deals .list a {
-    width: 250px;
+    width: 270px !important;
+    height: 114px !important;
+    margin-right: 12px;
+  }
+  #special_deals .list a:last-child {
+    margin-right: var(--home-spacing);
+  }
+  #special_deals .list a .item {
+    padding: 0.3em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .item .content .name {
+    font-size: 0.7em !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+  }
+  #special_deals .list a .item .content .sku {
+    font-size: 0.75em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+  }
+  #special_deals .list a .promo {
+    padding: 0.15em 0.5em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .promo .rate,
+  #special_deals .list a .promo .price {
+    font-size: 0.75em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
 }
 @media only screen and (max-width: 480px) {
   #special_deals .list a {
-    width: 220px;
+    width: 270px !important;
+    height: 114px !important;
+    margin-right: 12px;
+  }
+  #special_deals .list a:last-child {
+    margin-right: var(--home-spacing);
+  }
+  #special_deals .list a .item {
+    padding: 0.25em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .item .content .name {
+    font-size: 0.65em !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+  }
+  #special_deals .list a .item .content .sku {
+    font-size: 0.7em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-wrap: break-word !important;
+  }
+  #special_deals .list a .promo {
+    padding: 0.1em 0.4em !important;
+    overflow: visible;
+  }
+  #special_deals .list a .promo .rate,
+  #special_deals .list a .promo .price {
+    font-size: 0.7em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
 }
 #special_deals {
@@ -3492,13 +3621,12 @@ ul {
 #special_deals .btc {
   position: absolute;
   inset-inline: calc(var(--home-spacing) * -1 + 0.75em);
-  inset-block-start: 6em;
+  inset-block-start: 10em;
   z-index: 1;
   height: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: opacity 0.3s, transform 0.3s;
   opacity: 0;
   pointer-events: none;
 }
@@ -3528,13 +3656,11 @@ ul {
     border: none !important;
   }
   #special_deals .btc .btw:hover {
-    transform: scale(1.1);
     background-color: var(--primary-hover, #0056b3) !important;
   }
   #special_deals .btc .btw.swiper-button-disabled {
     visibility: hidden;
     opacity: 0;
-    transform: scale(0.75);
   }
   #special_deals .btc .btw span {
     width: 24px !important;
@@ -4036,7 +4162,6 @@ ul {
     overflow-y: hidden !important;
     scroll-behavior: smooth !important;
     -webkit-overflow-scrolling: touch !important;
-    margin-inline: calc(var(--home-spacing) * -1) !important;
     padding-inline: var(--home-spacing) !important;
     cursor: grab;
     user-select: none;
@@ -4281,7 +4406,8 @@ li {
   margin-bottom: 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.topup-page .topup-instructions h3, .topup-page .topup-instructions h4,
+.topup-page .topup-instructions h3,
+.topup-page .topup-instructions h4,
 .topup-page .faq-section h3,
 .topup-page .faq-section h4,
 .topup-page .contact-section h3,
@@ -4301,7 +4427,8 @@ li {
 .topup-page .contact-section h4 {
   font-size: 1.3rem;
 }
-.topup-page .topup-instructions ol, .topup-page .topup-instructions ul,
+.topup-page .topup-instructions ol,
+.topup-page .topup-instructions ul,
 .topup-page .faq-section ol,
 .topup-page .faq-section ul,
 .topup-page .contact-section ol,
@@ -5771,7 +5898,8 @@ li {
 }
 
 /* Black button variant */
-.black, [color=black] {
+.black,
+[color=black] {
   --r: 0;
   --g: 0;
   --b: 0;
@@ -5781,7 +5909,8 @@ li {
   --hex: #000000;
 }
 
-.btw[color], [color] {
+.btw[color],
+[color] {
   --threshold: 0.72;
   --background-color: rgba(var(--r, 255) var(--g, 255) var(--b, 255) / var(--background-alpha, 1));
   --red: calc(var(--r) * 0.2126);
@@ -5827,7 +5956,9 @@ li {
   padding: calc((var(--CPT-UH) - var(--CPT-FS) * 2) / 2);
 }
 
-[icon-after]::after, [icon-only]::before, [icon]::before {
+[icon-after]::after,
+[icon-only]::before,
+[icon]::before {
   font-family: var(--IconFF);
   font-weight: 400;
   font-style: normal;

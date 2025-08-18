@@ -174,7 +174,7 @@ $z-header: 100;
   border-radius: 5px;
   cursor: pointer;
   transition: all $transition-fast;
-  
+
   &:hover {
     background: $primary-hover;
   }
@@ -220,15 +220,15 @@ body {
 }
 
 @media only screen and (max-width: 1280px) {
-    body {
-        --MaxContentWidth: 83.333334em;
-    }
+  body {
+    --MaxContentWidth: 83.333334em;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-    body {
-        --MaxContentWidth: 100%;
-    }
+  body {
+    --MaxContentWidth: 100%;
+  }
 }
 
 
@@ -244,11 +244,20 @@ div {
   unicode-bidi: isolate;
 }
 
-menu, ol, ul {
+menu,
+ol,
+ul {
   padding-inline-start: 0;
 }
 
-h1, h2, h3, h4, h5, h6, ol, ul {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul {
   margin: 0;
 }
 
@@ -376,6 +385,7 @@ ul {
     }
 
     @media (max-width: 768px) {
+
       .header-left,
       .header-right {
         transform: translateX(0);
@@ -383,6 +393,7 @@ ul {
     }
 
     @media (max-width: 480px) {
+
       .header-left,
       .header-right {
         transform: translateX(0);
@@ -423,7 +434,7 @@ ul {
 #home_cover {
   overflow: hidden;
 
-  > .inner {
+  >.inner {
     width: 100%;
     max-width: var(--MaxContentWidth);
     margin-inline: auto;
@@ -436,15 +447,14 @@ ul {
 }
 
 #home_cover>.inner {
-    width: 100%;
-    max-width: var(--MaxContentWidth);
-    margin-inline: auto;
-    padding: var(--home-spacing);
-    box-sizing: border-box;
-    display: flex
-;
-    flex-direction: column;
-    gap: var(--home-spacing);
+  width: 100%;
+  max-width: var(--MaxContentWidth);
+  margin-inline: auto;
+  padding: var(--home-spacing);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--home-spacing);
 }
 
 // ===== Special Deals Section =====
@@ -456,32 +466,31 @@ ul {
   max-width: 1400px; // Same as banner-section max-width
   margin: 0 auto; // Center align like banner-section
   padding-bottom: 25px;
-  
+
   // Responsive width matching banner-section
   @media (max-width: 1400px) {
     width: calc(100% - 40px);
-    max-width: 1200px;
     padding: 0 20px;
   }
-  
+
   @media (max-width: 1280px) {
     max-width: 952px;
-    padding: 0 10px;
+    padding: 0 0px;
   }
-  
+
   @media (max-width: 1200px) {
     width: 90%;
   }
-  
+
   @media (max-width: 1024px) {
-    width: 92%;
+    width: 100%;
   }
-  
+
   @media (max-width: 768px) {
     width: 95%;
     margin: 15px auto;
   }
-  
+
   @media (max-width: 480px) {
     width: 98%;
     margin: 10px auto;
@@ -523,7 +532,7 @@ ul {
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   text-decoration: none;
-  }
+}
 
 #special_deals .list .item {
   color: var(--color-text);
@@ -559,20 +568,20 @@ ul {
 
 
 #special_deals .list .item .sku {
-    font-weight: 800;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-weight: 800;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #special_deals .list .item .name {
-    font-size: .8em;
-    opacity: .75;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: .8em;
+  opacity: .75;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #special_deals .list .promo {
@@ -583,26 +592,27 @@ ul {
   padding: .75em 1em;
 }
 
-#special_deals .list .free, #special_deals .list .rate {
-    background-color: var(--text-color-promotion);
-    color: var(--background-color-L3, #fff);
-    min-width: 4.5em;
-    padding: 0 .5em;
-    box-sizing: border-box;
-    font-weight: 800;
-    text-align: center;
-    border-radius: 1em;
-    text-transform: uppercase;
+#special_deals .list .free,
+#special_deals .list .rate {
+  background-color: var(--text-color-promotion);
+  color: var(--background-color-L3, #fff);
+  min-width: 4.5em;
+  padding: 0 .5em;
+  box-sizing: border-box;
+  font-weight: 800;
+  text-align: center;
+  border-radius: 1em;
+  text-transform: uppercase;
 }
 
 #special_deals .list .price {
-    text-align: end;
+  text-align: end;
 }
 
 #special_deals .list .price b {
-    display: block;
-    font-weight: 800;
-    text-transform: uppercase;
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 
@@ -652,7 +662,9 @@ ul {
 }
 
 @media (prefers-color-scheme: dark) {
-  [data-game-theme], [data-item-theme] {
+
+  [data-game-theme],
+  [data-item-theme] {
     --d-r: 0;
     --d-g: 0;
     --d-b: 0;
@@ -662,30 +674,32 @@ ul {
   }
 }
 
-// Make Swiper slides behave as grid items
-#special_deals .list .swiper-slide {
-  width: auto !important;
-}
+
 
 // On desktop, prevent Swiper from shifting the grid wrapper
 @media only screen and (min-width: 1001px) {
   #special_deals .list {
     transform: none !important;
   }
+  
+  // ซ่อนปุ่มในจอใหญ่แบบไม่มี animation
+  #special_deals .btc {
+    display: none !important;
+  }
 }
 
 // Medium to large screen optimization for screens less than 1440px
 @media only screen and (min-width: 1001px) and (max-width: 1440px) {
   #special_deals .list .swiper-slide {
-    width: 236px !important;
+
     height: 114px;
-    
+
     .item {
       height: 78px; // 78px height for item
       min-height: 78px;
       padding: 0.75em; // Adjust padding for smaller height
     }
-    
+
     .promo {
       height: 36px; // 36px height for promo
       min-height: 36px;
@@ -699,13 +713,13 @@ ul {
   #special_deals .list .swiper-slide {
     width: 268.8px !important;
     height: 114px;
-    
+
     .item {
       height: 78px; // 78px height for item
       min-height: 78px;
       padding: 0.75em; // Adjust padding for smaller height
     }
-    
+
     .promo {
       height: 36px; // 36px height for promo
       min-height: 36px;
@@ -716,6 +730,7 @@ ul {
 
 // Responsive grid adjustments for special deals
 @media only screen and (min-width: 1001px) and (max-width: 1280px) {
+
   // Hide items beyond 8 for screen sizes between 1001px and 1280px
   #special_deals .list a:nth-child(n+9) {
     display: none;
@@ -727,6 +742,53 @@ ul {
   #special_deals .list {
     grid-template-columns: repeat(4, 1fr); // 4 columns for medium screens
     grid-template-rows: repeat(2, 1fr); // Still 2 rows
+
+    // Adjust swiper-slide size for screens smaller than 1281px
+    a {
+      width: 270px !important; // เพิ่มความกว้างเป็น 270px
+      height: 114px !important; // New fixed height
+      margin-right: 12px; // Add spacing between items
+      
+      &:last-child {
+        margin-right: 0; // Remove margin from last item for grid layout
+      }
+
+      .item {
+        height: 78px !important; // Adjust item height proportionally
+        min-height: 78px !important;
+        max-height: 78px !important;
+        padding: 1em !important; // Adjust padding for smaller width
+        overflow: visible; // Show all content
+      }
+
+      .promo {
+        height: 36px !important; // Keep promo height consistent
+        min-height: 36px !important;
+        max-height: 36px !important;
+        padding: 0.2em 0.6em !important; // Adjust padding for smaller width
+        overflow: visible; // Show all content
+      }
+
+      // Adjust content for smaller width
+      .item .content {
+        .name {
+          font-size: 0.75em !important; // Smaller font for better fit
+          line-height: 1.1 !important;
+          white-space: normal !important; // Allow text wrapping
+          overflow: visible !important;
+          text-overflow: clip !important;
+          word-wrap: break-word !important;
+        }
+
+        .sku {
+          font-size: 0.8em !important; // Adjust SKU font size
+          white-space: normal !important; // Allow text wrapping
+          overflow: visible !important;
+          text-overflow: clip !important;
+          word-wrap: break-word !important;
+        }
+      }
+    }
   }
 }
 
@@ -737,9 +799,9 @@ ul {
     grid-template-columns: none; // Remove grid
     grid-template-rows: none; // Remove grid
     gap: 0;
-    margin-inline: calc(var(--home-spacing) * -1);
-    padding-inline: var(--home-spacing);
-    overflow-x: auto;
+    // margin-inline: calc(var(--home-spacing) * -1);
+    // padding-inline: var(--home-spacing);
+    overflow-x: auto; // Enable horizontal scrolling
     scroll-snap-type: x mandatory;
     
     // Hide scrollbar for cleaner look
@@ -750,35 +812,55 @@ ul {
     &::-webkit-scrollbar {
       display: none; // Chrome, Safari, Opera
     }
+  }
+
+  #special_deals .list a {
+    flex: none;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 270px !important; // เพิ่มความกว้างเป็น 270px
+    height: 114px !important; // กำหนดความสูงเป็น 114px
+    margin-right: 12px; // Add spacing between items
     
-    // Make each item flex-shrink: 0 to maintain width
-    a {
-      flex: none;
-      flex-shrink: 0;
-      scroll-snap-align: start;
-      width: 270px !important; // Fixed width for consistent sizing
-      height: 114px !important; // Fixed height for consistent sizing
-      margin-right: 1em;
+    &:last-child {
+      margin-right: var(--home-spacing); // Extra margin for last item
+    }
+    
+    // Allow content to show fully
+    .item {
+      min-height: 78px !important;
+      padding: 1em !important;
+      overflow: visible; // Show all content
       
-      &:last-child {
-        margin-right: var(--home-spacing);
+      .content {
+        .sku {
+          white-space: normal !important; // Allow text wrapping
+          overflow: visible !important;
+          text-overflow: clip !important;
+          word-wrap: break-word !important;
+          line-height: 1.2 !important;
+        }
+        
+        .name {
+          white-space: normal !important; // Allow text wrapping
+          overflow: visible !important;
+          text-overflow: clip !important;
+          word-wrap: break-word !important;
+          line-height: 1.2 !important;
+          font-size: 0.75em !important;
+        }
       }
+    }
+    
+    .promo {
+      min-height: 36px !important;
+      padding: 0.2em 0.6em !important;
+      overflow: visible; // Show all content
       
-      // Ensure item and promo sections fit within the 114px height
-      .item {
-        height: 78px !important; // 78px height for item section
-        min-height: 78px !important;
-        max-height: 78px !important;
-        padding: 0.5em !important; // Reduced padding to fit
-        overflow: hidden;
-      }
-      
-      .promo {
-        height: 36px !important; // 36px height for promo section
-        min-height: 36px !important;
-        max-height: 36px !important;
-        padding: 0.25em 0.75em !important; // Reduced padding to fit
-        overflow: hidden;
+      .rate, .price {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
       }
     }
   }
@@ -787,7 +869,50 @@ ul {
 @media only screen and (max-width: 768px) {
   #special_deals .list {
     a {
-      width: 250px; // Smaller width for mobile
+      width: 270px !important; // เพิ่มความกว้างเป็น 270px
+      height: 114px !important; // Keep consistent height
+      margin-right: 12px; // Add spacing between items
+      
+      &:last-child {
+        margin-right: var(--home-spacing); // Extra margin for last item
+      }
+
+      .item {
+        padding: 0.3em !important; // Even smaller padding for mobile
+        overflow: visible; // Show all content
+
+        .content {
+          .name {
+            font-size: 0.7em !important; // Smaller text for mobile
+            line-height: 1.1 !important;
+            white-space: normal !important; // Allow text wrapping
+            overflow: visible !important;
+            text-overflow: clip !important;
+            word-wrap: break-word !important;
+          }
+
+          .sku {
+            font-size: 0.75em !important; // Adjust SKU size for mobile
+            white-space: normal !important; // Allow text wrapping
+            overflow: visible !important;
+            text-overflow: clip !important;
+            word-wrap: break-word !important;
+          }
+        }
+      }
+
+      .promo {
+        padding: 0.15em 0.5em !important; // Minimal padding for mobile
+        overflow: visible; // Show all content
+
+        .rate,
+        .price {
+          font-size: 0.75em !important; // Smaller promo text
+          white-space: normal !important;
+          overflow: visible !important;
+          text-overflow: clip !important;
+        }
+      }
     }
   }
 }
@@ -795,7 +920,50 @@ ul {
 @media only screen and (max-width: 480px) {
   #special_deals .list {
     a {
-      width: 220px; // Even smaller width for very small screens
+      width: 270px !important; // เพิ่มความกว้างเป็น 270px
+      height: 114px !important; // Keep consistent height
+      margin-right: 12px; // Add spacing between items
+      
+      &:last-child {
+        margin-right: var(--home-spacing); // Extra margin for last item
+      }
+
+      .item {
+        padding: 0.25em !important; // Minimal padding for very small screens
+        overflow: visible; // Show all content
+
+        .content {
+          .name {
+            font-size: 0.65em !important; // Very small text for tiny screens
+            line-height: 1.1 !important;
+            white-space: normal !important; // Allow text wrapping
+            overflow: visible !important;
+            text-overflow: clip !important;
+            word-wrap: break-word !important;
+          }
+
+          .sku {
+            font-size: 0.7em !important; // Very small SKU text
+            white-space: normal !important; // Allow text wrapping
+            overflow: visible !important;
+            text-overflow: clip !important;
+            word-wrap: break-word !important;
+          }
+        }
+      }
+
+      .promo {
+        padding: 0.1em 0.4em !important; // Minimal padding for very small screens
+        overflow: visible; // Show all content
+
+        .rate,
+        .price {
+          font-size: 0.7em !important; // Very small promo text
+          white-space: normal !important;
+          overflow: visible !important;
+          text-overflow: clip !important;
+        }
+      }
     }
   }
 }
@@ -803,18 +971,18 @@ ul {
 // Navigation buttons for special_deals
 #special_deals {
   position: relative;
-  
+
   .btc {
     position: absolute;
     inset-inline: calc(var(--home-spacing) * -1 + .75em);
-    inset-block-start: 6em; // Adjusted for special_deals layout
+    inset-block-start: 10em; // Adjusted for special_deals layout
     z-index: 1;
     height: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: opacity .3s, transform .3s;
-    
+    // ลบ transition ที่ทำให้ระเบิด
+
     // Hide by default, show only when scrolling is needed
     opacity: 0;
     pointer-events: none;
@@ -826,7 +994,7 @@ ul {
   #special_deals .btc {
     opacity: 1;
     pointer-events: auto;
-    
+
     .btw {
       width: 40px !important;
       height: 40px !important;
@@ -847,14 +1015,14 @@ ul {
       border: none !important;
 
       &:hover {
-        transform: scale(1.1);
+        // ลบ transform scale ที่ทำให้ระเบิด
         background-color: var(--primary-hover, #0056b3) !important;
       }
 
       &.swiper-button-disabled {
         visibility: hidden;
         opacity: 0;
-        transform: scale(.75);
+        // ลบ transform scale ที่ทำให้ระเบิด
       }
 
       span {
@@ -1049,9 +1217,11 @@ ul {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
+
   100% {
     transform: scale(1.1);
   }
@@ -1062,6 +1232,7 @@ ul {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -1072,6 +1243,7 @@ ul {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1221,7 +1393,7 @@ ul {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
     gap: 2rem;
-    grid-template-areas: 
+    grid-template-areas:
       "payment sns"
       "nav app"
       "copyright .";
@@ -1346,7 +1518,7 @@ ul {
 #home_items {
   overflow: hidden;
 
-  > .inner {
+  >.inner {
     width: 100%;
     max-width: var(--MaxContentWidth);
     margin-inline: auto;
@@ -1393,7 +1565,7 @@ ul {
       cursor: grabbing;
     }
 
-    > * {
+    >* {
       flex: 0 0 auto !important;
       min-width: min(85vw, 25em) !important;
       width: min(85vw, 25em) !important;
@@ -1411,7 +1583,7 @@ ul {
     overflow-y: hidden !important;
     scroll-behavior: smooth !important;
     -webkit-overflow-scrolling: touch !important;
-    margin-inline: calc(var(--home-spacing) * -1) !important;
+
     padding-inline: var(--home-spacing) !important;
     cursor: grab;
     user-select: none;
@@ -1427,7 +1599,7 @@ ul {
       cursor: grabbing;
     }
 
-    > * {
+    >* {
       flex: 0 0 auto !important;
       min-width: min(80vw, 40em) !important;
       width: min(80vw, 40em) !important;
@@ -1464,7 +1636,7 @@ ul {
       cursor: grabbing;
     }
 
-    > * {
+    >* {
       flex: 0 0 auto !important;
       min-width: min(95vw, 50em) !important;
       width: min(95vw, 50em) !important;
@@ -1480,7 +1652,7 @@ ul {
   gap: var(--itemlist-gap, 1.5em 2em);
   --W: 5em;
 
-  > li > a {
+  >li>a {
     color: currentColor;
     text-decoration: none;
     display: grid;
@@ -1606,7 +1778,7 @@ li {
     --itemlist-column: clamp(14em, calc(25vw - 2em), 16em);
     --itemlist-gap: var(--home-spacing);
 
-    > li > a {
+    >li>a {
       grid-template-columns: var(--W) calc(100% - var(--W) - 1.5em);
     }
 
@@ -1648,7 +1820,7 @@ li {
     margin-bottom: 10px;
   }
 
-  > .container > p {
+  >.container>p {
     text-align: center;
     font-size: 1.2rem;
     color: #666;
@@ -1695,7 +1867,8 @@ li {
     margin-bottom: 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-    h3, h4 {
+    h3,
+    h4 {
       color: #333;
       margin-bottom: 20px;
     }
@@ -1710,7 +1883,8 @@ li {
       font-size: 1.3rem;
     }
 
-    ol, ul {
+    ol,
+    ul {
       color: #666;
       line-height: 1.8;
       padding-left: 20px;
@@ -2260,7 +2434,8 @@ li {
     --padding-inline: calc(var(--CPT-FS) / 2);
   }
 
-  &[color], &[color] {
+  &[color],
+  &[color] {
     --threshold: 0.72;
     --background-color: rgba(var(--r, 255) var(--g, 255) var(--b, 255) / var(--background-alpha, 1));
     --red: calc(var(--r) * 0.2126);
@@ -2275,7 +2450,7 @@ li {
     --border-color: rgba(calc(var(--r) - 50), calc(var(--g) - 50), calc(var(--b) - 50), var(--border-alpha));
   }
 
-  > span {
+  >span {
     display: flex !important;
     justify-content: center !important;
     gap: calc(var(--CPT-FS) / 2) !important;
@@ -2302,8 +2477,8 @@ li {
 }
 
 // Material Icons Support
-[icon-after]::after, 
-[icon-only]::before, 
+[icon-after]::after,
+[icon-only]::before,
 [icon]::before {
   font-family: var(--IconFF) !important;
   font-weight: 400 !important;
@@ -2413,7 +2588,7 @@ li {
     max-width: 90%;
     padding: 0 15px;
   }
-  
+
   .search-box {
     width: 250px;
   }
@@ -2424,20 +2599,20 @@ li {
     max-width: 95%;
     padding: 0 10px;
   }
-  
+
   .main-header .container {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .header-left {
     gap: 20px;
   }
-  
+
   .header-right {
     gap: 15px;
   }
-  
+
   .search-box {
     width: 200px;
   }
@@ -2491,26 +2666,26 @@ li {
   // Footer responsive
   #site_footer .inner {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "payment"
       "sns"
       "nav"
       "app"
       "copyright";
   }
-  
+
   #footer_sns_wrp,
   #footer_app {
     justify-self: start;
   }
-  
+
   #footer_nav {
     flex-direction: column;
     gap: 1.5rem;
   }
 
   // Featured items responsive
-  #featured_items .list > * {
+  #featured_items .list>* {
     min-width: min(90vw, 20em) !important;
     width: min(90vw, 20em) !important;
   }
@@ -2521,12 +2696,12 @@ li {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .cards-page .category-sidebar,
   .games-page .category-sidebar {
     order: 2;
   }
-  
+
   .cards-page .games-content,
   .cards-page .cards-content,
   .games-page .games-content,
@@ -2587,21 +2762,21 @@ li {
   .container {
     padding: 0 8px;
   }
-  
+
   .main-header .container {
     padding: 0 15px;
   }
-  
+
   .header-left {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .search-box {
     width: 100%;
     max-width: 280px;
   }
-  
+
   .logo img {
     height: 35px;
   }
@@ -2676,11 +2851,11 @@ li {
   }
 
   // Featured items responsive
-  #featured_items .list > * {
+  #featured_items .list>* {
     min-width: min(95vw, 18em) !important;
     width: min(95vw, 18em) !important;
   }
-  
+
   #featured_items .list {
     gap: 1rem !important;
     margin-inline: calc(var(--home-spacing) * -0.5) !important;
@@ -2707,6 +2882,7 @@ li {
   }
 
   #game_main_section {
+
     .about-section,
     .card-list-section {
       h2 {
@@ -2745,13 +2921,13 @@ li {
     --itemlist-gap: 1rem;
     --W: 4em;
   }
-  
+
   #featured_items .list {
     grid-template-columns: 1fr;
   }
 
   // Hide excess items
-  #featured_items .ItemList > li:nth-child(n+3) {
+  #featured_items .ItemList>li:nth-child(n+3) {
     display: none;
   }
 }
@@ -2762,13 +2938,13 @@ li {
     --itemlist-gap: 1.5rem;
     --W: 4.5em;
   }
-  
+
   #featured_items .list {
     grid-template-columns: 1fr;
   }
 
   // Hide excess items
-  #featured_items .ItemList > li:nth-child(n+5) {
+  #featured_items .ItemList>li:nth-child(n+5) {
     display: none;
   }
 }
@@ -2781,7 +2957,7 @@ li {
   }
 
   // Hide excess items
-  #featured_items .ItemList > li:nth-child(n+7) {
+  #featured_items .ItemList>li:nth-child(n+7) {
     display: none;
   }
 }
@@ -2802,7 +2978,7 @@ li {
 
 /* จำกัดจำนวนแถวสำหรับหน้าจอน้อยกว่า 1441px ให้เหลือ 2 แถว */
 @media only screen and (max-width: 1440px) {
-  #featured_items .ItemList > li:nth-child(n+9) {
+  #featured_items .ItemList>li:nth-child(n+9) {
     display: none;
   }
 }
@@ -2863,6 +3039,7 @@ li {
 
 // Pages responsive for larger screens
 @media (max-width: 1200px) {
+
   .cards-page .container.page-layout,
   .games-page .container.page-layout {
     grid-template-columns: 280px 1fr;
@@ -2876,6 +3053,7 @@ li {
 }
 
 @media (max-width: 1024px) {
+
   .cards-page .container.page-layout,
   .games-page .container.page-layout {
     grid-template-columns: 260px 1fr;
@@ -2911,7 +3089,8 @@ li {
 }
 
 /* Black button variant */
-.black, [color=black] {
+.black,
+[color=black] {
   --r: 0;
   --g: 0;
   --b: 0;
@@ -2921,7 +3100,8 @@ li {
   --hex: #000000;
 }
 
-.btw[color], [color] {
+.btw[color],
+[color] {
   --threshold: 0.72;
   --background-color: rgba(var(--r, 255) var(--g, 255) var(--b, 255) / var(--background-alpha, 1));
   --red: calc(var(--r) * 0.2126);
@@ -2944,7 +3124,7 @@ li {
 }
 
 // Button Span Styles
-.btw > span {
+.btw>span {
   display: flex;
   justify-content: center;
   gap: calc(var(--CPT-FS) / 2);
@@ -2959,7 +3139,7 @@ li {
   box-sizing: border-box;
 }
 
-.btw > span[icon-only] {
+.btw>span[icon-only] {
   display: block;
   line-height: var(--CPT-UH);
   overflow: hidden;
@@ -2969,7 +3149,9 @@ li {
 }
 
 // Icon System
-[icon-after]::after, [icon-only]::before, [icon]::before {
+[icon-after]::after,
+[icon-only]::before,
+[icon]::before {
   font-family: var(--IconFF);
   font-weight: 400;
   font-style: normal;
@@ -2989,7 +3171,7 @@ li {
   -webkit-font-smoothing: antialiased;
 }
 
-.btw > span[icon-only]::before {
+.btw>span[icon-only]::before {
   content: attr(icon-only);
   flex: none;
   display: block;
@@ -3071,7 +3253,7 @@ li {
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #featured_items .btc {
     inset-inline: calc(var(--home-spacing) * -1 + 0.5em) !important;
-    
+
     .btw {
       width: 36px !important;
       height: 36px !important;
@@ -3087,7 +3269,7 @@ li {
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #featured_items .btc {
     inset-inline: calc(var(--home-spacing) * -1 + 0.5em) !important;
-    
+
     .btw {
       width: 36px !important;
       height: 36px !important;
@@ -3105,4 +3287,3 @@ li {
   --CPT-THM-S: 100%;
   --CPT-THM-L: 50%;
 }
-
