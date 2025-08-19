@@ -306,6 +306,15 @@ body {
     max-width: 1400px;
   }
 }
+@media (max-width: 1000px) {
+  .container, .main-content, .banner-section, .games-content, .cards-content {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
 @media (min-width: 769px) and (max-width: 1023px) {
   .main-header .container {
     flex-wrap: nowrap;
@@ -1909,8 +1918,22 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
+  #featured_items .list {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    margin-inline: calc(var(--home-spacing) * -1);
+    padding-inline: var(--home-spacing);
+  }
+  #featured_items .list::-webkit-scrollbar {
+    display: none;
+  }
   #featured_items .category {
-    flex: none;
+    flex: 0 0 380px;
+    scroll-snap-align: start;
     width: min(46em, var(--VWidth) - 6em);
     box-sizing: border-box;
     margin-right: 0;
@@ -2823,6 +2846,155 @@ li {
   }
   #game_main_section .about-section p {
     font-size: 1rem;
+  }
+}
+.news-promotion {
+  padding: 40px 0;
+}
+.news-promotion .news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 24px;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+.news-promotion .news-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+.news-promotion .news-header a {
+  font-size: 14px;
+  color: #00aaff;
+  text-decoration: none;
+}
+.news-promotion .news-header a i {
+  margin-left: 6px;
+}
+.news-promotion .news-header a:hover {
+  text-decoration: underline;
+}
+.news-promotion .news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  max-width: 1430px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.news-promotion .news-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.news-promotion .news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.news-promotion .news-card h3 {
+  font-size: 15px;
+  color: #fff;
+  padding: 12px;
+  margin: 0;
+}
+.news-promotion .news-card:hover {
+  transform: translateY(-4px);
+}
+.news-promotion .news-card:hover img {
+  transform: scale(1.05);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 20px 25px;
+  max-width: 1430px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.cards-container .card {
+  background-color: #2a2e2e;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.cards-container .card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.cards-container .card:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+.cards-container .card .card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cards-container .card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+.cards-container .card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #ccc;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .news-promotion .news-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+  .news-promotion .news-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .news-promotion .news-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+  }
+  .cards-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    margin-inline: calc(var(--home-spacing) * 1);
+    padding-inline: var(--home-spacing);
+  }
+  .cards-container::-webkit-scrollbar {
+    display: none;
+  }
+  .cards-container .card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
   }
 }
 :root {
@@ -4122,95 +4294,29 @@ ul {
   gap: var(--home-spacing);
 }
 
-/* Responsive Swiper Layout สำหรับหน้าจอน้อยกว่า 640px */
+@media only screen and (max-width: 1000px) {
+  #featured_items .list {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    margin-inline: calc(var(--home-spacing) * -1);
+    padding-inline: var(--home-spacing);
+  }
+  #featured_items .list::-webkit-scrollbar {
+    display: none;
+  }
+  #featured_items .category {
+    flex: 0 0 380px;
+    scroll-snap-align: start;
+  }
+}
 @media only screen and (max-width: 640px) {
-  #featured_items .list {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: var(--home-spacing) !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
-    margin-inline: calc(var(--home-spacing) * -1) !important;
-    padding-inline: var(--home-spacing) !important;
-    cursor: grab;
-    user-select: none;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  #featured_items .list::-webkit-scrollbar {
-    display: none;
-  }
-  #featured_items .list:active {
-    cursor: grabbing;
-  }
-  #featured_items .list > * {
-    flex: 0 0 auto !important;
-    min-width: min(85vw, 25em) !important;
-    width: min(85vw, 25em) !important;
-    scroll-snap-align: start;
-  }
-}
-/* Responsive สำหรับหน้าจอขนาดกลาง 641px-1000px */
-@media only screen and (min-width: 641px) and (max-width: 1000px) {
-  #featured_items .list {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding-inline: var(--home-spacing) !important;
-    cursor: grab;
-    user-select: none;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  #featured_items .list::-webkit-scrollbar {
-    display: none;
-  }
-  #featured_items .list:active {
-    cursor: grabbing;
-  }
-  #featured_items .list > * {
-    flex: 0 0 auto !important;
-    min-width: min(80vw, 40em) !important;
-    width: min(80vw, 40em) !important;
-    scroll-snap-align: start;
-  }
-}
-/* Responsive สำหรับ Desktop จอเล็ก-กลาง 1201px-1400px */
-@media only screen and (min-width: 640) and (max-width: 1000px) {
-  #featured_items .list {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: var(--home-spacing) !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
-    margin-inline: calc(var(--home-spacing) * -1) !important;
-    padding-inline: var(--home-spacing) !important;
-    cursor: grab;
-    user-select: none;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  #featured_items .list::-webkit-scrollbar {
-    display: none;
-  }
-  #featured_items .list:active {
-    cursor: grabbing;
-  }
-  #featured_items .list > * {
-    flex: 0 0 auto !important;
-    min-width: min(95vw, 50em) !important;
-    width: min(95vw, 50em) !important;
-    scroll-snap-align: start;
+  #featured_items .category {
+    width: min(22.5em, var(--VWidth) - 6em);
+    flex: 0 0 min(22.5em, var(--VWidth) - 6em);
   }
 }
 .ItemList {
@@ -5714,14 +5820,22 @@ li {
     flex-direction: column;
     gap: 1rem;
   }
-  #featured_items .list > * {
-    min-width: min(95vw, 18em) !important;
-    width: min(95vw, 18em) !important;
-  }
   #featured_items .list {
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
     gap: 1rem !important;
     margin-inline: calc(var(--home-spacing) * -0.5) !important;
     padding-inline: calc(var(--home-spacing) * 0.5) !important;
+  }
+  #featured_items .list::-webkit-scrollbar {
+    display: none;
+  }
+  #featured_items .list > * {
+    min-width: min(95vw, 18em) !important;
+    width: min(95vw, 18em) !important;
+    flex: 0 0 min(95vw, 18em) !important;
+    scroll-snap-align: start !important;
   }
   .cards-page,
   .games-page {
@@ -5785,11 +5899,9 @@ li {
     display: none;
   }
 }
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1001px) {
   #featured_items .ItemList {
     --itemlist-column: 15em;
-    --itemlist-gap: 1.5rem;
-    --W: 4.5em;
   }
   #featured_items .ItemList > li:nth-child(n+7) {
     display: none;
@@ -5816,7 +5928,6 @@ li {
 @media only screen and (min-width: 1001px) {
   #featured_items .list {
     transform: none !important;
-    grid-template-columns: repeat(auto-fill, minmax(min(30em, 45vw), 1fr));
   }
   #featured_items .btc {
     display: none !important;
@@ -5894,37 +6005,6 @@ li {
     grid-template-columns: repeat(5, 1fr) !important;
   }
 }
-@media only screen and (min-width: 1001px) and (max-width: 1400px) {
-  #featured_items .list {
-    grid-template-columns: repeat(2, 1fr) !important;
-    max-width: 100%;
-    overflow: hidden;
-    gap: 1em;
-  }
-  #featured_items .category {
-    max-width: 100%;
-    padding: 1em;
-    margin: 0 !important;
-  }
-  #featured_items .ItemList {
-    --itemlist-column: 100%;
-    --itemlist-gap: 1em;
-    --W: 4em;
-  }
-  #home_items > .inner {
-    margin-inline: auto !important;
-    max-width: var(--MaxContentWidth) !important;
-    padding-inline: var(--home-spacing) !important;
-  }
-  #special_deals {
-    margin: 0 auto !important;
-    max-width: var(--MaxContentWidth) !important;
-    padding-inline: var(--home-spacing) !important;
-  }
-  #featured_items .ItemList > li:nth-child(n+5) {
-    display: none;
-  }
-}
 @media only screen and (max-width: 480px) {
   #featured_items .btc {
     display: none !important;
@@ -5933,6 +6013,11 @@ li {
 @media only screen and (max-width: 1280px) {
   #featured_items .list {
     gap: 1em;
+    grid-template-columns: repeat(2, 475px);
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    padding-inline: var(--home-spacing);
   }
 }
 #featured_items .title h2 {

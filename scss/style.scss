@@ -13,6 +13,7 @@
 @use 'games' as *;
 @use 'pages' as *;
 @use 'dark-ecommerce' as *;
+@use 'news-cards' as *;
 
 // ===== 1. CSS Custom Properties =====
 :root {
@@ -1514,6 +1515,8 @@ ul {
   border-top: 1px solid rgba($white, 0.1);
 }
 
+
+
 // ===== 10. Home Items Section =====
 #home_items {
   overflow: hidden;
@@ -1538,112 +1541,36 @@ ul {
   }
 }
 
-// ===== 11. Responsive Layout for Featured Items =====
-/* Responsive Swiper Layout สำหรับหน้าจอน้อยกว่า 640px */
+@media only screen and (max-width: 1000px) {
+    #featured_items .list {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 10px;
+      margin-inline: calc(var(--home-spacing) * -1);
+      padding-inline: var(--home-spacing);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    #featured_items .category {
+      flex: 0 0 380px;
+      scroll-snap-align: start;
+    }
+}
+
 @media only screen and (max-width: 640px) {
-  #featured_items .list {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: var(--home-spacing) !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
-    margin-inline: calc(var(--home-spacing) * -1) !important;
-    padding-inline: var(--home-spacing) !important;
-    cursor: grab;
-    user-select: none;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
+    #featured_items .category {
+        width: min(22.5em, calc(var(--VWidth) - 6em));
+        flex: 0 0 min(22.5em, calc(var(--VWidth) - 6em));
     }
-
-    &:active {
-      cursor: grabbing;
-    }
-
-    >* {
-      flex: 0 0 auto !important;
-      min-width: min(85vw, 25em) !important;
-      width: min(85vw, 25em) !important;
-      scroll-snap-align: start;
-    }
-  }
-}
-
-/* Responsive สำหรับหน้าจอขนาดกลาง 641px-1000px */
-@media only screen and (min-width: 641px) and (max-width: 1000px) {
-  #featured_items .list {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
-
-    padding-inline: var(--home-spacing) !important;
-    cursor: grab;
-    user-select: none;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    &:active {
-      cursor: grabbing;
-    }
-
-    >* {
-      flex: 0 0 auto !important;
-      min-width: min(80vw, 40em) !important;
-      width: min(80vw, 40em) !important;
-      scroll-snap-align: start;
-    }
-  }
 }
 
 
-
-/* Responsive สำหรับ Desktop จอเล็ก-กลาง 1201px-1400px */
-@media only screen and (min-width: 640) and (max-width: 1000px) {
-  #featured_items .list {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: var(--home-spacing) !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth !important;
-    -webkit-overflow-scrolling: touch !important;
-    margin-inline: calc(var(--home-spacing) * -1) !important;
-    padding-inline: var(--home-spacing) !important;
-    cursor: grab;
-    user-select: none;
-    scroll-snap-type: x mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    &:active {
-      cursor: grabbing;
-    }
-
-    >* {
-      flex: 0 0 auto !important;
-      min-width: min(95vw, 50em) !important;
-      width: min(95vw, 50em) !important;
-      scroll-snap-align: start;
-    }
-  }
-}
 
 // ===== 12. Item List Styles =====
 .ItemList {
@@ -2850,16 +2777,25 @@ li {
     gap: 1rem;
   }
 
-  // Featured items responsive
-  #featured_items .list>* {
-    min-width: min(95vw, 18em) !important;
-    width: min(95vw, 18em) !important;
-  }
-
+  // Featured items responsive  
   #featured_items .list {
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
     gap: 1rem !important;
     margin-inline: calc(var(--home-spacing) * -0.5) !important;
     padding-inline: calc(var(--home-spacing) * 0.5) !important;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  #featured_items .list>* {
+    min-width: min(95vw, 18em) !important;
+    width: min(95vw, 18em) !important;
+    flex: 0 0 min(95vw, 18em) !important;
+    scroll-snap-align: start !important;
   }
 
   // Pages responsive
@@ -2949,14 +2885,12 @@ li {
   }
 }
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1001px) {
   #featured_items .ItemList {
     --itemlist-column: 15em;
-    --itemlist-gap: 1.5rem;
-    --W: 4.5em;
   }
 
-  // Hide excess items
+  
   #featured_items .ItemList>li:nth-child(n+7) {
     display: none;
   }
@@ -2986,8 +2920,6 @@ li {
 @media only screen and (min-width: 1001px) {
   #featured_items .list {
     transform: none !important;
-    // Fix overflow issue for 1001px-1280px range
-    grid-template-columns: repeat(auto-fill, minmax(min(30em, 45vw), 1fr));
   }
 
   #featured_items .btc {
@@ -3091,45 +3023,6 @@ li {
   }
 }
 
-// Specific rule for 1001px-1400px to show only 4 items in 2x2 grid and maintain alignment
-@media only screen and (min-width: 1001px) and (max-width: 1400px) {
-  #featured_items .list {
-    grid-template-columns: repeat(2, 1fr) !important; // Force exactly 2 columns
-    max-width: 100%;
-    overflow: hidden; // Prevent any overflow
-    gap: 1em; // Reduce gap between items
-  }
-  
-  #featured_items .category {
-    max-width: 100%;
-    padding: 1em; // Reduce padding
-    margin: 0 !important; // Remove auto margins to use full width
-  }
-  
-  #featured_items .ItemList {
-    --itemlist-column: 100%; // Force full width within each grid cell
-    --itemlist-gap: 1em; // Reduce gap
-    --W: 4em; // Reduce image size
-  }
-  
-  // Match the home_items container alignment
-  #home_items > .inner {
-    margin-inline: auto !important; // Keep auto margins to match other sections
-    max-width: var(--MaxContentWidth) !important; // Match the content width
-    padding-inline: var(--home-spacing) !important; // Match the padding
-  }
-  
-  // Remove auto margins from special_deals section but keep same width as home_items
-  #special_deals {
-    margin: 0 auto !important; // Keep auto margins to match home_items alignment
-    max-width: var(--MaxContentWidth) !important; // Match the content width
-    padding-inline: var(--home-spacing) !important; // Match the padding
-  }
-  
-  #featured_items .ItemList > li:nth-child(n+5) {
-    display: none;
-  }
-}
 
 // Hide navigation buttons on screens smaller than 481px
 @media only screen and (max-width: 480px) {
@@ -3141,6 +3034,11 @@ li {
 @media only screen and (max-width: 1280px) {
   #featured_items .list {
     gap: 1em;
+    grid-template-columns: repeat(2, 475px);
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    padding-inline: var(--home-spacing);
   }
 }
 

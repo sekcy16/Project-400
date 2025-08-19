@@ -359,6 +359,17 @@
     }
 }
 
+// Fix content overflow for screens smaller than 1001px
+@media (max-width: 1000px) {
+    .container, .main-content, .banner-section, .games-content, .cards-content {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
 // Medium screens (between tablet and desktop)
 @media (min-width: 769px) and (max-width: 1023px) {
     .main-header {
