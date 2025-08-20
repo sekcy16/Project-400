@@ -3111,6 +3111,12 @@ li {
   box-sizing: border-box;
 }
 
+html {
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden !important;
+}
+
 body {
   --site-header-height: 144;
   --global-nav-height: 48;
@@ -3135,6 +3141,7 @@ body {
   justify-content: flex-start;
   min-width: 320px;
   min-height: var(--VHeight);
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -3150,6 +3157,10 @@ body {
 @media only screen and (max-width: 1000px) {
   body {
     --MaxContentWidth: 100%;
+    --home-spacing: 10px;
+  }
+  .inner {
+    padding-right: 0px !important;
   }
 }
 @supports (width: 100dvw) {
@@ -3331,6 +3342,11 @@ ul {
 #home_cover {
   overflow: hidden;
 }
+@media only screen and (max-width: 1000px) {
+  #home_cover {
+    overflow: visible;
+  }
+}
 #home_cover > .inner {
   width: 100%;
   max-width: var(--MaxContentWidth);
@@ -3385,7 +3401,7 @@ ul {
 }
 @media (max-width: 768px) {
   #special_deals {
-    width: 95%;
+    width: 100%;
     margin: 15px auto;
   }
 }
@@ -5624,7 +5640,7 @@ li {
 }
 @media only screen and (max-width: 1024px) {
   .container {
-    max-width: 90%;
+    max-width: 98%;
     padding: 0 15px;
   }
   .search-box {
@@ -5633,7 +5649,7 @@ li {
 }
 @media only screen and (max-width: 768px) {
   .container {
-    max-width: 95%;
+    max-width: 100%;
     padding: 0 10px;
   }
   .main-header .container {

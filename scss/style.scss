@@ -188,6 +188,12 @@ $z-header: 100;
   box-sizing: border-box;
 }
 
+html {
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden !important; // Prevent horizontal scroll
+}
+
 body {
   --site-header-height: 144;
   --global-nav-height: 48;
@@ -212,6 +218,7 @@ body {
   justify-content: flex-start;
   min-width: 320px;
   min-height: var(--VHeight);
+  overflow-x: hidden; // Prevent horizontal scrolling on smaller screens
 }
 
 @media only screen and (max-width: 1440px) {
@@ -229,6 +236,12 @@ body {
 @media only screen and (max-width: 1000px) {
   body {
     --MaxContentWidth: 100%;
+    --home-spacing: 10px; // Reduce spacing on smaller screens to minimize gaps
+  }
+  
+  // Reduce padding for all .inner containers to minimize right-side gap
+  .inner {
+    padding-right: 0px !important; // Minimal right padding
   }
 }
 
@@ -435,6 +448,11 @@ ul {
 #home_cover {
   overflow: hidden;
 
+  // Allow special_deals to overflow on smaller screens for horizontal scrolling
+  @media only screen and (max-width: 1000px) {
+    overflow: visible;
+  }
+
   >.inner {
     width: 100%;
     max-width: var(--MaxContentWidth);
@@ -488,7 +506,7 @@ ul {
   }
 
   @media (max-width: 768px) {
-    width: 95%;
+    width: 100%;
     margin: 15px auto;
   }
 
@@ -2512,7 +2530,7 @@ li {
 // Container responsive styles
 @media only screen and (max-width: 1024px) {
   .container {
-    max-width: 90%;
+    max-width: 98%; // Use more available space instead of 90%
     padding: 0 15px;
   }
 
@@ -2523,7 +2541,7 @@ li {
 
 @media only screen and (max-width: 768px) {
   .container {
-    max-width: 95%;
+    max-width: 100%; // Use full available space instead of 95%
     padding: 0 10px;
   }
 
