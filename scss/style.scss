@@ -993,7 +993,7 @@ ul {
 
   .btc {
     position: absolute;
-    inset-inline: calc(var(--home-spacing) * -1 + .75em);
+    inset-inline: calc(var(--home-spacing) * 0 + .75em);
     inset-block-start: 10em; // Adjusted for special_deals layout
     z-index: 1;
     height: 0;
@@ -1076,7 +1076,7 @@ ul {
 }
 
 // Hide buttons on very small screens
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
   #special_deals .btc {
     display: none;
   }
@@ -1559,32 +1559,50 @@ ul {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1000px) and (min-width: 641px) {
     #featured_items .list {
       display: flex;
-      overflow-x: auto;
+      overflow-x: auto; 
       gap: 16px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 10px;
-      margin-inline: calc(var(--home-spacing) * -1);
+      margin-inline: calc(var(--home-spacing) * 0);
       padding-inline: var(--home-spacing);
-
+      
       &::-webkit-scrollbar {
         display: none;
       }
     }
 
     #featured_items .category {
-      flex: 0 0 380px;
+      flex: 0 0 552px;
+      width: 552px;
+      height: 414px;
       scroll-snap-align: start;
     }
 }
 
 @media only screen and (max-width: 640px) {
+    #featured_items .list {
+      display: flex;
+      overflow-x: auto; 
+      gap: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 10px;
+      margin-inline: calc(var(--home-spacing) * 0);
+      padding-inline: var(--home-spacing);
+      
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
     #featured_items .category {
         width: min(22.5em, calc(var(--VWidth) - 6em));
         flex: 0 0 min(22.5em, calc(var(--VWidth) - 6em));
+        scroll-snap-align: start;
     }
 }
 
@@ -2872,8 +2890,7 @@ li {
 @media only screen and (max-width: 480px) {
   #featured_items .ItemList {
     --itemlist-column: 100%;
-    --itemlist-gap: 1rem;
-    --W: 4em;
+    --itemlist-gap: 10px;
   }
 
   #featured_items .list {
@@ -2881,26 +2898,22 @@ li {
   }
 
   // Hide excess items
-  #featured_items .ItemList>li:nth-child(n+3) {
+  #featured_items .ItemList>li:nth-child(n+10) {
     display: none;
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #featured_items .ItemList {
-    --itemlist-column: 45%;
-    --itemlist-gap: 1.5rem;
-    --W: 4.5em;
+    --itemlist-column: 15em;
+   
   }
 
   #featured_items .list {
     grid-template-columns: 1fr;
   }
 
-  // Hide excess items
-  #featured_items .ItemList>li:nth-child(n+5) {
-    display: none;
-  }
+  // Show all items - removed limit
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1001px) {
@@ -2909,7 +2922,7 @@ li {
   }
 
   
-  #featured_items .ItemList>li:nth-child(n+7) {
+  #featured_items .ItemList>li:nth-child(n+9) {
     display: none;
   }
 }
@@ -3049,7 +3062,7 @@ li {
   }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (min-width: 1001px) and (max-width: 1280px) {
   #featured_items .list {
     gap: 1em;
     grid-template-columns: repeat(2, 475px);
@@ -3084,6 +3097,11 @@ li {
     width: 2em;
     height: 2em;
     display: block;
+    
+    // Hide text content
+    font-size: 0;
+    text-indent: -9999px;
+    overflow: hidden;
   }
 }
 
@@ -3239,7 +3257,7 @@ li {
   // Featured Items Navigation Buttons Specific Styles
   #featured_items .btc {
     position: absolute;
-    inset-inline: calc(var(--home-spacing) * -1 + 0.75em);
+    inset-inline: calc(var(--home-spacing) * 0 + 0.75em);
     inset-block-start: 3em;
     z-index: 1;
     height: 0;
@@ -3302,34 +3320,19 @@ li {
 // Additional responsive adjustment for tablet landscape
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   #featured_items .btc {
-    inset-inline: calc(var(--home-spacing) * -1 + 0.5em) !important;
+    inset-inline: calc(var(--home-spacing) * 0 + 0.5em) !important;
 
     .btw {
-      width: 36px !important;
-      height: 36px !important;
-      min-width: 36px !important;
-      min-height: 36px !important;
-      max-width: 36px !important;
-      max-height: 36px !important;
+      width: 40px !important;
+      height: 40px !important;
+      min-width: 40px !important;
+      min-height: 40px !important;
+      max-width: 40px !important;
+      max-height: 40px !important;
     }
   }
 }
 
-// Additional responsive adjustment for tablet landscape
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  #featured_items .btc {
-    inset-inline: calc(var(--home-spacing) * -1 + 0.5em) !important;
-
-    .btw {
-      width: 36px !important;
-      height: 36px !important;
-      min-width: 36px !important;
-      min-height: 36px !important;
-      max-width: 36px !important;
-      max-height: 36px !important;
-    }
-  }
-}
 
 // Additional CSS Custom Properties for Theme
 :root {

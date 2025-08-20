@@ -1,14 +1,17 @@
 // News & Promotion Section
 .news-promotion {
-  padding: 40px 0;
+  width: 100%;
+  max-width: var(--MaxContentWidth);
+  margin-inline: auto;
+  padding-inline: var(--home-spacing);
+  padding-block: var(--home-spacing);
+  box-sizing: border-box;
 
   .news-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto 24px;
-    max-width: 1200px;
-    padding: 0 20px;
 
     h2 {
       font-size: 20px;
@@ -35,14 +38,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 20px;
-    max-width: 1430px;
-    margin: 0 auto;
-    padding: 0 20px;
   }
 
   .news-card {
     background: #1a1a1a;
-    border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s;
 
@@ -51,21 +50,71 @@
       height: 180px;
       object-fit: cover;
       display: block;
+      border-radius: 10px;
       transition: transform 0.3s ease;
     }
 
     h3 {
       font-size: 15px;
       color: #fff;
-      padding: 12px;
+      padding-top: 12px;
       margin: 0;
     }
+  }
+}
 
-    &:hover {
-      transform: translateY(-4px);
+// Media queries for different screen sizes
+@media (min-width: 1001px) and (max-width: 1280px) {
+  .news-promotion {
+    .news-header {
+        max-width: calc(916px + 3em) ;
+        margin: 0 auto ;
+        padding-left: 0 ;
+        padding-right: 0 ;
+        padding-bottom: 20px;
+    }
+
+    .news-grid {
+      grid-template-columns: repeat(3, 310px);
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .news-card {
+      img {
+        height: 140px;
+      }
+    }
+  }
+
+  .cards-container {
+  max-width: calc(2 * 482px + 20px + 20px + 25px); // 2 columns + 2 padding + 1 gap
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .news-promotion {
+    .news-grid {
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    }
+  }
+}
+
+@media (min-width: 1441px) {
+  .news-promotion {
+    .news-grid {
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    }
+
+    .news-card {
+      width: 330px;
 
       img {
-        transform: scale(1.05);
+        height: 165px;
       }
     }
   }
@@ -78,7 +127,7 @@
   grid-auto-rows: 1fr;
   gap: 20px 25px;
   max-width: 1430px;
-  margin: 40px auto;
+  margin: 10px auto;
   padding: 0 20px;
   box-sizing: border-box;
   width: 100%;
@@ -90,19 +139,13 @@
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    
 
     img {
       width: 120px;
       height: 120px;
       object-fit: contain;
       flex-shrink: 0;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    &:hover img {
-      transform: scale(1.1);
-      filter: brightness(1.2);
     }
 
     .card-content {
@@ -132,7 +175,18 @@
   }
 }
 
-// Responsive for News & Promotion
+
+
+@media (max-width: 1280px) {
+  .news-promotion {
+    .news-grid {
+      .news-card:nth-child(n+7) {
+        display: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 1000px) {
   .news-promotion {
     .news-grid {
@@ -149,8 +203,13 @@
     }
 
     .news-card {
-      flex: 0 0 280px;
+      flex: 0 0 290px;
+      height: 193px;
       scroll-snap-align: start;
+
+      img {
+        height: 145px;
+      }
     }
   }
 
