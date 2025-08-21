@@ -63,74 +63,16 @@
   }
 }
 
-// Media queries for different screen sizes
-@media (min-width: 1001px) and (max-width: 1280px) {
-  .news-promotion {
-    .news-header {
-        max-width: calc(916px + 3em) ;
-        margin: 0 auto ;
-        padding-left: 0 ;
-        padding-right: 0 ;
-        padding-bottom: 20px;
-    }
-
-    .news-grid {
-      grid-template-columns: repeat(3, 310px);
-      gap: 16px;
-      justify-content: center;
-    }
-
-    .news-card {
-      img {
-        height: 140px;
-      }
-    }
-  }
-
-  .cards-container {
-  max-width: calc(2 * 482px + 20px + 20px + 25px); // 2 columns + 2 padding + 1 gap
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-}
-
-@media (min-width: 1281px) and (max-width: 1440px) {
-  .news-promotion {
-    .news-grid {
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    }
-  }
-}
-
-@media (min-width: 1441px) {
-  .news-promotion {
-    .news-grid {
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    }
-
-    .news-card {
-      width: 330px;
-
-      img {
-        height: 165px;
-      }
-    }
-  }
-}
-
 // Cards Container Section
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 20px 25px;
-  max-width: 1430px;
-  margin: 10px auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-  width: 100%;
+    max-width: var(--MaxContentWidth);
+    margin-inline: auto;
+    padding-inline: var(--home-spacing);
+    padding-block: var(--home-spacing);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 
   .card {
     background-color: #2a2e2e;
@@ -140,7 +82,6 @@
     align-items: flex-start;
     gap: 15px;
     
-
     img {
       width: 120px;
       height: 120px;
@@ -175,7 +116,72 @@
   }
 }
 
+// Media queries for different screen sizes
+@media (min-width: 1001px) and (max-width: 1280px) {
+  .news-promotion {
+    .news-header {
+        max-width: calc(916px + 3em) ;
+        margin: 0 auto ;
+        padding-left: 0 ;
+        padding-right: 0 ;
+        padding-bottom: 20px;
+    }
 
+    .news-grid {
+      grid-template-columns: repeat(3, 310px);
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .news-card {
+      img {
+        height: 140px;
+      }
+    }
+  }
+
+  .cards-container {
+    max-width: calc(2 * 482px + 20px + 20px + 25px); // 2 columns + 2 padding + 1 gap
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .news-promotion {
+    .news-grid {
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    }
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1441px) {
+  .news-promotion {
+    .news-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: calc(4 * 330px + 3 * 20px); // 4 columns + 3 gaps
+      margin: 0 auto;
+    }
+
+    .news-card {
+      img {
+        height: 165px;
+      }
+    }
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 1280px) {
   .news-promotion {
@@ -188,27 +194,33 @@
 }
 
 @media (max-width: 1000px) {
-  .news-promotion {
-    .news-grid {
-      display: flex;
-      overflow-x: auto;
-      gap: 16px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 10px;
+.news-promotion {
+    .news-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
 
-      &::-webkit-scrollbar {
-        display: none;
+      h2 {
+        margin-bottom: 0;
       }
-    }
 
-    .news-card {
-      flex: 0 0 290px;
-      height: 193px;
-      scroll-snap-align: start;
+      .news-sub {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
 
-      img {
-        height: 145px;
+        h4 {
+          margin: 0;
+          font-size: 14px;
+          color: #ccc;
+        }
+
+        a {
+         flex-shrink: 0;
+        }
       }
     }
   }
@@ -223,7 +235,6 @@
     margin-inline: calc(var(--home-spacing) * 1);
     padding-inline: var(--home-spacing);
     
-
     &::-webkit-scrollbar {
       display: none;
     }

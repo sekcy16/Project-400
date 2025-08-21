@@ -1397,141 +1397,7 @@ ul {
   }
 }
 
-// ===== 9. Footer Styles =====
-#site_footer {
-  margin-top: 4rem;
-  padding: 2rem 0;
-  color: $white;
 
-  .inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 2rem;
-    grid-template-areas:
-      "payment sns"
-      "nav app"
-      "copyright .";
-
-    &::before {
-      content: "";
-      display: block;
-      height: 1px;
-      position: absolute;
-      inset-inline: 0;
-      inset-block-start: 0;
-      margin: 0 2em;
-      background: var(--body-text-color-a5, rgba(0, 0, 0, 0.05));
-    }
-  }
-}
-
-#footer_payment_wrp {
-  grid-area: payment;
-
-  .channel_list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-
-    a {
-      @include flex-start;
-      gap: 0.5rem;
-      color: $white;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    img {
-      border-radius: 4px;
-    }
-  }
-}
-
-#footer_sns_wrp {
-  grid-area: sns;
-  justify-self: end;
-
-  h3 {
-    color: $white;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-}
-
-#footer_sns {
-  .sns_list {
-    display: flex;
-    gap: 1rem;
-
-    a {
-      color: $gray-medium;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color $transition-fast ease;
-
-      &:hover {
-        color: $white;
-      }
-    }
-  }
-}
-
-#footer_nav_wrp {
-  grid-area: nav;
-}
-
-#footer_nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3em;
-
-  dl {
-    margin: 0;
-  }
-
-  dt {
-    color: $white;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-
-  dd {
-    margin: 0 0 0.5rem 0;
-
-    a {
-      color: $gray-medium;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color $transition-fast ease;
-
-      &:hover {
-        color: $white;
-      }
-    }
-  }
-}
-
-#footer_app {
-  grid-area: app;
-  justify-self: end;
-  align-self: start;
-}
-
-#footer_copyright {
-  grid-area: copyright;
-  color: #999999;
-  font-size: 0.8rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba($white, 0.1);
-}
 
 
 
@@ -2504,39 +2370,7 @@ li {
   }
 }
 
-/* Force 120em for 1440px screens */
-@media only screen and (min-width: 1440px) and (max-width: 1440px) {
-  body {
-    --MaxContentWidth: 120em !important;
-    --home-spacing: 2em !important;
-  }
-}
 
-/* Additional override for any conflicting styles */
-@media only screen and (min-width: 1200px) {
-  body {
-    --MaxContentWidth: 120em !important;
-  }
-}
-
-/* Force override for specific problematic breakpoints */
-@media only screen and (min-width: 1000px) {
-  body {
-    --MaxContentWidth: 120em !important;
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  body {
-    --MaxContentWidth: 120em !important;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  body {
-    --MaxContentWidth: 120em !important;
-  }
-}
 
 @media only screen and (max-width: 1920px) {
   body {
@@ -2626,26 +2460,6 @@ li {
     }
   }
 
-  // Footer responsive
-  #site_footer .inner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "payment"
-      "sns"
-      "nav"
-      "app"
-      "copyright";
-  }
-
-  #footer_sns_wrp,
-  #footer_app {
-    justify-self: start;
-  }
-
-  #footer_nav {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
 
   // Featured items responsive
   #featured_items .list>* {
@@ -2807,11 +2621,6 @@ li {
     width: 100%;
   }
 
-  // Footer responsive
-  #footer_nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
 
   // Featured items responsive  
   #featured_items .list {
@@ -3333,6 +3142,76 @@ li {
   }
 }
 
+// Brand Icons Support System
+span[icon-brand] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1em !important;
+  height: 1em !important;
+  line-height: 1 !important;
+  font-size: inherit !important;
+
+  &::before {
+    font-family: 'Font Awesome 6 Brands' !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    display: inline-block !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-feature-settings: 'liga' !important;
+    -webkit-font-feature-settings: 'liga' !important;
+  }
+
+  // Brand icon Unicode mappings
+  &[icon-brand="facebook"]::before {
+    content: "\f39e"; // fa-facebook-f
+  }
+
+  &[icon-brand="twitter"]::before {
+    content: "\f099"; // fa-twitter
+  }
+
+  &[icon-brand="youtube"]::before {
+    content: "\f167"; // fa-youtube
+  }
+
+  &[icon-brand="instagram"]::before {
+    content: "\f16d"; // fa-instagram
+  }
+
+  &[icon-brand="linkedin"]::before {
+    content: "\f0e1"; // fa-linkedin-in
+  }
+
+  &[icon-brand="twitch"]::before {
+    content: "\f1e8"; // fa-twitch
+  }
+
+  &[icon-brand="reddit"]::before {
+    content: "\f281"; // fa-reddit-alien
+  }
+
+  &[icon-brand="github"]::before {
+    content: "\f09b"; // fa-github
+  }
+
+  &[icon-brand="discord"]::before {
+    content: "\f392"; // fa-discord
+  }
+
+  &[icon-brand="telegram"]::before {
+    content: "\f2c6"; // fa-telegram
+  }
+
+  &[icon-brand="tiktok"]::before {
+    content: "\e07b"; // fa-tiktok
+  }
+
+  &[icon-brand="whatsapp"]::before {
+    content: "\f232"; // fa-whatsapp
+  }
+}
 
 // Additional CSS Custom Properties for Theme
 :root {

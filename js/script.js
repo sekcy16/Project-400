@@ -661,4 +661,87 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('✅ Featured items swiper initialized');
     }
+
+    // News Promotion Slider
+    const newsPromotionSection = document.querySelector('.news-promotion');
+    if (newsPromotionSection) {
+        const newsGrid = newsPromotionSection.querySelector('.news-grid');
+        const newsPrevBtn = newsPromotionSection.querySelector('.swiper-button-prev');
+        const newsNextBtn = newsPromotionSection.querySelector('.swiper-button-next');
+
+        if (newsGrid && newsPrevBtn && newsNextBtn) {
+            const scrollAmount = 340; // Width of one card plus gap
+
+            newsPrevBtn.addEventListener('click', () => {
+                newsGrid.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            newsNextBtn.addEventListener('click', () => {
+                newsGrid.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Update button states
+            function updateNewsButtons() {
+                const scrollLeft = newsGrid.scrollLeft;
+                const scrollWidth = newsGrid.scrollWidth;
+                const clientWidth = newsGrid.clientWidth;
+
+                newsPrevBtn.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
+                newsNextBtn.style.opacity = scrollLeft >= scrollWidth - clientWidth ? '0.5' : '1';
+            }
+
+            newsGrid.addEventListener('scroll', updateNewsButtons);
+            window.addEventListener('resize', updateNewsButtons);
+            updateNewsButtons();
+
+            console.log('✅ News promotion slider initialized');
+        }
+    }
+
+    // Cards Container Slider
+    const cardsContainerSection = document.querySelector('.cards-container');
+    if (cardsContainerSection) {
+        const cardsPrevBtn = cardsContainerSection.querySelector('.swiper-button-prev');
+        const cardsNextBtn = cardsContainerSection.querySelector('.swiper-button-next');
+
+        if (cardsPrevBtn && cardsNextBtn) {
+            const scrollAmount = 300; // Width of one card plus gap
+
+            cardsPrevBtn.addEventListener('click', () => {
+                cardsContainerSection.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            cardsNextBtn.addEventListener('click', () => {
+                cardsContainerSection.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Update button states
+            function updateCardsButtons() {
+                const scrollLeft = cardsContainerSection.scrollLeft;
+                const scrollWidth = cardsContainerSection.scrollWidth;
+                const clientWidth = cardsContainerSection.clientWidth;
+
+                cardsPrevBtn.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
+                cardsNextBtn.style.opacity = scrollLeft >= scrollWidth - clientWidth ? '0.5' : '1';
+            }
+
+            cardsContainerSection.addEventListener('scroll', updateCardsButtons);
+            window.addEventListener('resize', updateCardsButtons);
+            updateCardsButtons();
+
+            console.log('✅ Cards container slider initialized');
+        }
+    }
 });
