@@ -21,7 +21,7 @@ const specialDealsData = [
     title: "EA App • KEY",
     sku: "Battlefield 2042 PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/battlefield-2042-pc/7a882745aa1a482892ad2aa7",
-    discount: "10.0%",
+    discount: "81.0%",
     link: "#"
   },
   {
@@ -29,7 +29,7 @@ const specialDealsData = [
     title: "Steam • Key • GLOBAL",
     sku: "Warhammer 40,000: Space Marine 2 PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/warhammer-40000-space-marine-2-pc/85b81c1357dd497384071daf",
-    discount: "25.0%",
+    discount: "41.0%",
     link: "#"
   },
   {
@@ -37,7 +37,7 @@ const specialDealsData = [
     title: "Microsoft • Key • GLOBAL",
     sku: "Microsoft Windows 11 Home - PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/microsoft-windows-11-home-pc/170274206c1e4db397c4668e",
-    discount: "5.0%",
+    discount: "81.0%",
     link: "#"
   },
   {
@@ -45,7 +45,7 @@ const specialDealsData = [
     title: "Steam • Key • GLOBAL",
     sku: "Total War: THREE KINGDOMS Royal Edition PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/total-war-three-kingdoms-royal-edition-pc/428c0b9fe6f544558d563252",
-    discount: "18.0%",
+    discount: "52.0%",
     link: "#"
   },
   {
@@ -53,7 +53,7 @@ const specialDealsData = [
     title: "Microsoft Store • Key • GLOBAL",
     sku: "Minecraft: Java & Bedrock Edition Java & Bedrock Edition PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/minecraft-java-and-bedrock-edition-java-and-bedrock-edition-pc/b2b8cb146e9447d9af4613dd",
-    discount: "12.0%",
+    discount: "81.0%",
     link: "#"
   },
   {
@@ -61,7 +61,7 @@ const specialDealsData = [
     title: "RockStar • Key • GLOBAL",
     sku: "Grand Theft Auto V Enhanced PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/grand-theft-auto-v-enhanced-pc/59e5efeb5bafe304c4426c47",
-    discount: "8.0%",
+    discount: "77.0%",
     link: "#"
   },
   {
@@ -69,7 +69,7 @@ const specialDealsData = [
     title: "Steam • Gift • GLOBAL",
     sku: "Project Zomboid PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/project-zomboid-pc/5911ec31ae653ab87820ee42",
-    discount: "7.0%",
+    discount: "62.0%",
     link: "#"
   },
   {
@@ -77,7 +77,7 @@ const specialDealsData = [
     title: "Steam • Key • GLOBAL",
     sku: "Squad Commander Edition PC",
     image: "https://images.g2a.com/uiadminimages/170x226/1x1x0/squad-commander-edition-pc/5912cc4fae653a844f6059b1",
-    discount: "30.0%",
+    discount: "34.0%",
     link: "#"
   }
 ];
