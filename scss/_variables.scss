@@ -8,6 +8,16 @@ $gray-light: #f5f5f5;
 $gray-medium: #cccccc;
 $gray-dark: #666666;
 
+// Theme colors (Blue theme for buttons)
+:root {
+  --CPT-THM-R: 0;
+  --CPT-THM-G: 170;
+  --CPT-THM-B: 255;
+  --CPT-THM-H: 207;
+  --CPT-THM-S: 100%;
+  --CPT-THM-L: 50%;
+}
+
 // Header colors
 $header-bg: #293032;
 $header-border: #343b3c;

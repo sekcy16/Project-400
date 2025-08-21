@@ -5,15 +5,20 @@
 .global-header {
     background-color: $header-bg;
     color: $white;
-    padding: $spacing-sm 0;
-    font-size: $font-size-base;
+    padding: 8px 0;
+    font-size: 14px;
     border-bottom: 2px solid $header-border;
+    position: absolute;
+    top: 0; // Position at the very top
+    width: 100%; // Full width
+    left: 0; // Align to left edge
+    z-index: $z-header + 1; // Higher z-index than main header
 
     .container {
         @include flex-between;
         
         @media (max-width: 768px) {
-            flex-direction: column;
+            flex-direction: row;
             gap: $spacing-md;
             padding: $spacing-sm $spacing-md;
         }
@@ -27,6 +32,11 @@
         display: flex;
         gap: $spacing-xl;
         
+        // Hide on screens under 1001px and replace with cube icon
+        @media (max-width: 1000px) {
+            display: none;
+        }
+        
         @media (max-width: 768px) {
             gap: $spacing-md;
             flex-wrap: wrap;
@@ -39,9 +49,88 @@
         }
     }
 
+    // Rubik's cube icon for mobile/tablet
+    &-cube-menu {
+        display: none;
+        cursor: pointer;
+        padding: $spacing-xs $spacing-md;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+
+        @media (max-width: 1000px) {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &:hover {
+            background-color: rgba($white, 0.1);
+        }
+
+        i {
+            font-size: 16px;
+            color: $white;
+        }
+    }
+
+    // Dropdown menu for cube icon
+    &-dropdown {
+        position: absolute;
+        top: 100%; // Position directly below the global header
+        left: 0;
+        right: 0;
+        background: hsl(0 0% 15%); // Dark grey almost black
+        display: none;
+        z-index: $z-header + 2;
+        width: 100%;
+        margin: 0; // Remove any default margins
+        
+        &.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        // Diamond pointer that appears when dropdown is active - positioned under cube icon
+        &.active::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 20px; // Position near the left side where cube icon is
+            transform: rotate(45deg);
+            width: 16px;
+            height: 16px;
+            background: hsl(0 0% 15%); // Same dark grey as dropdown
+            border-top: 2px solid $header-border;
+            border-left: 2px solid $header-border;
+            z-index: $z-header + 3;
+        }
+
+        .dropdown-content {
+            @include flex-between;
+            padding: $spacing-xl $spacing-lg; // Increased vertical padding from $spacing-md to $spacing-xl
+            flex-wrap: wrap;
+            gap: $spacing-md;
+            margin: 0; // Remove any default margins
+        }
+
+        .dropdown-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $spacing-lg;
+            
+            .global-link {
+                color: $white; // White text for dark background
+                
+                &:hover {
+                    background-color: rgba($white, 0.1);
+                    color: $white;
+                }
+            }
+        }
+    }
+
     &-right {
-        display: flex;
-        align-items: center;
+        @include flex-start;
         
         @media (max-width: 768px) {
             justify-content: center;
@@ -50,13 +139,14 @@
 }
 
 .global-link {
-    @include link-base;
+    text-decoration: none;
+    transition: all $transition-fast;
     color: $white;
     padding: $spacing-xs $spacing-md;
-    border-radius: $border-radius-sm;
-    white-space: nowrap;
+    border-radius: 3px;
 
     &:hover {
+        text-decoration: none;
         background-color: rgba($white, 0.1);
     }
     
@@ -68,22 +158,21 @@
 
 .country-selector {
     @include flex-start;
-    gap: $spacing-sm;
+    gap: 8px;
     cursor: pointer;
     padding: $spacing-xs $spacing-md;
-    border-radius: $border-radius-sm;
-    white-space: nowrap;
+    border-radius: 3px;
 
     &:hover {
         background-color: rgba($white, 0.1);
     }
 
     i {
-        font-size: $font-size-base;
+        font-size: 14px;
     }
 
     span {
-        font-size: $font-size-base;
+        font-size: 14px;
         
         @media (max-width: 480px) {
             font-size: 0.9rem;
@@ -93,5 +182,17 @@
     @media (max-width: 480px) {
         padding: $spacing-xs $spacing-sm;
         gap: $spacing-xs;
+    }
+}
+
+// Animations for global header dropdown
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

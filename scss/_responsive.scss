@@ -19,8 +19,10 @@
     }
 }
 
-// Tablet responsive styles
+// Tablet responsive styles - Header styles commented out to use _main-header.scss and _global-header.scss instead
 @include tablet {
+    // Commented out global-header and main-header styles to avoid conflicts
+    /*
     .global-header {
         .container {
             flex-direction: row;
@@ -79,6 +81,7 @@
         max-width: 350px;
         min-width: 200px;
     }
+    */
     
     .banner-section {
         width: 95%;
@@ -121,6 +124,8 @@
         max-width: 100%;
     }
     
+    // Commented out all header styles to avoid conflict with mobile navigation system
+    /*
     .global-header {
         &-left {
             flex-direction: row;
@@ -134,7 +139,10 @@
             }
         }
     }
+    */
     
+    // Commented out main-header styles to avoid conflict with mobile navigation system
+    /*
     .main-header {
         padding: $spacing-sm 0;
         
@@ -192,6 +200,7 @@
             padding: $spacing-sm $spacing-md;
         }
     }
+    */
     
     .banner-section {
         width: 95%;

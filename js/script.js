@@ -24,6 +24,71 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Initializing navbar animation...'); // Debug log
     initializeNavbarAnimation();
 
+    // Initialize News Grid Navigation
+    initializeNewsGridNavigation();
+
+    function initializeNewsGridNavigation() {
+        const newsGrid = document.querySelector('.news-promotion .news-grid');
+        const prevBtn = document.querySelector('.news-promotion .swiper-button-prev');
+        const nextBtn = document.querySelector('.news-promotion .swiper-button-next');
+        
+        if (!newsGrid || !prevBtn || !nextBtn) {
+            console.log('News grid navigation elements not found');
+            return;
+        }
+
+        const scrollAmount = 320; // Width of one card plus gap
+        
+        function updateButtonStates() {
+            const scrollLeft = newsGrid.scrollLeft;
+            const maxScroll = newsGrid.scrollWidth - newsGrid.clientWidth;
+            
+            // Show/hide buttons based on scroll position
+            if (scrollLeft <= 0) {
+                // At the beginning - hide left button, show right button
+                prevBtn.classList.add('hidden');
+                nextBtn.classList.remove('hidden');
+            } else if (scrollLeft >= maxScroll - 1) {
+                // At the end - show left button, hide right button  
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden');
+            } else {
+                // In the middle - show both buttons
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+            }
+        }
+
+        // Initial button state (start with only right button visible)
+        prevBtn.classList.add('hidden');
+        nextBtn.classList.remove('hidden');
+        
+        // Update button states after a short delay to ensure proper initialization
+        setTimeout(updateButtonStates, 100);
+
+        // Previous button click
+        prevBtn.addEventListener('click', function() {
+            newsGrid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Next button click
+        nextBtn.addEventListener('click', function() {
+            newsGrid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update button states on scroll
+        newsGrid.addEventListener('scroll', updateButtonStates);
+        
+        // Update button states on window resize
+        window.addEventListener('resize', updateButtonStates);
+    }
+
     function initializeBannerSlider() {
     
     let currentSlide = 0;
@@ -273,8 +338,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function handleNavbarScroll() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const shouldBeScrolled = scrollTop > 100;
+            const shouldBeScrolled = scrollTop > 10; // Reduced from 100 to 10 for immediate response
             console.log('📊 Scroll position:', scrollTop, 'Should be scrolled:', shouldBeScrolled); // Debug log
+            
+            // Close global dropdown when scrolling
+            closeGlobalDropdown();
             
             if (shouldBeScrolled !== isScrolled) {
                 isScrolled = shouldBeScrolled;
@@ -743,5 +811,152 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('✅ Cards container slider initialized');
         }
+    }
+});
+
+// Helper function to reset main header position properly
+function resetMainHeaderPosition() {
+    const mainHeader = document.querySelector('.main-header');
+    if (mainHeader) {
+        // Remove any inline styles that might override CSS
+        mainHeader.style.top = '';
+        mainHeader.style.transition = '';
+        
+        // Let CSS handle the positioning based on scrolled class
+        console.log('🔄 Main header position reset to CSS defaults');
+    }
+}
+
+// Helper function to close global dropdown and reset header
+function closeGlobalDropdown() {
+    const dropdown = document.getElementById('globalDropdown');
+    if (dropdown && dropdown.classList.contains('active')) {
+        dropdown.classList.remove('active');
+        resetMainHeaderPosition();
+        console.log('📤 Global dropdown closed and header reset');
+    }
+}
+
+// Global functions for mobile menu toggles
+function toggleGlobalDropdown() {
+    const dropdown = document.getElementById('globalDropdown');
+    const mainHeader = document.querySelector('.main-header');
+    
+    if (dropdown) {
+        dropdown.classList.toggle('active');
+        
+        // Adjust main header position based on dropdown state
+        if (dropdown.classList.contains('active')) {
+            // Calculate dropdown height and adjust main header
+            const dropdownHeight = dropdown.offsetHeight;
+            const globalHeaderHeight = 40; // Standard global header height
+            const newTopPosition = globalHeaderHeight + dropdownHeight;
+            
+            if (mainHeader) {
+                // Only adjust if not in scrolled state
+                if (!mainHeader.classList.contains('scrolled')) {
+                    mainHeader.style.top = `${newTopPosition}px`;
+                    mainHeader.style.transition = 'top 0.3s ease';
+                } else {
+                    // If scrolled, position relative to top
+                    mainHeader.style.top = `${dropdownHeight}px`;
+                    mainHeader.style.transition = 'top 0.3s ease';
+                }
+            }
+        } else {
+            // Reset main header position
+            resetMainHeaderPosition();
+        }
+    }
+}
+
+function toggleMobileDropdown(element) {
+    // Find the dropdown arrow and the dropdown menu
+    const arrow = element;
+    const navDropdownHeader = arrow.closest('.nav-dropdown-header');
+    const dropdown = navDropdownHeader.nextElementSibling; // The dropdown is after the header
+    const parentNavItem = arrow.closest('.nav-dropdown'); // Get the li.nav-dropdown
+    
+    if (dropdown && dropdown.classList.contains('mobile-dropdown')) {
+        const isActive = dropdown.classList.contains('active');
+        
+        // Close all other dropdowns in mobile nav
+        const allDropdowns = document.querySelectorAll('.mobile-dropdown');
+        const allArrows = document.querySelectorAll('.nav-dropdown .dropdown-arrow');
+        const allParentNavItems = document.querySelectorAll('.nav-dropdown');
+        
+        allDropdowns.forEach(dd => dd.classList.remove('active'));
+        allArrows.forEach(arr => arr.classList.remove('active'));
+        allParentNavItems.forEach(parent => parent.classList.remove('dropdown-active'));
+        
+        // Toggle current dropdown
+        if (!isActive) {
+            dropdown.classList.add('active');
+            arrow.classList.add('active');
+            parentNavItem.classList.add('dropdown-active'); // Highlight parent nav item
+        }
+    }
+}
+
+function closeMobileDropdowns() {
+    const allDropdowns = document.querySelectorAll('.mobile-dropdown');
+    const allArrows = document.querySelectorAll('.nav-dropdown .dropdown-arrow');
+    const allParentNavItems = document.querySelectorAll('.nav-dropdown');
+    
+    allDropdowns.forEach(dd => dd.classList.remove('active'));
+    allArrows.forEach(arr => arr.classList.remove('active'));
+    allParentNavItems.forEach(parent => parent.classList.remove('dropdown-active'));
+}
+
+function toggleMobileNav() {
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('mobileNavOverlay');
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    
+    if (mobileNav && overlay && hamburgerIcon) {
+        const isActive = mobileNav.classList.contains('active');
+        
+        if (isActive) {
+            // Close menu
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburgerIcon.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        } else {
+            // Open menu
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            hamburgerIcon.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const globalDropdown = document.getElementById('globalDropdown');
+    const cubeMenu = document.querySelector('.global-header-cube-menu');
+    
+    // Close global dropdown if clicking outside
+    if (globalDropdown && !cubeMenu.contains(e.target) && !globalDropdown.contains(e.target)) {
+        closeGlobalDropdown();
+    }
+});
+
+// Close mobile menu on window resize if screen becomes large
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 1000) {
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('mobileNavOverlay');
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        
+        if (mobileNav) mobileNav.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.classList.remove('active');
+        
+        // Close global dropdown and reset header
+        closeGlobalDropdown();
+        
+        document.body.style.overflow = 'auto';
     }
 });

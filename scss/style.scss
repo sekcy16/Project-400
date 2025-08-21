@@ -219,6 +219,7 @@ body {
   min-width: 320px;
   min-height: var(--VHeight);
   overflow-x: hidden; // Prevent horizontal scrolling on smaller screens
+  padding-top: 120px; // Add padding to compensate for both fixed headers (global ~40px + main ~80px)
 }
 
 @media only screen and (max-width: 1440px) {
@@ -291,27 +292,7 @@ ul {
   padding: 0 20px;
 }
 
-// ===== 6. Global Header =====
-.global-header {
-  background-color: $header-bg;
-  color: $white;
-  padding: 8px 0;
-  font-size: 14px;
-  border-bottom: 2px solid $header-border;
-
-  .container {
-    @include flex-between;
-  }
-
-  &-left {
-    display: flex;
-    gap: $spacing-xl;
-  }
-
-  &-right {
-    @include flex-start;
-  }
-}
+// Header styles are now in dedicated files: _global-header.scss and _main-header.scss
 
 .global-link {
   text-decoration: none;
@@ -346,76 +327,7 @@ ul {
   }
 }
 
-// ===== 7. Main Header =====
-.main-header {
-  background-color: $header-bg;
-  @include card-shadow;
-  padding: $spacing-lg 0;
-  position: sticky;
-  top: 0;
-  z-index: $z-header;
-  border-top: 1px solid $header-border;
-  transition: all $transition-medium ease;
-
-  .container {
-    @include flex-between;
-    transition: all $transition-medium ease;
-  }
-
-  &.scrolled {
-    background-color: rgba($header-bg, 0.95);
-    backdrop-filter: blur(10px);
-
-    .header-left {
-      transform: translateX(0);
-    }
-
-    .header-right {
-      transform: translateX(0);
-    }
-
-    .logo img {
-      content: url("https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F90f5112d0a01477c9add933bda67c5e8");
-    }
-
-    @media (min-width: 1570px) {
-      .header-left {
-        transform: translateX(-100px);
-      }
-
-      .header-right {
-        transform: translateX(100px);
-      }
-    }
-
-    @media (min-width: 1920px) {
-      .header-left {
-        transform: translateX(-250px);
-      }
-
-      .header-right {
-        transform: translateX(250px);
-      }
-    }
-
-    @media (max-width: 768px) {
-
-      .header-left,
-      .header-right {
-        transform: translateX(0);
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      .header-left,
-      .header-right {
-        transform: translateX(0);
-      }
-    }
-  }
-}
-
+// Header components are now managed in dedicated files
 .header-left {
   @include flex-start;
   gap: $spacing-xxl;
@@ -429,6 +341,33 @@ ul {
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+}
+
+// Show scroll logo by default on screens 1001-1280px
+@media (min-width: 1001px) and (max-width: 1280px) {
+  .logo img {
+    content: url("https://cdn.builder.io/api/v1/image/assets%2Fe12b532e063c4412a1a4def250f89020%2F90f5112d0a01477c9add933bda67c5e8") !important;
+  }
+  
+  // Center the entire header containers while keeping internal layout
+  .global-header .container,
+  .main-header .container {
+    max-width: 952px; // Match banner width for alignment
+    margin: 0 auto; // Center the container
+    padding: 0 20px; // Maintain padding
+  }
+  
+  // Ensure scrolled state works properly in this range
+  .main-header.scrolled {
+    background-color: rgba($header-bg, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    
+    .container {
+      max-width: 952px; // Maintain centered width when scrolled
+      margin: 0 auto;
+      padding: 0 20px;
     }
   }
 }
@@ -1104,50 +1043,7 @@ ul {
   transition: all $transition-medium ease;
 }
 
-.search-box {
-  display: flex;
-  background-color: $gray-light;
-  border-radius: 25px;
-  padding: 5px;
-  width: 300px;
-  transition: all $transition-medium ease;
-
-  &:focus-within {
-    box-shadow: 0 0 0 2px rgba($primary-color, 0.3);
-  }
-
-  input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 8px $spacing-lg;
-    outline: none;
-    font-size: 14px;
-
-    &::placeholder {
-      color: $gray-dark;
-    }
-  }
-
-  button {
-    border: none;
-    cursor: pointer;
-    transition: all $transition-fast;
-    font-family: inherit;
-    background: $primary-color;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    color: $white;
-    @include flex-start;
-    justify-content: center;
-
-    &:hover {
-      background: $primary-hover;
-      transform: scale(1.1);
-    }
-  }
-}
+// Search box styles moved to _main-header.scss
 
 .user-profile {
   @include flex-start;
@@ -2397,55 +2293,7 @@ li {
     padding: 0 10px;
   }
 
-  .main-header .container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .header-left {
-    gap: 20px;
-  }
-
-  .header-right {
-    gap: 15px;
-  }
-
-  .search-box {
-    width: 200px;
-  }
-
-  // Global header adjustments
-  .global-header .container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  // Main header scrolled state adjustments
-  .main-header.scrolled .container {
-    gap: 20px;
-  }
-
-  .main-header.scrolled .header-left .main-nav ul {
-    gap: 15px;
-  }
-
-  .main-header.scrolled .search-box {
-    width: 200px;
-  }
-
-  .header-left {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .main-nav ul {
-    gap: 15px;
-  }
-
-  .search-box {
-    width: 100%;
-    max-width: 300px;
-  }
+  
 
   .banner-content {
     left: 20px;
@@ -2540,6 +2388,8 @@ li {
     padding: 0 8px;
   }
 
+  // Commented out header styles to avoid conflicts with mobile navigation system
+  /*
   .main-header .container {
     padding: 0 15px;
   }
@@ -2582,6 +2432,13 @@ li {
     text-align: center;
   }
 
+  .header-right {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  */
+
   .banner-content {
     left: 15px;
     right: 15px;
@@ -2607,6 +2464,8 @@ li {
     font-size: 1rem;
   }
 
+  // Commented out conflicting search-box styles
+  /*
   .search-box {
     width: 100%;
 
@@ -2614,12 +2473,7 @@ li {
       font-size: 14px;
     }
   }
-
-  .header-right {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
+  */
 
 
   // Featured items responsive  

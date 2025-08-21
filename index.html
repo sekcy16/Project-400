@@ -19,11 +19,27 @@
         <a href="#" class="global-link">ข่าวสาร</a>
         <a href="#" class="global-link">โปรโมชั่น</a>
       </div>
+      
+      <!-- Rubik's cube icon for mobile/tablet -->
+      <div class="global-header-cube-menu" onclick="toggleGlobalDropdown()">
+        <i class="fas fa-cube"></i>
+      </div>
+      
       <div class="global-header-right">
         <div class="country-selector">
           <i class="fas fa-globe"></i>
           <span>ประเทศไทย</span>
           <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Dropdown menu for mobile/tablet -->
+    <div class="global-header-dropdown" id="globalDropdown">
+      <div class="dropdown-content">
+        <div class="dropdown-links">
+          <a href="#" class="global-link">ข่าวสาร</a>
+          <a href="#" class="global-link">โปรโมชั่น</a>
         </div>
       </div>
     </div>
@@ -33,6 +49,15 @@
   <header class="main-header">
     <div class="container">
       <div class="header-left">
+        <!-- Hamburger menu for mobile/tablet (replaces logo position) -->
+        <div class="hamburger-menu" onclick="toggleMobileNav()">
+          <div class="hamburger-icon" id="hamburgerIcon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        
         <div class="logo">
           <a href="index.html">
             <img src="https://www.akamai.com/site/en/images/logo/2025/g2a-logo.png" alt="Logo" />
@@ -188,18 +213,183 @@
           </ul>
         </nav>
       </div>
+      
       <div class="header-right">
         <div class="search-box">
           <input type="text" placeholder="ค้นหาเกม..." />
           <button type="button"><i class="fas fa-search"></i></button>
         </div>
         <div class="user-profile">
-          <img src="https://via.placeholder.com/40x40/333/white?text=U" alt="User Profile" class="profile-img" />
-          <i class="fas fa-chevron-down"></i>
+          <i class="material-icons profile-icon">account_circle</i>
+          <span class="profile-text">ลงชื่อเข้าใช้ / ลงทะเบียน</span>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <div class="mobile-logo">
+        <img src="https://www.akamai.com/site/en/images/logo/2025/g2a-logo.png" alt="Logo" />
+      </div>
+      <button class="close-btn" onclick="toggleMobileNav()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li class="nav-dropdown">
+        <div class="nav-dropdown-header">
+          <a href="src/games.html" class="mobile-nav-link">
+            <span>เกม</span>
+          </a>
+          <i class="dropdown-arrow" onclick="toggleMobileDropdown(this)">
+            <span class="fas fa-chevron-down"></span>
+            <span class="fas fa-times"></span>
+          </i>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-desktop"></i>
+            <span>PC</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Mobile</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fab fa-xbox"></i>
+            <span>Xbox</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-mouse-pointer"></i>
+            <span>Webgame</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fab fa-playstation"></i>
+            <span>Playstation</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-gamepad"></i>
+            <span>Nintendo Switch</span>
+          </a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <div class="nav-dropdown-header">
+          <a href="src/cards.html" class="mobile-nav-link">
+            <span>การ์ด</span>
+          </a>
+          <i class="dropdown-arrow" onclick="toggleMobileDropdown(this)">
+            <span class="fas fa-chevron-down"></span>
+            <span class="fas fa-times"></span>
+          </i>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-mobile-alt" style="color: #9b59b6"></i>
+            <span>Mobile Game Cards</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-credit-card" style="color: #f39c12"></i>
+            <span>Payment Cards</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-gamepad" style="color: #3498db"></i>
+            <span>Game Console</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-play" style="color: #2ecc71"></i>
+            <span>Video Streaming</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-shopping-bag" style="color: #f1c40f"></i>
+            <span>Shopping</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-wrench" style="color: #e67e22"></i>
+            <span>Tools</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-comment" style="color: #27ae60"></i>
+            <span>Social App</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-rss" style="color: #ff6b35"></i>
+            <span>Subscription</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-id-card" style="color: #1abc9c"></i>
+            <span>Game Cards</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-gift" style="color: #e74c3c"></i>
+            <span>Gift Cards</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-ticket-alt" style="color: #2ecc71"></i>
+            <span>Game CD-Key</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-music" style="color: #9b59b6"></i>
+            <span>Music</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-sim-card" style="color: #17a2b8"></i>
+            <span>Telco Prepaid Cards</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-user" style="color: #8e44ad"></i>
+            <span>Software</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-gift" style="color: #3498db"></i>
+            <span>Freebie Codes</span>
+          </a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <div class="nav-dropdown-header">
+          <a href="src/topup.html" class="mobile-nav-link">
+            <span>เติมเงิน</span>
+          </a>
+          <i class="dropdown-arrow" onclick="toggleMobileDropdown(this)">
+            <span class="fas fa-chevron-down"></span>
+            <span class="fas fa-times"></span>
+          </i>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-gamepad" style="color: #2ecc71"></i>
+            <span>Mobile Game Top-Up</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-bullseye" style="color: #e74c3c"></i>
+            <span>Game Direct Top-Up</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-exclamation-triangle" style="color: #f39c12"></i>
+            <span>China Direct Top-Up</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-play" style="color: #2ecc71"></i>
+            <span>Video Streaming</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-smile" style="color: #f1c40f"></i>
+            <span>Entertainment</span>
+          </a>
+          <a href="#" class="mobile-dropdown-item">
+            <i class="fas fa-video" style="color: #9b59b6"></i>
+            <span>Live Streaming</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="toggleMobileNav()"></div>
 
   <div id="home_cover">
     <div class="inner">
@@ -1094,7 +1284,7 @@
         <a href="#">Discover all <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
-    </div>
+
     <div class="news-grid">
       <!-- การ์ด 1 -->
       <div class="news-card">
@@ -1158,6 +1348,16 @@
           src="https://cdn.builder.io/api/v1/image/assets%2F6bd562c790ff467292987e3133ef2616%2Fd595e9d205564c839c5405528f490d40"
           alt="Crystal of Atlan">
         <h3>Voicemod PRO Subscription Lifetime</h3>
+      </div>
+    </div>
+    
+    <!-- News Navigation Buttons -->
+    <div class="btc">
+      <div class="btw swiper-button-prev" color="theme" tabindex="0" role="button" aria-label="Previous slide">
+        <span></span>
+      </div>
+      <div class="btw swiper-button-next" color="theme" tabindex="0" role="button" aria-label="Next slide">
+        <span></span>
       </div>
     </div>
   </section>
@@ -1230,6 +1430,7 @@
           countries!</p>
       </div>
     </div>
+    
   </section>
 
   <footer id="site_footer">
