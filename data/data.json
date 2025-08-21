@@ -1,0 +1,340 @@
+{
+  "specialDeals": [
+    {
+      "id": "2039",
+      "title": "Overmortal Vouchers Global",
+      "sku": "68000 Vouchers",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2039.jpg?x-oss-process=image/resize,w_108",
+      "discount": "15.0%",
+      "link": "#"
+    },
+    {
+      "id": "2040",
+      "title": "Mobile Legends Diamonds",
+      "sku": "5000 Diamonds",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2040.jpg?x-oss-process=image/resize,w_108",
+      "discount": "20.0%",
+      "link": "#"
+    },
+    {
+      "id": "2041",
+      "title": "Free Fire Diamonds",
+      "sku": "2000 Diamonds",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2041.jpg?x-oss-process=image/resize,w_108",
+      "discount": "10.0%",
+      "link": "#"
+    },
+    {
+      "id": "2042",
+      "title": "PUBG Mobile UC",
+      "sku": "8100 UC",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2042.jpg?x-oss-process=image/resize,w_108",
+      "discount": "25.0%",
+      "link": "#"
+    },
+    {
+      "id": "2043",
+      "title": "Steam Wallet Thailand",
+      "sku": "500 THB",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_108",
+      "discount": "5.0%",
+      "link": "#"
+    },
+    {
+      "id": "2044",
+      "title": "Genshin Impact Genesis",
+      "sku": "6480 Genesis",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2044.jpg?x-oss-process=image/resize,w_108",
+      "discount": "18.0%",
+      "link": "#"
+    },
+    {
+      "id": "2045",
+      "title": "Valorant Points",
+      "sku": "5350 VP",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2045.jpg?x-oss-process=image/resize,w_108",
+      "discount": "12.0%",
+      "link": "#"
+    },
+    {
+      "id": "2046",
+      "title": "Roblox Robux",
+      "sku": "10000 Robux",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2046.jpg?x-oss-process=image/resize,w_108",
+      "discount": "8.0%",
+      "link": "#"
+    },
+    {
+      "id": "2047",
+      "title": "Minecraft Minecoins",
+      "sku": "3500 Minecoins",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2047.jpg?x-oss-process=image/resize,w_108",
+      "discount": "7.0%",
+      "link": "#"
+    },
+    {
+      "id": "2048",
+      "title": "Netflix Gift Card",
+      "sku": "3 Months",
+      "image": "https://seagm-media.seagmcdn.com/icon_400/2048.jpg?x-oss-process=image/resize,w_108",
+      "discount": "30.0%",
+      "link": "#"
+    }
+  ],
+  "homeItems": {
+    "categories": [
+      {
+        "id": "popular-cards",
+        "title": "บัตรเติมเงินยอดนิยม",
+        "moreLink": "src/topup.html",
+        "items": [
+          {
+            "id": "steam-wallet-thb-1",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-2",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-3",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-4",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-5",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-6",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-7",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-8",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          }
+        ]
+      },
+      {
+        "id": "popular-game-topup",
+        "title": "การเติมเงินเกมที่ได้รับความนิยม",
+        "moreLink": "src/topup.html",
+        "items": [
+          {
+            "id": "steam-wallet-thb-9",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-10",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-11",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-12",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-13",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-14",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-15",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-16",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          }
+        ]
+      },
+      {
+        "id": "new-game-cards",
+        "title": "บัตรเติมเกมมาใหม่",
+        "moreLink": "src/topup.html",
+        "items": [
+          {
+            "id": "steam-wallet-thb-17",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-18",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-19",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-20",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-21",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-22",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-23",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-24",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          }
+        ]
+      },
+      {
+        "id": "most-topped-up",
+        "title": "เกมและแอปพลิเคชั่นที่ได้รับการเติมเงินมากที่สุด",
+        "moreLink": "src/topup.html",
+        "items": [
+          {
+            "id": "steam-wallet-thb-25",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-26",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-27",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-28",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-29",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-30",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-31",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          },
+          {
+            "id": "steam-wallet-thb-32",
+            "title": "Steam Wallet Code (THB)",
+            "region": "Thailand",
+            "image": "https://seagm-media.seagmcdn.com/icon_400/286.jpg?x-oss-process=image/resize,w_120",
+            "link": "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
+          }
+        ]
+      }
+    ]
+  }
+}
