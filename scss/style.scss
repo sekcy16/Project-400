@@ -477,7 +477,7 @@ ul {
     cursor: pointer;
 
     &:hover {
-      background-color: lighten(black, 10%);
+      background-color: #1a1a1a;
       transform: translateY(-1px);
     }
   }
@@ -2639,6 +2639,14 @@ li {
   }
 }
 
+// Show navigation buttons on smaller screens where horizontal scrolling is enabled
+@media only screen and (max-width: 1000px) {
+  #featured_items .btc {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 // Specific rule for 1001px+ to disable swiper and align with container
 @media only screen and (min-width: 1001px) {
   #special_deals {
@@ -2959,9 +2967,19 @@ li {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
       flex-shrink: 0 !important;
       flex-grow: 0 !important;
+      background-color: var(--primary-color, #007bff) !important;
+      color: white !important;
+      border: none !important;
 
       &:hover {
-        transform: scale(1.1);
+        // ลบ transform scale ที่ทำให้ระเบิด
+        background-color: var(--primary-hover, #0056b3) !important;
+      }
+
+      &.swiper-button-disabled {
+        visibility: hidden;
+        opacity: 0;
+        // ลบ transform scale ที่ทำให้ระเบิด
       }
 
       span {

@@ -237,20 +237,6 @@ const homeItemsData = {
           image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/crunchyroll-store-gift-card-25-usd/d4596fa3721940dbafabac7f",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
-        {
-          id: "steam-wallet-thb-31",
-          title: "Paramount Plus Gift Card 25 USD",
-          region: "Paramount Plus • Key • UNITED STATES",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/paramount-plus-gift-card-50-usd/bf9d6bc1ed2e4f22a6658c4a",
-          link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
-        },
-        {
-          id: "steam-wallet-thb-32",
-          title: "Paramount Plus Gift Card 50 USD",
-          region: "Paramount Plus • Key • UNITED STATES",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/paramount-plus-gift-card-50-usd/bf9d6bc1ed2e4f22a6658c4a",
-          link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
-        }
       ]
     }
   ]

@@ -959,4 +959,68 @@ window.addEventListener('resize', function() {
         
         document.body.style.overflow = 'auto';
     }
+
+    // Initialize Footer Collapsible Menu for Mobile
+    function initializeFooterMobile() {
+        if (window.innerWidth <= 481) {
+            const footerTitles = document.querySelectorAll('#footer_nav dt');
+            footerTitles.forEach(title => {
+                // ป้องกันการเพิ่ม event ซ้ำ
+                if (!title.classList.contains('footer-nav-init')) {
+                    title.classList.add('footer-nav-init');
+                    title.addEventListener('click', function() {
+                        const ddElements = this.parentNode.querySelectorAll('dd');
+                        const isActive = this.classList.contains('active');
+                        // Close all other sections
+                        footerTitles.forEach(otherTitle => {
+                            if (otherTitle !== this) {
+                                otherTitle.classList.remove('active');
+                                const otherDds = otherTitle.parentNode.querySelectorAll('dd');
+                                otherDds.forEach(dd => dd.classList.remove('show'));
+                            }
+                        });
+                        // Toggle current section
+                        if (isActive) {
+                            this.classList.remove('active');
+                            ddElements.forEach(dd => dd.classList.remove('show'));
+                        } else {
+                            this.classList.add('active');
+                            ddElements.forEach(dd => dd.classList.add('show'));
+                        }
+                        // หมุน icon +
+                        const icon = this.querySelector('.footer-nav-icon i');
+                        if (icon) {
+                            // ใช้ class fa-plus/fa-times เพื่อเปลี่ยน icon
+                            if (this.classList.contains('active')) {
+                                icon.classList.remove('fa-plus');
+                                icon.classList.add('fa-times');
+                            } else {
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-plus');
+                            }
+                        }
+                    });
+                }
+            });
+        } else {
+            // รีเซ็ต icon และ active เมื่อออกจาก mobile
+            const footerTitles = document.querySelectorAll('#footer_nav dt');
+            footerTitles.forEach(title => {
+                title.classList.remove('active');
+                const icon = title.querySelector('.footer-nav-icon i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-plus');
+                }
+                const ddElements = title.parentNode.querySelectorAll('dd');
+                ddElements.forEach(dd => dd.classList.remove('show'));
+            });
+        }
+    }
+
+    // Initialize footer mobile functionality
+    initializeFooterMobile();
+    
+    // Re-initialize on window resize
+    window.addEventListener('resize', initializeFooterMobile);
 });
