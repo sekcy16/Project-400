@@ -31,22 +31,28 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    column-gap: 1em;
     height: 50px;
 
     a {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
       color: #ffffff;
       text-decoration: none;
       font-size: 0.9rem;
-    }
+      gap: 0.3rem;
 
-    img {
-      border-radius: 4px;
-      background: var(--body-text-color);
-      border-radius: calc(var(--brightness-filter, 0) * .333334em);
+      img {
+        border-radius: 4px;
+        background: var(--body-text-color);
+        border-radius: calc(var(--brightness-filter, 0) * .333334em);
+        order: 1; // ให้รูปภาพอยู่ก่อน
+      }
+
+      .material-icons {
+        margin-left: 0.2rem; // เพิ่ม margin ให้ห่างจากรูปสุดท้าย
+        font-size: 18px;
+        order: 2; // ให้ไอคอน more_horiz อยู่หลังสุด
+      }
     }
   }
 }
@@ -206,7 +212,7 @@
   }
 }
 
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 700px) {
   #site_footer {
     .inner {
       padding: 1.2em 1rem;
@@ -226,23 +232,30 @@
     order: 1;
 
     .channel_list {
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.3em;
       height: auto;
       padding: 0 0.5rem;
 
-      img {
-        height: 24px;
-        width: auto;
-      }
-
+      
       a {
-        display: inline-block;
+        display: flex; // เปลี่ยนกลับเป็น flex เพื่อใช้ order
+        align-items: center;
         color: #ffffff;
         text-decoration: none;
         vertical-align: middle;
         margin: 0.1em;
+        flex-wrap: wrap;
+
+        img {
+          order: 1;
+          height: 20px;
+          width: auto;
+        }
+
+        .material-icons {
+          margin-left: 0.1rem; // เพิ่ม margin ให้เหมาะสมใน mobile
+          font-size: 20px; // ทำให้ไอคอนเล็กลงใน mobile
+          order: 2; // ให้อยู่หลังสุดใน mobile ด้วย
+        }
       }
     }
   }

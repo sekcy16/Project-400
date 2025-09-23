@@ -480,11 +480,118 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`✅ Click-based dropdown functionality initialized for ${dropdowns.length} dropdowns`);
     } // End of initializeDropdown function
 
-    // Initialize Featured Items Swiper
-    initializeFeaturedItemsSwiper();
-
     // Initialize Special Deals Navigation
     initializeSpecialDealsNavigation();
+
+    // Initialize Home Items Navigation
+    initializeHomeItemsNavigation();
+
+    // Initialize Cards Container Navigation
+    initializeCardsContainerNavigation();
+
+    function initializeHomeItemsNavigation() {
+        const swiperContainer = document.querySelector('#featured_items .list');
+        
+        if (!swiperContainer) {
+            console.log('No home items swiper container found');
+            return;
+        }
+
+        // Scope the home_items navigation buttons
+        const homePrevBtn = document.querySelector('#featured_items .swiper-button-prev');
+        const homeNextBtn = document.querySelector('#featured_items .swiper-button-next');
+        const items = Array.from(document.querySelectorAll('#featured_items .list a'));
+
+        if (!homePrevBtn || !homeNextBtn) {
+            console.log('Home items navigation buttons not found');
+            return;
+        }
+
+        // Helper to update button visibility based on scroll position
+        function updateHomeButtons() {
+            const maxScroll = Math.max(0, swiperContainer.scrollWidth - swiperContainer.clientWidth);
+            const atStart = swiperContainer.scrollLeft <= 1;
+            const atEnd = swiperContainer.scrollLeft >= (maxScroll - 1);
+
+            // Show/hide buttons using swiper-button-disabled to preserve layout space
+            homePrevBtn.classList.toggle('swiper-button-disabled', atStart);
+            homeNextBtn.classList.toggle('swiper-button-disabled', atEnd);
+            homePrevBtn.setAttribute('aria-hidden', String(atStart));
+            homeNextBtn.setAttribute('aria-hidden', String(atEnd));
+
+            // Also reflect disabled and tabindex for accessibility
+            homePrevBtn.setAttribute('aria-disabled', String(atStart));
+            homePrevBtn.tabIndex = atStart ? -1 : 0;
+            homeNextBtn.setAttribute('aria-disabled', String(atEnd));
+            homeNextBtn.tabIndex = atEnd ? -1 : 0;
+        }
+
+        // Smooth scroll handler for home items
+        function scrollHomeItems(direction) {
+            const scrollAmount = 300; // Adjust scroll distance as needed
+            const newScrollLeft = swiperContainer.scrollLeft + (direction * scrollAmount);
+            swiperContainer.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+        }
+
+        // Mouse drag scrolling
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        swiperContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - swiperContainer.offsetLeft;
+            scrollLeft = swiperContainer.scrollLeft;
+        });
+
+        swiperContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        swiperContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        swiperContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - swiperContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            swiperContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Attach click events to home_items prev/next buttons
+        homePrevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollHomeItems(-1);
+        });
+
+        homeNextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollHomeItems(1);
+        });
+
+        // Keep buttons state in sync while scrolling
+        let rafPending = false;
+        swiperContainer.addEventListener('scroll', () => {
+            if (!rafPending) {
+                requestAnimationFrame(() => {
+                    updateHomeButtons();
+                    rafPending = false;
+                });
+                rafPending = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            updateHomeButtons();
+        });
+
+        // Initial state (after layout)
+        requestAnimationFrame(updateHomeButtons);
+
+        console.log('✅ Home items navigation initialized');
+    }
 
     function initializeSpecialDealsNavigation() {
         const swiperContainer = document.querySelector('#special_deals .list');
@@ -592,142 +699,65 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ Special deals navigation initialized');
     }
 
-    function initializeFeaturedItemsSwiper() {
-        const swiperContainer = document.querySelector('#featured_items .list');
-        
-        if (!swiperContainer) {
-            console.log('Swiper container not found');
+    function initializeCardsContainerNavigation() {
+        const cardsGrid = document.querySelector('.cards-container .inner');
+        const cardsPrevBtn = document.querySelector('.cards-container .swiper-button-prev');
+        const cardsNextBtn = document.querySelector('.cards-container .swiper-button-next');
+
+        if (!cardsGrid || !cardsPrevBtn || !cardsNextBtn) {
+            console.log('Cards container navigation elements not found');
             return;
         }
 
-        // Scope the home_items navigation buttons
-        const homePrevBtn = document.querySelector('#home_items .swiper-button-prev');
-        const homeNextBtn = document.querySelector('#home_items .swiper-button-next');
-        const categories = Array.from(document.querySelectorAll('#featured_items .list .category'));
+        const scrollAmount = 290; // Width of one card plus gap
+        
+        function updateCardsButtons() {
+            const scrollLeft = cardsGrid.scrollLeft;
+            const maxScroll = cardsGrid.scrollWidth - cardsGrid.clientWidth;
+            
+            // Show/hide buttons based on scroll position (same logic as news)
+            if (scrollLeft <= 0) {
+                // At the beginning - hide left button, show right button
+                cardsPrevBtn.classList.add('hidden');
+                cardsNextBtn.classList.remove('hidden');
+            } else if (scrollLeft >= maxScroll - 1) {
+                // At the end - show left button, hide right button  
+                cardsPrevBtn.classList.remove('hidden');
+                cardsNextBtn.classList.add('hidden');
+            } else {
+                // In the middle - show both buttons
+                cardsPrevBtn.classList.remove('hidden');
+                cardsNextBtn.classList.remove('hidden');
+            }
+        }
 
-        // Determine which category is most in view
-        function getCurrentCategoryIndex() {
-            if (categories.length === 0) return 0;
-            const scrollLeft = swiperContainer.scrollLeft;
-            // Pick the category whose left is closest to current scroll position
-            let bestIdx = 0;
-            let bestDelta = Infinity;
-            categories.forEach((cat, idx) => {
-                const delta = Math.abs(cat.offsetLeft - scrollLeft);
-                if (delta < bestDelta) {
-                    bestDelta = delta;
-                    bestIdx = idx;
-                }
+        // Initial button state (start with only right button visible)
+        cardsPrevBtn.classList.add('hidden');
+        cardsNextBtn.classList.remove('hidden');
+        
+        // Update button states after a short delay to ensure proper initialization
+        setTimeout(updateCardsButtons, 100);
+
+        cardsPrevBtn.addEventListener('click', () => {
+            cardsGrid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
             });
-            return bestIdx;
-        }
-
-        // Scroll to a specific category (snap)
-        function scrollToCategory(index) {
-            const clamped = Math.max(0, Math.min(index, categories.length - 1));
-            const target = categories[clamped];
-            if (!target) return;
-            swiperContainer.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
-        }
-
-        // Helper to update button visibility and accessibility based on index
-        function updateHomeButtons() {
-            if (!homePrevBtn || !homeNextBtn) return;
-            const idx = categories.length ? getCurrentCategoryIndex() : 0;
-            const last = Math.max(0, categories.length - 1);
-
-            // Also decide based on scroll extremes (more robust)
-            const maxScroll = Math.max(0, swiperContainer.scrollWidth - swiperContainer.clientWidth);
-            const atStartByScroll = swiperContainer.scrollLeft <= 1;
-            const atEndByScroll = swiperContainer.scrollLeft >= (maxScroll - 1);
-
-            const atFirst = (idx === 0) || atStartByScroll;
-            const atLast = (idx === last) || atEndByScroll;
-
-            // Show/hide per requirement using swiper-button-disabled to preserve layout space
-            homePrevBtn.classList.toggle('swiper-button-disabled', atFirst);
-            homeNextBtn.classList.toggle('swiper-button-disabled', atLast);
-            homePrevBtn.setAttribute('aria-hidden', String(atFirst));
-            homeNextBtn.setAttribute('aria-hidden', String(atLast));
-
-            // Also reflect disabled and tabindex for accessibility
-            homePrevBtn.setAttribute('aria-disabled', String(atFirst));
-            homePrevBtn.tabIndex = atFirst ? -1 : 0;
-            homeNextBtn.setAttribute('aria-disabled', String(atLast));
-            homeNextBtn.tabIndex = atLast ? -1 : 0;
-        }
-
-        // Smooth scroll handler
-        function scrollFeatured(direction) {
-            // Move by whole categories
-            const current = getCurrentCategoryIndex();
-            const nextIdx = current + (direction > 0 ? 1 : -1);
-            scrollToCategory(nextIdx);
-        }
-
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        // Mouse events for desktop drag scrolling
-        swiperContainer.addEventListener('mousedown', (e) => {
-            isDown = true;
-            swiperContainer.style.cursor = 'grabbing';
-            startX = e.pageX - swiperContainer.offsetLeft;
-            scrollLeft = swiperContainer.scrollLeft;
+            setTimeout(updateCardsButtons, 300);
         });
 
-        swiperContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-            swiperContainer.style.cursor = 'grab';
-        });
-
-        swiperContainer.addEventListener('mouseup', () => {
-            isDown = false;
-            swiperContainer.style.cursor = 'grab';
-        });
-
-        swiperContainer.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - swiperContainer.offsetLeft;
-            const walk = (x - startX) * 2;
-            swiperContainer.scrollLeft = scrollLeft - walk;
-        });
-
-        // Attach click events to home_items prev/next buttons
-        if (homePrevBtn) {
-            homePrevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                scrollFeatured(-1);
+        cardsNextBtn.addEventListener('click', () => {
+            cardsGrid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
             });
-        }
-
-        if (homeNextBtn) {
-            homeNextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                scrollFeatured(1);
-            });
-        }
-
-        // Keep buttons state in sync while scrolling
-        let rafPending = false;
-        swiperContainer.addEventListener('scroll', () => {
-            if (rafPending) return;
-            rafPending = true;
-            requestAnimationFrame(() => {
-                updateHomeButtons();
-                rafPending = false;
-            });
-        }, { passive: true });
-        window.addEventListener('resize', () => {
-            // Re-evaluate positions and state on resize
-            updateHomeButtons();
+            setTimeout(updateCardsButtons, 300);
         });
-    // Initial state (after layout)
-    requestAnimationFrame(updateHomeButtons);
 
-        console.log('✅ Featured items swiper initialized');
+        cardsGrid.addEventListener('scroll', updateCardsButtons);
+        window.addEventListener('resize', updateCardsButtons);
+
+        console.log('✅ Cards container navigation initialized');
     }
 
     // News Promotion Slider
@@ -769,47 +799,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateNewsButtons();
 
             console.log('✅ News promotion slider initialized');
-        }
-    }
-
-    // Cards Container Slider
-    const cardsContainerSection = document.querySelector('.cards-container');
-    if (cardsContainerSection) {
-        const cardsPrevBtn = cardsContainerSection.querySelector('.swiper-button-prev');
-        const cardsNextBtn = cardsContainerSection.querySelector('.swiper-button-next');
-
-        if (cardsPrevBtn && cardsNextBtn) {
-            const scrollAmount = 300; // Width of one card plus gap
-
-            cardsPrevBtn.addEventListener('click', () => {
-                cardsContainerSection.scrollBy({
-                    left: -scrollAmount,
-                    behavior: 'smooth'
-                });
-            });
-
-            cardsNextBtn.addEventListener('click', () => {
-                cardsContainerSection.scrollBy({
-                    left: scrollAmount,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Update button states
-            function updateCardsButtons() {
-                const scrollLeft = cardsContainerSection.scrollLeft;
-                const scrollWidth = cardsContainerSection.scrollWidth;
-                const clientWidth = cardsContainerSection.clientWidth;
-
-                cardsPrevBtn.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
-                cardsNextBtn.style.opacity = scrollLeft >= scrollWidth - clientWidth ? '0.5' : '1';
-            }
-
-            cardsContainerSection.addEventListener('scroll', updateCardsButtons);
-            window.addEventListener('resize', updateCardsButtons);
-            updateCardsButtons();
-
-            console.log('✅ Cards container slider initialized');
         }
     }
 });
