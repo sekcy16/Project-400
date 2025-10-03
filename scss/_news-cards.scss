@@ -7,6 +7,13 @@
   padding-block: var(--home-spacing);
   box-sizing: border-box;
   position: relative;
+  
+  // Below 1001px: only left padding, extend to right edge
+  @media (max-width: 1000px) {
+    margin-inline: 0;
+    padding-inline: var(--home-spacing) 0;
+    max-width: none;
+  }
 
   .news-header {
     display: flex;
@@ -428,7 +435,8 @@
 
   .cards-container {
     position: relative; // Add position for navigation buttons
-    padding: var(--home-spacing);
+    padding: 0;
+    padding-left: var(--home-spacing);
     .inner {
       box-sizing: border-box;
       display: flex;
@@ -555,6 +563,8 @@
   }
 
   .cards-container {
+    padding: 0;
+    padding-left: var(--home-spacing);
     .inner {
       display: flex;
       overflow-x: auto;
@@ -562,8 +572,8 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 10px;
-      margin-inline: calc(var(--home-spacing) * 1);
-      padding-inline: var(--home-spacing);
+      margin-inline: 0;
+      padding-inline: 0;
       
       &::-webkit-scrollbar {
         display: none;
