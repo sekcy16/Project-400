@@ -100,7 +100,7 @@ function generateSpecialDealsHTML() {
         </div>
       </div>
       <div class="promo">
-        <div class="rate">โปรโมชั่น</div>
+        <div class="rate">PROMO</div>
         <div class="price">
           <b>-${item.discount}</b>
         </div>

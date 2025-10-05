@@ -136,28 +136,28 @@ const homeItemsData = {
           id: "steam-wallet-thb-17",
           title: "Razer Gold 10 USD",
           region: "Razer • Key • GLOBAL",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/razer-gold-10-usd/5e538a4646177c2ca8594324",
+          image: "https://i0.wp.com/uu-top.com/wp-content/uploads/2024/08/razer-gold.jpg",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
           id: "steam-wallet-thb-18",
           title: "Razer Gold 15 USD",
           region: "Razer • Key • GLOBAL",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/razer-gold-15-usd/5e538a4646177c2ca8594324",
+          image: "https://i0.wp.com/uu-top.com/wp-content/uploads/2024/08/razer-gold.jpg",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
           id: "steam-wallet-thb-19",
           title: "Razer Gold 30 USD",
           region: "Razer • Key • GLOBAL",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/razer-gold-30-usd/5e538a4646177c2ca8594324",
+          image: "https://i0.wp.com/uu-top.com/wp-content/uploads/2024/08/razer-gold.jpg",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
           id: "steam-wallet-thb-20",
           title: "Roblox Card 10 USD",
           region: "Roblox • Key • GLOBAL",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/roblox-card-10-usd/5ece57107e696c6ec6323b12",
+          image: "https://d13ms5efar3wc5.cloudfront.net/eyJidWNrZXQiOiJpbWFnZXMtY2Fycnkxc3QtcHJvZHVjdHMiLCJrZXkiOiI1YjNmYTg3NC0yMjk3LTRjOWQtOGQ0ZC0yM2UyZDc2MTMwZTMucG5nLndlYnAiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDB9fSwid2VicCI6eyJxdWFsaXR5Ijo3NX19",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
@@ -213,28 +213,28 @@ const homeItemsData = {
           id: "steam-wallet-thb-27",
           title: "Youtube TV Gift Card 100 USD",
           region: "Youtube • Key • UNITED STATES",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/youtube-tv-gift-card-100-usd/ad2505f7d1064ca991044d1f",
+          image: "https://www.youtube.com/img/desktop/yt_1200.png",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
           id: "steam-wallet-thb-28",
           title: "Youtube TV Gift Card 50 USD",
           region: "Youtube • Key • UNITED STATES",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/youtube-tv-gift-card-50-usd/ad2505f7d1064ca991044d1f",
+          image: "https://www.youtube.com/img/desktop/yt_1200.png",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
           id: "steam-wallet-thb-29",
           title: "Crunchyroll Store Gift Card 25 USD",
           region: "Crunchyroll • Key • UNITED STATES",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/crunchyroll-store-gift-card-25-usd/d4596fa3721940dbafabac7f",
+          image: "https://m.media-amazon.com/images/I/41o03HyOYlL.png",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
         {
           id: "steam-wallet-thb-30",
           title: "Crunchyroll Store Gift Card 100 USD",
           region: "Crunchyroll • Key • UNITED STATES",
-          image: "https://images.g2a.com/uiadminimages/170x227/1x1x0/crunchyroll-store-gift-card-25-usd/d4596fa3721940dbafabac7f",
+          image: "https://m.media-amazon.com/images/I/41o03HyOYlL.png",
           link: "/th-th/steam-wallet-card-thailand?ps=Home-Popular-Game-Card"
         },
       ]
