@@ -2071,11 +2071,11 @@ body {
 #site_footer .inner {
   margin: 0 auto;
   max-width: var(--MaxContentWidth);
-  padding: 3em 2em;
+  padding: 2em 2em;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 32em;
-  gap: 2em;
+  gap: 1.5em;
   position: relative;
 }
 #site_footer .inner::before {
@@ -2219,6 +2219,14 @@ body {
   align-self: center;
 }
 
+@media only screen and (max-width: 1280px) and (min-width: 1001px) {
+  #site_footer .inner {
+    padding-inline: 130px;
+  }
+  #site_footer .inner::before {
+    margin: 0 130px;
+  }
+}
 @media only screen and (max-width: 1000px) {
   #site_footer > .inner {
     grid-template-columns: 1fr;
@@ -2239,9 +2247,9 @@ body {
 }
 @media only screen and (max-width: 700px) {
   #site_footer .inner {
-    padding: 1.2em 1rem;
+    padding: 1em 1rem;
     grid-template-columns: 1fr;
-    gap: 1em;
+    gap: 0.8em;
     max-width: calc(100vw - 2rem);
     box-sizing: border-box;
     overflow-x: hidden;
@@ -3444,6 +3452,7 @@ body {
   width: 100%;
   position: relative;
   padding-inline: var(--home-spacing);
+  padding-bottom: 20px;
 }
 .cards-container .inner {
   max-width: var(--MaxContentWidth);
