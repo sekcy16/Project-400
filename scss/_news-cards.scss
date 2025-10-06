@@ -144,7 +144,8 @@
 .cards-container {
   width: 100%;
   position: relative;
-
+  padding-inline: var(--home-spacing);
+  
   .inner {
     max-width: var(--MaxContentWidth);
     margin-inline: auto;

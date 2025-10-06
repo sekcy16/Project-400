@@ -3443,6 +3443,7 @@ body {
 .cards-container {
   width: 100%;
   position: relative;
+  padding-inline: var(--home-spacing);
 }
 .cards-container .inner {
   max-width: var(--MaxContentWidth);
